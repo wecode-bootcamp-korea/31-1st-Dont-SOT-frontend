@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Join from './pages/Join/Join';
-import Login from '../src/pages/Login/Login';
-import Main from '../src/pages/Main/Main';
-import Menu from '../src/pages/Menu/Menu';
+import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
+import Menu from './pages/Menu/Menu';
 
 const Router = () => {
   return (
