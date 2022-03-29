@@ -9,6 +9,8 @@ const Login = () => {
     pw: '',
   });
 
+  console.log(inputs);
+
   const handleInputs = e => {
     const { name, value } = e.target;
 
@@ -19,8 +21,8 @@ const Login = () => {
   };
 
   return (
-    <section>
-      <div className="login">
+    <section className="login">
+      <div className="loginPage">
         <form className="loginForm">
           <h2 className="medium">로그인</h2>
           <input
@@ -49,11 +51,12 @@ const Login = () => {
           <button>로그인</button>
         </form>
       </div>
-      <div className="join">
-        {/* 이미지 넣을 것 */}
-        <img alt="backgroundImg" />
+      <div className="joinPage">
+        <span>
+          <img src="https://avatars.githubusercontent.com/u/56650238?v=4" />
+        </span>
         <div className="joinSelect">
-          <h3>솥지마요 회원이 아니신가요?</h3>
+          <h3 className="medium">솥지마요 회원이 아니신가요?</h3>
           <p>
             회원이 되시면 솥지마요의 다양한 정보와 이벤트를 만나보실 수
             있습니다.
