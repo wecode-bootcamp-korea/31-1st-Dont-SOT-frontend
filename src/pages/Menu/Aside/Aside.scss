@@ -25,7 +25,6 @@
   padding: 20px;
   color: #5c5953;
   font-weight: bold;
-  display: block;
   position: relative;
 }
 
@@ -57,15 +56,15 @@
 }
 
 .category .childWrap {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .category .childWrap .child {
-  padding: 10px 0;
-}
-
-.category .childWrap .child .childItem {
   color: #909090;
   padding-left: 22px;
   position: relative;
+}
+
+.childItems {
+  padding: 10px 0px;
 }

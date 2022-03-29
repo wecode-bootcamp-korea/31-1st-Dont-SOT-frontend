@@ -1,11 +1,12 @@
 import React from 'react';
 import './Card.scss';
+import { Link } from 'react-router-dom';
 
 const Card = () => {
   return (
     <li className="item">
       <div className="itemSpacer">
-        <a href="" className="itemLink"></a>
+        <Link to="#none"></Link>
         <div className="itemImgBox">
           <img src="/images/fooditem.png" alt="" className="itemImg" />
         </div>

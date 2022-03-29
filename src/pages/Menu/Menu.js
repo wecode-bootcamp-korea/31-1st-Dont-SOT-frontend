@@ -6,6 +6,10 @@ import '../Menu/Menu.scss';
 const Menu = () => {
   return (
     <>
+      <header className="inner">
+        <div>nav</div>
+      </header>
+
       <div className="contMenu">
         <section className="contMenuWrap inner">
           <div className="titleBox">
