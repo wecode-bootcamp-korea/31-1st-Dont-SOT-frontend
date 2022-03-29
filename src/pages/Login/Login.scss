@@ -1,15 +1,18 @@
 @import '../../styles/variables.scss';
 
-section {
+.login {
+  .inner {
+    display: flex;
+  }
+
   .loginPage {
     @include flexCenter();
-    width: 700px;
+    width: 600px;
     border-top: 5px solid #f2c000;
     flex-direction: column;
     justify-content: start;
     padding: 100px 0 60px 0;
-    // margin-left: 0 4.5% 0 0;
-    position: relative;
+    margin: 0 4.5% 0 0;
 
     h2 {
       display: block;
@@ -89,7 +92,6 @@ section {
   }
 
   .joinPage {
-    position: absolute;
     @include flexCenter();
     flex-direction: column;
     top: 0;
