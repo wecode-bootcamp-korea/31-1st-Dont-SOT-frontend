@@ -1,0 +1,71 @@
+/* aside */
+.menuBox .leftWrap {
+  width: 270px;
+  display: inline-block;
+}
+
+.menuBox .leftWrap .lnb {
+  width: 270px;
+  padding: 15px 30px;
+  background-color: #fff;
+  padding: 15px 30px;
+  min-height: 400px;
+  border-top: 6px solid #5c5953;
+}
+
+.menuBox .leftWrap .lnb .lnbInner .categoryWarp .category {
+  /* max-height: 60px; */
+  border-top: 1px solid #eeecec;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* transition: max-height 1s ease-in-out; */
+}
+
+.category .categoryTitle {
+  padding: 20px;
+  color: #5c5953;
+  font-weight: bold;
+  display: block;
+  position: relative;
+}
+
+.category .viewAll::after {
+  content: '';
+  // background: url(./allow.png) left top no-repeat;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  background-size: 20px 10px;
+}
+
+.category .categoryTitle::after {
+  content: '';
+  // background: url(./element.png) left top no-repeat;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  background-size: 20px 10px;
+}
+
+/* 사이드메뉴 클릭시 active 클래스 추가하기  */
+.category .active {
+  color: #f2c000;
+}
+
+.category .childWrap {
+  padding-bottom: 30px;
+}
+
+.category .childWrap .child {
+  padding: 10px 0;
+}
+
+.category .childWrap .child .childItem {
+  color: #909090;
+  padding-left: 22px;
+  position: relative;
+}
