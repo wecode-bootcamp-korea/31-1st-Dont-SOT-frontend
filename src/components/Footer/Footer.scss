@@ -1,0 +1,71 @@
+@import '../../styles/common.scss';
+@import '../../styles/reset.scss';
+@import '../../styles/variables.scss';
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $mainColor;
+  height: 210px;
+  box-sizing: border-box;
+
+  .footMain {
+    height: 100%;
+
+    .footerMenu {
+      padding-top: 45px;
+
+      .footerUl {
+        @include flexCenter;
+        margin-bottom: 10px;
+
+        .footerLi ::before {
+          content: '|';
+          display: inline-block;
+          margin-right: 10px;
+          margin-left: 10px;
+
+          .footerAtag {
+            margin-right: 10px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .footerInfo {
+      border-top: 1px solid #dfb206;
+      @include flexCenter;
+
+      .footerPtag {
+        padding: 25px;
+        font-size: 14px;
+      }
+    }
+    .sns {
+      width: 100%;
+      @include flexCenter;
+
+      .footerInsta::before {
+        content: '';
+        display: inline-block;
+        background-color: black; // 임시
+        background-size: 25px 25px;
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
+
+      .footerFace::before {
+        content: '';
+        display: inline-block;
+        background-color: black; // 임시
+        background-size: 25px 25px;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
