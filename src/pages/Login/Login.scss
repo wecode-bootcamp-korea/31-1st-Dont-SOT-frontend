@@ -20,7 +20,7 @@ section {
       &:before {
         content: '';
         display: inline-block;
-        background: url(../assets/images/lock.png) no-repeat center center;
+        background: url(../../assets/images/lock.png) no-repeat center center;
         background-size: 30px 30px;
         margin-right: 5px;
         width: 30px;
@@ -67,7 +67,8 @@ section {
         &:before {
           content: '';
           display: inline-block;
-          background: url(../assets/images/glasses.png) no-repeat center center;
+          background: url(../../assets/images/glasses.png) no-repeat center
+            center;
           vertical-align: middle;
           background-size: 18px 18px;
           width: 18px;
