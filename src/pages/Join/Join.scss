@@ -71,10 +71,18 @@
           height: 40px;
           border: $borderGray;
           border-radius: 3px;
-          // margin: 10px 0;
 
           &::placeholder {
             color: rgb(186, 186, 186);
+          }
+
+          &:focus {
+            border: $borderBlack;
+          }
+
+          &:focus::placeholder {
+            color: transparent;
+            transition: all 0.3s ease-in-out;
           }
         }
 
