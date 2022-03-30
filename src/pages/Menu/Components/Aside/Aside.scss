@@ -26,7 +26,7 @@
 
             &::after {
               content: '';
-              background: url("../../../assets/images/element.png") left top no-repeat;
+              background: url("../../../../assets/images/element.png") left top no-repeat;
               position: absolute;
               right: 0;
               top: 25px;
@@ -39,7 +39,7 @@
           .viewAll {
             &::after {
               content: '';
-              background: url("../../../assets/images/allow.png") left top no-repeat;
+              background: url("../../../../assets/images/allow.png") left top no-repeat;
               position: absolute;
               right: 0;
               top: 25px;

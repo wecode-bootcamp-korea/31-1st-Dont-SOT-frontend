@@ -1,5 +1,5 @@
 import React from 'react';
-import Aside from './Aside/Aside';
+import Aside from './Components/Aside/Aside';
 import MenuList from './MenuList/MenuList';
 import { Link } from 'react-router-dom';
 import '../Menu/Menu.scss';
