@@ -1,6 +1,8 @@
 import React from 'react';
-import '../Footer/Footer.scss';
 import { Link } from 'react-router-dom';
+import FOOTER_DATA from './footerData';
+import FooterLi from './footerLi/footerLi';
+import '../Footer/Footer.scss';
 
 const Footer = () => {
   return (
@@ -13,31 +15,9 @@ const Footer = () => {
                 인재채용
               </Link>
             </li>
-            <li className="footerLi">
-              <Link className="footerAtag medium" to="/">
-                협력업체등록
-              </Link>
-            </li>
-            <li className="footerLi">
-              <Link className="footerAtag medium" to="/">
-                공지사항
-              </Link>
-            </li>
-            <li className="footerLi">
-              <Link className="footerAtag medium" to="/">
-                고객 센터
-              </Link>
-            </li>
-            <li className="footerLi">
-              <Link className="footerAtag medium" to="/">
-                개인정보처리방침
-              </Link>
-            </li>
-            <li className="footerLi">
-              <Link className="footerAtag medium" to="/">
-                이용약관
-              </Link>
-            </li>
+            {FOOTER_DATA.map(list => {
+              return <FooterLi id={list.id} key={list.id} data={list.data} />;
+            })}
           </ul>
         </div>
         <div className="footerInfo">

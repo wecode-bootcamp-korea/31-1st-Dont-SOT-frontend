@@ -1,15 +1,12 @@
-@import '../../styles/common.scss';
-@import '../../styles/reset.scss';
 @import '../../styles/variables.scss';
 
-footer {
+.footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: $mainColor;
   height: 210px;
-  box-sizing: border-box;
+  background-color: $mainColor;
 
   .footMain {
     height: 100%;
@@ -51,7 +48,7 @@ footer {
         display: inline-block;
         background: url('../../assets/images/footerInsta.png') no-repeat center
           center;
-        background-size: 25px 25px;
+        background-size: 25px;
         width: 25px;
         height: 25px;
         margin-right: 10px;
@@ -62,7 +59,7 @@ footer {
         display: inline-block;
         background: url('../../assets/images/footerFace.png') no-repeat center
           center;
-        background-size: 25px 25px;
+        background-size: 25px;
         width: 25px;
         height: 25px;
       }
