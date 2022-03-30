@@ -1,13 +1,20 @@
 import React from 'react';
 import './Card.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Card = props => {
   const { id, menuName, price } = props;
+  const navigate = useNavigate();
   return (
     <li className="item">
-      <div className="itemSpacer">
-        <Link to="#none" />
+      <div
+        className="itemSpacer"
+        onClick={() => {
+          navigate(`/products/${id}`, {
+            state: props,
+          });
+        }}
+      >
         <div className="itemImgBox">
           <img
             src={`https://robohash.org/${id}?set=set2&size=180x180`}
