@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Join from './pages/Join/Join';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import Product from './pages/Menu/Components/Product/Product';
-import Menu from './pages/Menu/Menu';
+import Products from './pages/Menu/Products';
+import ProductSpec from './pages/Menu/Components/ProductSpec/ProductSpec';
 
 const Router = () => {
   return (
@@ -14,8 +14,8 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/products" element={<Menu />} />
-        <Route path="/products/:id" element={<Product />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductSpec />} />
       </Routes>
     </BrowserRouter>
   );

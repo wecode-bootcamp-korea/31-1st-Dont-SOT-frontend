@@ -2,8 +2,9 @@ import React from 'react';
 import Aside from './Components/Aside/Aside';
 import MenuList from './MenuList/MenuList';
 import { Link } from 'react-router-dom';
-import '../Menu/Menu.scss';
-const Menu = () => {
+import './Products.scss';
+
+const Products = () => {
   return (
     <>
       <header className="inner">
@@ -39,4 +40,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Products;
