@@ -37,24 +37,45 @@ const Join = () => {
     }
   };
 
-  // const gotoMain = () => {
-  //   fetch('url', {
-  //     method: 'Post',
-  //     body: JSON.stringify({
-  //       username: inputs.id,
-  //       email: inputs.email,
-  //       password: inputs.password,
-  //       name: inputs.name,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       if (result.token.success) {
-  //         alert('회원가입이 완료되었습니다.');
-  //         navigate('/menu');
-  //       }
-  //     });
-  // };
+  /*
+  const isCheckDuplit = e => {
+    e.preventDefault();
+    fetch('url'),
+      {
+        method: POST,
+        body: JSON.stringify({ username: inputs.id }).then(res => {
+          if (res.status === 200) {
+            alert('사용 가능한 아이디 입니다.');
+          } else if (res.status === 409) {
+            alert('이미 사용 중인 아이디 입니다.');
+          } else {
+            alert('사용 불가능한 아이디 입니다.');
+          }
+        }),
+      };
+  };
+  */
+
+  /*
+  const gotoMain = () => {
+    fetch('url', {
+      method: 'Post',
+      body: JSON.stringify({
+        username: inputs.id,
+        email: inputs.email,
+        password: inputs.password,
+        name: inputs.name,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.token.success) {
+          alert('회원가입이 완료되었습니다.');
+          navigate('/menu');
+        }
+      });
+  };
+  */
 
   //테스트
   // const gotoMain = () => {
@@ -68,7 +89,11 @@ const Join = () => {
           <h2>회원가입</h2>
           <p>필수입력사항</p>
           <form onSubmit={onSubmit}>
-            <Form inputs={inputs} handleInputs={handleInputs} />
+            <Form
+              inputs={inputs}
+              handleInputs={handleInputs}
+              // isCheckId={isCheckId}
+            />
             <div className="formSubmit">
               <button type="submit">가입하기</button>
             </div>
