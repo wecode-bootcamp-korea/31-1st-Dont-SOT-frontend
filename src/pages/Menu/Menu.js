@@ -1,8 +1,8 @@
 import React from 'react';
 import Aside from './Aside/Aside';
 import MenuList from './MenuList/MenuList';
+import { Link } from 'react-router-dom';
 import '../Menu/Menu.scss';
-
 const Menu = () => {
   return (
     <>
@@ -17,19 +17,18 @@ const Menu = () => {
             <div className="tabWrap">
               <ul className="tabMenu">
                 <li>
-                  <a href="#none" className="viewAll">
+                  <Link to="#none" className="viewAll">
                     전체메뉴
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#none" className="keyword">
+                  <Link to="#none" className="keyword">
                     추천 키워드
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
-
           <div className="menuBox">
             <Aside />
             <MenuList />
