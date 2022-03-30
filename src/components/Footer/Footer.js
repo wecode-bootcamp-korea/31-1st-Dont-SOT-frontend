@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Footer/Footer.scss';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -8,34 +9,34 @@ const Footer = () => {
         <div className="footerMenu">
           <ul className="footerUl">
             <li className="footerLifirst">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 인재채용
-              </a>
+              </Link>
             </li>
             <li className="footerLi">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 협력업체등록
-              </a>
+              </Link>
             </li>
             <li className="footerLi">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 공지사항
-              </a>
+              </Link>
             </li>
             <li className="footerLi">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 고객 센터
-              </a>
+              </Link>
             </li>
             <li className="footerLi">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 개인정보처리방침
-              </a>
+              </Link>
             </li>
             <li className="footerLi">
-              <a className="footerAtag medium" href="/">
+              <Link className="footerAtag medium" to="/">
                 이용약관
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -45,8 +46,8 @@ const Footer = () => {
           </p>
         </div>
         <div className="sns">
-          <a className="footerInsta" href="/" />
-          <a className="footerFace" href="/" />
+          <Link className="footerInsta" to="/" />
+          <Link className="footerFace" to="/" />
         </div>
       </div>
     </footer>
