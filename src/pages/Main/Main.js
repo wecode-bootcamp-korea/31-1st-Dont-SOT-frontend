@@ -59,6 +59,18 @@ const Main = () => {
           </div>
         </div>
       </div>
+      <div className="inner itemWrap">
+        <div className="bestItem">
+          <ul className="bestItemList">
+            <li>아이템</li>
+          </ul>
+        </div>
+        <div className="mdItem">
+          <ul className="mdItemList">
+            <li>아이템</li>
+          </ul>
+        </div>
+      </div>
     </main>
   );
 };
