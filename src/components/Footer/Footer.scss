@@ -15,11 +15,9 @@ footer {
     height: 100%;
 
     .footerMenu {
-      padding-top: 45px;
-
       .footerUl {
         @include flexCenter;
-        margin-bottom: 10px;
+        padding: 20px 0;
 
         .footerLi ::before {
           content: '|';
