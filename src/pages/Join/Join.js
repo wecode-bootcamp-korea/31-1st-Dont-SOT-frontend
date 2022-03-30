@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Form from './Form/Form';
+import { FORM_LIST } from './Form/JoinFormData';
 import '../Join/Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
 
+  // 데이터 인풋값 받기
   let [inputs, setInputs] = useState({
     id: '',
     pw: '',
-    pwchk: '',
+    repw: '',
     name: '',
     email: '',
   });
@@ -20,27 +23,43 @@ const Join = () => {
       [name]: value,
     });
   };
-
-  //확인용
   console.log(inputs);
 
+  // 비밀번호 확인 기능 구현
+  const onSubmit = e => {
+    e.preventDefault();
+    if (inputs.pw != inputs.repw) {
+      alert('비밀번호와 비밀번호 확인이 같아야합니다.');
+      setInputs({
+        ...inputs,
+        repw: '',
+      });
+    }
+  };
+
   // const gotoMain = () => {
-  //   fetch('Url'),
-  //     {
-  //       method: POST,
-  //       body: JSON.stringify({
-  //         id: inputs.id
-  //         email: inputs.email,
-  //         password: inputs.pw,
-  //         name: inputs.name
-  //       }),
-  //     }
-  //     .then((res) => Response.json())
-  //     .then((res) => {
-  //       if(result.token !== undefined){
-  //         alert('로그인 성공')
-  //         localStorage.setItem(`access_token: ${ result.token}` )
+  //   fetch('url', {
+  //     method: 'Post',
+  //     body: JSON.stringify({
+  //       username: inputs.id,
+  //       email: inputs.email,
+  //       password: inputs.password,
+  //       name: inputs.name,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       if (result.token.success) {
+  //         alert('회원가입이 완료되었습니다.');
+  //         navigate('/menu');
   //       }
+  //     });
+  // };
+
+  //테스트
+  // const gotoMain = () => {
+  //   navigate('/main');
+  // };
 
   return (
     <section className="join inner">
@@ -48,65 +67,10 @@ const Join = () => {
         <div className="joinForm">
           <h2>회원가입</h2>
           <p>필수입력사항</p>
-          <form>
-            <dl className="fst">
-              <dt>아이디</dt>
-              <dd>
-                <input
-                  name="id"
-                  type="text"
-                  placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
-                  onChange={handleInputs}
-                  value={inputs.id}
-                />
-                <button>중복확인</button>
-              </dd>
-              <dt>비밀번호</dt>
-              <dd>
-                <input
-                  name="pw"
-                  type="password"
-                  onChange={handleInputs}
-                  value={inputs.pw}
-                  placeholder="비밀번호를 
-                  입력해주세요"
-                />
-              </dd>
-              <dt>비밀번호 확인</dt>
-              <dd>
-                <input
-                  name="pwchk"
-                  type="password"
-                  onChange={handleInputs}
-                  value={inputs.pwchk}
-                  placeholder="비밀번호를 한번 더 입력해주세요"
-                />
-              </dd>
-              <dt>이름</dt>
-              <dd>
-                <input
-                  onChange={handleInputs}
-                  name="name"
-                  type="text"
-                  placeholder="이름을 입력해주세요"
-                  onChange={handleInputs}
-                  value={inputs.name}
-                />
-              </dd>
-              <dt>이메일</dt>
-              <dd>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="예: Sot.jimayo.com"
-                  onChange={handleInputs}
-                  value={inputs.email}
-                />
-                <button>중복확인</button>
-              </dd>
-            </dl>
+          <form onSubmit={onSubmit}>
+            <Form inputs={inputs} handleInputs={handleInputs} />
             <div className="formSubmit">
-              <button type="button">가입하기</button>
+              <button type="submit">가입하기</button>
             </div>
           </form>
         </div>
