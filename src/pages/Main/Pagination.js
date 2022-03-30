@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Pagination = props => {
-  const { id, text, count } = props;
-
-  // const handleButtonActive = () => {
-  //   return count + id;
-  // };
+  const { id, text, count, handleSlider } = props;
 
   return (
-    <button type="button" id={id} className={count === id ? 'active' : ''}>
+    <button
+      type="button"
+      id={id}
+      onClick={() => {
+        handleSlider(id);
+      }}
+      className={id === count ? 'active' : ''}
+    >
       {text}
     </button>
   );

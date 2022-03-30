@@ -6,26 +6,35 @@ import Pagination from './Pagination';
 
 const Main = () => {
   const slideRef = useRef();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   useEffect(() => {
     const interval = setTimeout(() => {
       setCount(countValue => {
-        if (count < SLIDE_LIST.length - 1) {
+        if (count < SLIDE_LIST.length) {
           setCount(count + 1);
-          console.log(count);
         } else {
-          setCount(0);
+          setCount(1);
         }
       });
 
+      handleSlider(count);
+
+      return () => clearTimeout(interval);
+    }, 3000);
+  });
+
+  const handleSlider = count => {
+    if (count === 5) {
+      slideRef.current.style.transform = 'translateX(0)';
+    } else {
       slideRef.current.style.transform = `translateX(-${
         window.innerWidth * count
       }px)`;
-
-      return () => clearTimeout(interval);
-    }, 1000);
-  });
-  const handleSlider = () => {};
+    }
+  };
+  const countHandle = n => {
+    setCount(n);
+  };
   return (
     <main className="main">
       <div className="mainSlide">
@@ -42,6 +51,8 @@ const Main = () => {
                 {...button}
                 count={count}
                 setCount={setCount}
+                countHandle={countHandle}
+                handleSlider={handleSlider}
               />
             ))}
           </div>
