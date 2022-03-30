@@ -32,9 +32,11 @@ const Main = () => {
       }px)`;
     }
   };
+
   const countHandle = n => {
     setCount(n);
   };
+
   return (
     <main className="main">
       <div className="mainSlide">
@@ -50,7 +52,6 @@ const Main = () => {
                 key={button.id}
                 {...button}
                 count={count}
-                setCount={setCount}
                 countHandle={countHandle}
                 handleSlider={handleSlider}
               />
