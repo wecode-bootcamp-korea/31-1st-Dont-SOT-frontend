@@ -1,106 +1,105 @@
 @import '../../styles/variables.scss';
 
-.join {
-  .inner {
-    .wrap {
-      width: 640px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.join,
+.inner {
+  .wrap {
+    width: 640px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      .joinForm {
-        width: 100%;
-        background-color: #fff;
-        padding: 30px;
+    .joinForm {
+      width: 100%;
+      background-color: #fff;
+      padding: 30px;
 
-        h2 {
-          text-align: center;
-          font-size: 28px;
-          padding: 50px 0px;
+      h2 {
+        text-align: center;
+        font-size: 28px;
+        padding: 50px 0px;
+      }
+
+      p {
+        text-align: right;
+        border-bottom: 2px solid $subColor;
+        padding-bottom: 10px;
+
+        &:before {
+          content: '*';
+          display: inline-block;
+          background-size: 20px 20px;
+          margin-right: 3px;
+          width: 20px;
+          height: 20px;
+          color: #ee6a7b;
         }
+      }
 
-        p {
-          text-align: right;
-          border-bottom: 2px solid $subColor;
-          padding-bottom: 10px;
+      dl {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
 
-          &:before {
-            content: '*';
-            display: inline-block;
-            background-size: 20px 20px;
-            margin-right: 3px;
-            width: 20px;
-            height: 20px;
-            color: #ee6a7b;
+      dt {
+        width: 25%;
+        font-weight: bold;
+        line-height: 40px;
+        margin-bottom: 10px;
+
+        &:after {
+          content: '*';
+          display: inline-block;
+          background-size: 30px 30px;
+          margin-right: 5px;
+          width: 20px;
+          height: 20px;
+          color: #ee6a7b;
+        }
+      }
+
+      dd {
+        display: flex;
+        justify-content: flex-start;
+        width: 75%;
+        margin-bottom: 10px;
+
+        input {
+          padding: 0px 17px;
+          width: calc(100% - 115px);
+          height: 40px;
+          border: $borderGray;
+          border-radius: 3px;
+          // margin: 10px 0;
+
+          &::placeholder {
+            color: rgb(186, 186, 186);
           }
         }
 
-        dl {
+        button {
+          margin-left: 5px;
+          color: $mainColor;
+          background-color: $subColor;
+          // padding: 10px 30px;
+          border-radius: 3px;
+          width: 110px;
+        }
+      }
+
+      form {
+        margin: 15px 0px;
+
+        .formSubmit {
           display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-        }
-
-        dt {
-          width: 25%;
-          font-weight: bold;
-          line-height: 40px;
-          margin-bottom: 10px;
-
-          &:after {
-            content: '*';
-            display: inline-block;
-            background-size: 30px 30px;
-            margin-right: 5px;
-            width: 20px;
-            height: 20px;
-            color: #ee6a7b;
-          }
-        }
-
-        dd {
-          display: flex;
-          justify-content: flex-start;
-          width: 75%;
-          margin-bottom: 10px;
-
-          input {
-            padding: 0px 17px;
-            width: calc(100% - 115px);
-            height: 40px;
-            border: $borderGray;
-            border-radius: 3px;
-            // margin: 10px 0;
-
-            &::placeholder {
-              color: rgb(186, 186, 186);
-            }
-          }
+          justify-content: center;
+          padding-top: 40px;
 
           button {
-            margin-left: 5px;
-            color: $mainColor;
-            background-color: $subColor;
-            // padding: 10px 30px;
+            padding: 10px 30px;
             border-radius: 3px;
-            width: 110px;
-          }
-        }
-
-        form {
-          margin: 15px 0px;
-
-          .formSubmit {
-            display: flex;
-            justify-content: center;
-            padding-top: 40px;
-
-            button {
-              padding: 10px 30px;
-              border-radius: 3px;
-              background-color: $mainColor;
-            }
+            background-color: $mainColor;
           }
         }
       }
