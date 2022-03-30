@@ -6,7 +6,7 @@ const Card = () => {
   return (
     <li className="item">
       <div className="itemSpacer">
-        <Link to="#none"></Link>
+        <Link to="#none" />
         <div className="itemImgBox">
           <img src="/images/fooditem.png" alt="" className="itemImg" />
         </div>

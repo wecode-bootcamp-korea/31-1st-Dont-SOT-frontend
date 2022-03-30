@@ -3,45 +3,47 @@
   overflow: hidden;
   height: 335px;
   cursor: pointer;
-}
 
-.item .itemSpacer .itemImgBox {
-  width: 270px;
-  height: 230px;
-  overflow: hidden;
-  position: relative;
-  display: block;
-}
+  .itemSpacer {
+    .itemImgBox {
+      width: 270px;
+      height: 230px;
+      overflow: hidden;
+      position: relative;
+      display: block;
+    }
 
-.item .itemSpacer .itemIcon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding-top: 18px;
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  background-color: #f6ca00;
-  text-align: center;
-  font-size: 13px;
-  font-family: Roboto;
-  box-sizing: border-box;
-  z-index: 3;
-}
+    .itemIcon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-top: 18px;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      background-color: #f6ca00;
+      text-align: center;
+      font-size: 13px;
+      font-family: Roboto;
+      box-sizing: border-box;
+      z-index: 3;
+    }
 
-.item .itemSpacer .itemTextBox {
-  text-align: center;
-  padding: 30px 0;
-  font-weight: normal;
-  background-color: #e4e2e2;
-}
+    .itemTextBox {
+      text-align: center;
+      padding: 30px 0;
+      font-weight: normal;
+      background-color: #e4e2e2;
 
-.itemTextBox .itemTitle {
-  font-size: 18px;
-  font-weight: 500;
-}
+      .itemTitle {
+        font-size: 18px;
+        font-weight: 500;
+      }
 
-.itemTextBox .itemPrice {
-  color: #909090;
-  padding-top: 6px;
+      .itemPrice {
+        color: #909090;
+        padding-top: 6px;
+      }
+    }
+  }
 }

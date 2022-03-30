@@ -1,16 +1,10 @@
-/* 임시 */
-body {
-  background-color: #eeecec;
-  padding: 30px;
-}
-
+// 임시
 header {
   background-color: #fff;
   height: 90px;
 }
 
-// 임시 끝
-
+// 공통 
 .blind {
   position: absolute;
   width: 1px;
@@ -19,43 +13,41 @@ header {
   overflow: hidden;
 }
 
-/* title */
 .contMenu {
   margin-top: 30px;
-}
 
-.contMenuWrap .titleBox {
-  width: 100%;
-  background-color: #fff;
-  position: relative;
-}
+  .contMenuWrap .titleBox {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
 
-.contMenuWrap .titleBox .title {
-  padding: 53px 0 0 30px;
-  height: 140px;
-  font-size: 36px;
-  font-weight: 500;
-}
+    .title {
+      padding: 53px 0 0 30px;
+      height: 140px;
+      font-size: 36px;
+      font-weight: 500;
+    }
 
-.contMenuWrap .titleBox .tabWrap {
-  position: absolute;
-  right: 50px;
-  top: 68px;
-  width: auto;
-}
+    .tabWrap {
+      position: absolute;
+      right: 50px;
+      top: 68px;
+      width: auto;
 
-.contMenuWrap .titleBox .tabMenu {
-  display: flex;
-  gap: 25px;
-  font-size: 25px;
-}
+      .tabMenu {
+        display: flex;
+        gap: 25px;
+        font-size: 25px;
 
-.tabMenu .viewAll {
-  color: #f2c000;
-}
+        .viewAll {
+          color: #f2c000;
+        }
+      }
+    }
+  }
 
-/* menuBox */
-.menuBox {
-  display: flex;
-  margin-top: 70px;
+  .contMenuWrap .menuBox {
+    display: flex;
+    margin-top: 70px;
+  }
 }

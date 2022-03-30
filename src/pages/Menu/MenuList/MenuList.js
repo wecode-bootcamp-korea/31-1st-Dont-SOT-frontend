@@ -5,23 +5,21 @@ import './MenuList.scss';
 const MenuList = () => {
   return (
     <section className="menuListWrap">
-      <div className="menuCont">
-        <article className="listWrap">
-          <div className="header">
-            <p className="cateTitle">신메뉴/행사</p>
-            <h3 className="cateTitleItem">행사</h3>
-          </div>
-          <ul className="menulistBox">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </ul>
-        </article>
-      </div>
+      <article className="listWrap">
+        <div className="header">
+          <p className="cateTitle">신메뉴/행사</p>
+          <h3 className="cateTitleItem">행사</h3>
+        </div>
+        <ul className="menulistBox">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </ul>
+      </article>
     </section>
   );
 };
