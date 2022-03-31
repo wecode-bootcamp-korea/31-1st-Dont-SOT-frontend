@@ -56,7 +56,6 @@ const Form = ({ handleInputs, inputs, isCheckId }) => {
             onChange={handleInputs}
             value={inputs.email}
           />
-          <button>중복확인</button>
         </dd>
       </dl>
     </div>
