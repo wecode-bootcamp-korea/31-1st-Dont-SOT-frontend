@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Form = ({ handleInputs, inputs, isCheckId }) => {
+  console.log(inputs);
   return (
     <div>
       <dl className="fst">
@@ -13,7 +14,7 @@ const Form = ({ handleInputs, inputs, isCheckId }) => {
             onChange={handleInputs}
             value={inputs.id}
           />
-          {/* <button onClick={isCheckId}>중복확인</button> */}
+          <button onClick={isCheckId}>중복확인</button>
         </dd>
         <dt>비밀번호</dt>
         <dd>

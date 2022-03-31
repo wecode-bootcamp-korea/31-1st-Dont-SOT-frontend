@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from './Form/Form';
 import { FORM_LIST } from './Form/JoinFormData';
@@ -24,49 +24,54 @@ const Join = () => {
     });
   };
 
-  /*
   // 아이디 중복 확인
-  const isCheckDuplit = e => {
+  const isCheckId = e => {
     e.preventDefault();
-    fetch('url'),
-      {
-        method: POST,
-        body: JSON.stringify({ username: inputs.id }),
-        headers: {
-          'Content-Type': 'application/json',
-        }.then(res => {
-          if (res.status === 200) {
-            alert('사용 가능한 아이디 입니다.');
-          } else if (res.status === 409) {
-            alert('이미 사용 중인 아이디 입니다.');
-          } else {
-            alert('사용 불가능한 아이디 입니다.');
-          }
-        }),
-      };
+    fetch('http://10.58.3.205:8000/users/signup/idcheck', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: inputs.id }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          alert('사용가능한 아이디 입니다.');
+        } else if (result.message === 'REGISTERED_USERNAME') {
+          alert('이미 사용중인 아이디 입니다.');
+        } else {
+          alert('사용 불가능한 아이디 입니다.');
+        }
+      });
   };
 
   /*
+  else if (res.message === 'INVALID_EMAIL_FORM') {
+    alert('이메일 형식이 맞지 않습니다.');
+  }
+  */
+
   // 회원가입 API 붙이기
   const gotoMain = () => {
-    fetch('url', {
+    fetch('http://10.58.3.205:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: inputs.id,
         email: inputs.email,
-        password: inputs.password,
+        password: inputs.pw,
         name: inputs.name,
       }),
     })
       .then(res => res.json())
       .then(result => {
-        if (result.token.success) {
+        if (result.message === 'REGISTERED_EMAIL') {
+          alert('이메일이 중복입니다');
+        }
+        if (result.status === 200) {
           alert('회원가입이 완료되었습니다.');
-          navigate('/main');
+          navigate('/menu');
         }
       });
   };
-  */
 
   // 비밀번호 확인 기능 구현
   const onSubmit = e => {
@@ -80,11 +85,6 @@ const Join = () => {
     }
   };
 
-  //테스트
-  // const gotoMain = () => {
-  //   navigate('/main');
-  // };
-
   // 빈 공백 제거
   const { id, pw, repw, name, email } = inputs;
   const isEmptyValueError = id && pw && repw && name && email !== '';
@@ -97,13 +97,13 @@ const Join = () => {
           <p>필수입력사항</p>
           <form onSubmit={onSubmit}>
             <Form
-              // isCheckId={isCheckId}
+              isCheckId={isCheckId}
               inputs={inputs}
               handleInputs={handleInputs}
             />
             <div className="formSubmit">
               <button
-                // onClick={gotoMain}
+                onClick={gotoMain}
                 className={isEmptyValueError ? 'active' : null}
                 disabled={!isEmptyValueError}
                 type="submit"
