@@ -1,3 +1,4 @@
+import { isValidDateValue } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import './Login.scss';
@@ -18,6 +19,8 @@ const Login = () => {
       [name]: value,
     });
   };
+
+  const isVaild = inputs.id && inputs.pw !== '';
 
   // 로그인 인증 & 인가
   const gotoMain = () => {
@@ -70,7 +73,9 @@ const Login = () => {
                 <Link to="#">아이디/비밀번호 찾기</Link>
               </span>
             </div>
-            <button onClick={gotoMain}>로그인</button>
+            <button className={isVaild ? 'active' : null} onClick={gotoMain}>
+              로그인
+            </button>
           </form>
         </div>
         <div className="joinPage">
