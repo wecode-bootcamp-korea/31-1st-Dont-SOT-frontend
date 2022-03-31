@@ -3,39 +3,45 @@ import './Card.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Card = props => {
-  const { id, menuName, price } = props;
+  const { contents } = props;
   const navigate = useNavigate();
   return (
-    <li className="item">
-      <div
-        className="itemSpacer"
-        onClick={() => {
-          navigate(`/products/${id}`, {
-            state: props,
-          });
-        }}
-      >
-        <div className="itemImgBox">
-          <img
-            src={`https://robohash.org/${id}?set=set2&size=180x180`}
-            alt="메뉴"
-            className="itemImg"
-          />
-        </div>
-        <div className="itemIcon">
-          <div className="itemIconNew">
-            <span>NEW</span>
-          </div>
-        </div>
-        <div className="itemTextBox">
-          <h4 className="itemTitle">{menuName}</h4>
-          <div className="itemPrice">
-            <span className="blind">가격:</span>
-            <strong>{price}</strong>원
-          </div>
-        </div>
-      </div>
-    </li>
+    <>
+      {contents.map(data => {
+        return (
+          <li className="item" key={data.id}>
+            <div
+              className="itemSpacer"
+              onClick={() => {
+                navigate(`/products/${data.id}`, {
+                  state: props,
+                });
+              }}
+            >
+              <div className="itemImgBox">
+                <img
+                  src={`https://robohash.org/${data.id}?set=set2&size=180x180`}
+                  alt="메뉴"
+                  className="itemImg"
+                />
+              </div>
+              <div className="itemIcon">
+                <div className="itemIconNew">
+                  <span>NEW</span>
+                </div>
+              </div>
+              <div className="itemTextBox">
+                <h4 className="itemTitle">{data.menuName}</h4>
+                <div className="itemPrice">
+                  <span className="blind">가격:</span>
+                  <strong>{data.price}</strong>원
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </>
   );
 };
 

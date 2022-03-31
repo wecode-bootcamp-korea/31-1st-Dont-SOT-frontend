@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../Components/Card/Card';
+import MenuBox from './MenuBox';
 import './MenuList.scss';
 
-const MenuList = () => {
-  const [menu, setMenu] = useState([]);
+const MenuList = props => {
+  const [category, setCategory] = useState([]);
 
   const fetchData = () => {
-    async function fetchAndSetMenu() {
+    async function fetchAndSetCategory() {
       const response = await fetch('/data/menuData.json');
       const data = await response.json();
-      setMenu(data);
+      setCategory(data);
     }
-    fetchAndSetMenu();
+    fetchAndSetCategory();
   };
 
   useEffect(() => {
@@ -20,25 +20,17 @@ const MenuList = () => {
 
   return (
     <section className="menuListWrap">
-      <article className="listWrap">
-        <div className="header">
-          <p className="cateTitle">신메뉴/행사</p>
-          <h3 className="cateTitleItem">행사</h3>
-        </div>
-        <ul className="menulistBox">
-          {menu.map(data => {
-            return (
-              <Card
-                key={data.id}
-                id={data.id}
-                menuName={data.menuName}
-                image={data.image}
-                price={data.price}
-              />
-            );
-          })}
-        </ul>
-      </article>
+      {category &&
+        category.map(data => {
+          return (
+            <MenuBox
+              key={data.id}
+              id={data.id}
+              category={data.category}
+              categoryList={data.categoryList}
+            />
+          );
+        })}
     </section>
   );
 };

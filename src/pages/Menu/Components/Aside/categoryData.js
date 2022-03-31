@@ -42,42 +42,42 @@ const CATEGORY_DATA = [
       },
     ],
   },
-  {
-    id: 5,
-    categoryName: '보울도시락',
-    categoryList: [
-      {
-        id: 1,
-        categoryItem: '마요',
-      },
-      {
-        id: 2,
-        categoryItem: '카레',
-      },
-      {
-        id: 3,
-        categoryItem: '볶음밥',
-      },
-    ],
-  },
-  {
-    id: 6,
-    categoryName: '실속반찬/사이드',
-    categoryList: [
-      {
-        id: 1,
-        categoryItem: '실속반찬',
-      },
-      {
-        id: 2,
-        categoryItem: '스낵 시리즈',
-      },
-      {
-        id: 3,
-        categoryItem: '간식안주 시리즈',
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   categoryName: '보울도시락',
+  //   categoryList: [
+  //     {
+  //       id: 1,
+  //       categoryItem: '마요',
+  //     },
+  //     {
+  //       id: 2,
+  //       categoryItem: '카레',
+  //     },
+  //     {
+  //       id: 3,
+  //       categoryItem: '볶음밥',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 6,
+  //   categoryName: '실속반찬/사이드',
+  //   categoryList: [
+  //     {
+  //       id: 1,
+  //       categoryItem: '실속반찬',
+  //     },
+  //     {
+  //       id: 2,
+  //       categoryItem: '스낵 시리즈',
+  //     },
+  //     {
+  //       id: 3,
+  //       categoryItem: '간식안주 시리즈',
+  //     },
+  //   ],
+  // },
 ];
 
 export default CATEGORY_DATA;

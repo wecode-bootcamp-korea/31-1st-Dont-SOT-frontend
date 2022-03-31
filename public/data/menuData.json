@@ -1,38 +1,140 @@
 [
   {
     "id": 1,
-    "menuName": "둘이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "1,500"
+    "category": "신메뉴/행사",
+    "categoryList": [
+      {
+        "id": 1,
+        "miniCategory": "행사",
+        "contents": [
+          {
+            "id": 1,
+            "menuName": "돈까스도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "5,800"
+          },
+          {
+            "id": 2,
+            "menuName": "탕수육도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "6,800"
+          },
+          {
+            "id": 3,
+            "menuName": "새치고기고기",
+            "images": "/images/fooditem.jpg",
+            "price": "6,200"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 2,
-    "menuName": "셋이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "2,500"
+    "category": "프리미엄고메이",
+    "categoryList": [
+      {
+        "id": 1,
+        "miniCategory": "프리미엄",
+        "contents": [
+          {
+            "id": 1,
+            "menuName": "돈까스도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "5,800"
+          },
+          {
+            "id": 2,
+            "menuName": "탕수육도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "6,800"
+          },
+          {
+            "id": 3,
+            "menuName": "새치고기고기",
+            "images": "/images/fooditem.jpg",
+            "price": "6,200"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 3,
-    "menuName": "넷이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "3,500"
-  },
-  {
-    "id": 4,
-    "menuName": "다섯이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "4,500"
-  },
-  {
-    "id": 5,
-    "menuName": "여섯이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "5,500"
-  },
-  {
-    "id": 6,
-    "menuName": "일곱이 먹다 하나 죽어도 모를 족발",
-    "images": "/images/fooditem.jpg",
-    "price": "6,500"
+    "category": "사각도시락",
+    "categoryList": [
+      {
+        "id": 1,
+        "miniCategory": "고기고기시리즈",
+        "contents": [
+          {
+            "id": 1,
+            "menuName": "돈까스도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "5,800"
+          },
+          {
+            "id": 2,
+            "menuName": "탕수육도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "6,800"
+          },
+          {
+            "id": 3,
+            "menuName": "새치고기고기",
+            "images": "/images/fooditem.jpg",
+            "price": "6,200"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "miniCategory": "모둠시리즈",
+        "contents": [
+          {
+            "id": 1,
+            "menuName": "돈까스도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "5,800"
+          },
+          {
+            "id": 2,
+            "menuName": "탕수육도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "6,800"
+          },
+          {
+            "id": 3,
+            "menuName": "새치고기고기",
+            "images": "/images/fooditem.jpg",
+            "price": "6,200"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "miniCategory": "정식시리즈",
+        "contents": [
+          {
+            "id": 1,
+            "menuName": "돈까스도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "5,800"
+          },
+          {
+            "id": 2,
+            "menuName": "탕수육도련님",
+            "images": "/images/fooditem.jpg",
+            "price": "6,800"
+          },
+          {
+            "id": 3,
+            "menuName": "새치고기고기",
+            "images": "/images/fooditem.jpg",
+            "price": "6,200"
+          }
+        ]
+      }
+    ]
   }
 ]
