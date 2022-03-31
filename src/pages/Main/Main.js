@@ -14,7 +14,6 @@ const Main = () => {
   const mdRef = useRef();
   const [count, setCount] = useState(1);
   const [bestCount, setBestCount] = useState(1);
-  const [mdCount, setMdCount] = useState(1);
   const [isDisabled, setDisabled] = useState(false);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const Main = () => {
       handleSlider(count);
 
       return () => clearTimeout(interval);
-    }, 300000);
+    }, 6000);
   });
 
   const handleSlider = count => {
@@ -67,27 +66,6 @@ const Main = () => {
     }
   };
 
-  const handleMdDecrease = () => {
-    setMdCount(mdCount - 1);
-    mdRef.current.style.transform = `translateX(-${1200 * mdCount}px)`;
-    if (0 === mdCount) {
-      setMdCount(1);
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
-  const handleMdIncrease = () => {
-    setMdCount(mdCount + 1);
-    mdRef.current.style.transform = `translateX(-${1200 * mdCount}px)`;
-    if (BEST_LIST.length % 4 <= mdCount) {
-      setMdCount(mdCount - 1);
-      setDisabled(true);
-    } else {
-      setDisabled(false);
-    }
-  };
-
   return (
     <main className="main">
       <div className="mainSlide">
@@ -118,50 +96,24 @@ const Main = () => {
               <Best key={best.id} {...best} />
             ))}
           </ul>
-          <div className="buttonWrap">
-            <button
-              type="button"
-              onClick={handleBestDecrease}
-              disabled={isDisabled ? false : true}
-              className="btnPrev"
-            >
-              이전
-            </button>
-            <button
-              type="button"
-              onClick={handleBestIncrease}
-              disabled={isDisabled ? true : false}
-              className="btnNext"
-            >
-              다음
-            </button>
-          </div>
         </div>
-        <div className="mdItem">
-          <p className="itemTitle">MD추천 메뉴</p>
-          <ul ref={mdRef} className="itemList clear">
-            {MD_LIST.map(best => (
-              <MdChoice key={best.id} {...best} />
-            ))}
-          </ul>
-          <div className="buttonWrap">
-            <button
-              type="button"
-              onClick={handleMdDecrease}
-              disabled={isDisabled ? false : true}
-              className="btnPrev"
-            >
-              이전
-            </button>
-            <button
-              type="button"
-              onClick={handleMdIncrease}
-              disabled={isDisabled ? true : false}
-              className="btnNext"
-            >
-              다음
-            </button>
-          </div>
+        <div className="buttonWrap">
+          <button
+            type="button"
+            onClick={handleBestDecrease}
+            disabled={isDisabled ? false : true}
+            className="btnPrev"
+          >
+            이전
+          </button>
+          <button
+            type="button"
+            onClick={handleBestIncrease}
+            disabled={isDisabled ? true : false}
+            className="btnNext"
+          >
+            다음
+          </button>
         </div>
       </div>
     </main>
