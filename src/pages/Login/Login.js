@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
@@ -8,7 +8,6 @@ const Login = () => {
     id: '',
     pw: '',
   });
-
   console.log(inputs);
 
   const handleInputs = e => {
@@ -18,6 +17,28 @@ const Login = () => {
       ...inputs,
       [name]: value,
     });
+  };
+
+  // 로그인 인증 & 인가
+  const gotoMain = () => {
+    fetch('http://10.58.4.129:8000/users/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: inputs.id,
+        password: inputs.pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.token !== undefined) {
+          alert('로그인 성공');
+          localStorage.getItem(`token`, result.token);
+          Navigate('/menu');
+        } else {
+          alert('로그인 실패');
+        }
+        console.log('결과: ', result);
+      });
   };
 
   return (
@@ -49,7 +70,7 @@ const Login = () => {
                 <Link to="#">아이디/비밀번호 찾기</Link>
               </span>
             </div>
-            <button>로그인</button>
+            <button onClick={gotoMain}>로그인</button>
           </form>
         </div>
         <div className="joinPage">
