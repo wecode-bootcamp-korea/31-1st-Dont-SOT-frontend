@@ -1,64 +1,22 @@
 import React, { useState } from 'react';
+import FormInputs from './FormInputs';
+import { FORM_LIST } from './JoinFormData';
 
 const Form = ({ handleInputs, inputs, isCheckId }) => {
-  console.log(inputs);
+  console.log(FORM_LIST);
   return (
     <div>
-      <dl className="fst">
-        <dt>아이디</dt>
-        <dd>
-          <input
-            name="id"
-            type="text"
-            placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
-            onChange={handleInputs}
-            value={inputs.id}
+      {FORM_LIST.map(item => {
+        return (
+          <FormInputs
+            data={item}
+            key={item.id}
+            handleInputs={handleInputs}
+            inputs={inputs}
+            isCheckId={isCheckId}
           />
-          <button onClick={isCheckId}>중복확인</button>
-        </dd>
-        <dt>비밀번호</dt>
-        <dd>
-          <input
-            name="pw"
-            type="password"
-            onChange={handleInputs}
-            value={inputs.pw}
-            placeholder="비밀번호를 
-                  입력해주세요"
-          />
-        </dd>
-        <dt>비밀번호 확인</dt>
-        <dd>
-          <input
-            name="repw"
-            type="password"
-            onChange={handleInputs}
-            value={inputs.repw}
-            placeholder="비밀번호를 한번 더 입력해주세요"
-          />
-        </dd>
-        <dt>이름</dt>
-        <dd>
-          <input
-            onChange={handleInputs}
-            name="name"
-            type="text"
-            placeholder="이름을 입력해주세요"
-            onChange={handleInputs}
-            value={inputs.name}
-          />
-        </dd>
-        <dt>이메일</dt>
-        <dd>
-          <input
-            name="email"
-            type="email"
-            placeholder="예: Sot.jimayo.com"
-            onChange={handleInputs}
-            value={inputs.email}
-          />
-        </dd>
-      </dl>
+        );
+      })}
     </div>
   );
 };
