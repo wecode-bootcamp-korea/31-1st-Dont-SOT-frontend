@@ -24,27 +24,6 @@ const Join = () => {
     });
   };
 
-  // 정규식 적용 및 validation
-  // const isEmailCheck = email.includes('@') && email.includes('.');
-  // 특수문자 검사
-  // const isPwRegexCheck = pw.seatch('[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi')
-  // 전체 10자 이상 입력
-  // const isPwLengthCheck = pw.length >=8 && isPwRegexCheck >=1
-
-  // 영문/숫자/특수문자(공백 제외)만 허용, 2개 이상 조합
-  // 동일한 숫자 3개이상 연속 사용 불가
-
-  // 비밀번호 확인 기능 구현
-  const onSubmit = e => {
-    e.preventDefault();
-    if (inputs.pw !== inputs.repw) {
-      alert('비밀번호와 비밀번호 확인이 같아야합니다.');
-      setInputs({
-        ...inputs,
-        repw: '',
-      });
-    }
-  };
   /*
   // 아이디 중복 확인
   const isCheckDuplit = e => {
@@ -83,11 +62,23 @@ const Join = () => {
       .then(result => {
         if (result.token.success) {
           alert('회원가입이 완료되었습니다.');
-          navigate('/menu');
+          navigate('/main');
         }
       });
   };
   */
+
+  // 비밀번호 확인 기능 구현
+  const onSubmit = e => {
+    e.preventDefault();
+    if (inputs.pw !== inputs.repw) {
+      alert('비밀번호와 비밀번호 확인이 같아야합니다.');
+      setInputs({
+        ...inputs,
+        repw: '',
+      });
+    }
+  };
 
   //테스트
   // const gotoMain = () => {
@@ -106,12 +97,13 @@ const Join = () => {
           <p>필수입력사항</p>
           <form onSubmit={onSubmit}>
             <Form
+              // isCheckId={isCheckId}
               inputs={inputs}
               handleInputs={handleInputs}
-              // isCheckId={isCheckId}
             />
             <div className="formSubmit">
               <button
+                // onClick={gotoMain}
                 className={isEmptyValueError ? 'active' : null}
                 disabled={!isEmptyValueError}
                 type="submit"
