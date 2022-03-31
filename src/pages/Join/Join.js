@@ -25,6 +25,8 @@ const Join = () => {
   };
 
   // 아이디 중복 확인
+  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
+
   const isCheckId = e => {
     e.preventDefault();
     fetch('http://10.58.3.205:8000/users/signup/idcheck', {
@@ -36,19 +38,19 @@ const Join = () => {
       .then(result => {
         if (result.message === 'SUCCESS') {
           alert('사용가능한 아이디 입니다.');
+          setHandleSubmitBtn(false);
         } else if (result.message === 'REGISTERED_USERNAME') {
           alert('이미 사용중인 아이디 입니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'INVALID_EMAIL_FORM') {
+          alert('이메일 형식이 맞지 않습니다.');
+          setHandleSubmitBtn(true);
         } else {
           alert('사용 불가능한 아이디 입니다.');
+          setHandleSubmitBtn(true);
         }
       });
   };
-
-  /*
-  else if (res.message === 'INVALID_EMAIL_FORM') {
-    alert('이메일 형식이 맞지 않습니다.');
-  }
-  */
 
   // 회원가입 API 붙이기
   const gotoMain = () => {
@@ -83,6 +85,7 @@ const Join = () => {
         repw: '',
       });
     }
+    // console.log(e.target.disabled);
   };
 
   // 빈 공백 제거
@@ -105,7 +108,7 @@ const Join = () => {
               <button
                 onClick={gotoMain}
                 className={isEmptyValueError ? 'active' : null}
-                disabled={!isEmptyValueError}
+                disabled={!isEmptyValueError && setHandleSubmitBtn === true}
                 type="submit"
               >
                 가입하기
