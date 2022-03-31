@@ -23,12 +23,21 @@ const Join = () => {
       [name]: value,
     });
   };
-  console.log(inputs);
+
+  // 정규식 적용 및 validation
+  // const isEmailCheck = email.includes('@') && email.includes('.');
+  // 특수문자 검사
+  // const isPwRegexCheck = pw.seatch('[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi')
+  // 전체 10자 이상 입력
+  // const isPwLengthCheck = pw.length >=8 && isPwRegexCheck >=1
+
+  // 영문/숫자/특수문자(공백 제외)만 허용, 2개 이상 조합
+  // 동일한 숫자 3개이상 연속 사용 불가
 
   // 비밀번호 확인 기능 구현
   const onSubmit = e => {
     e.preventDefault();
-    if (inputs.pw != inputs.repw) {
+    if (inputs.pw !== inputs.repw) {
       alert('비밀번호와 비밀번호 확인이 같아야합니다.');
       setInputs({
         ...inputs,
@@ -36,14 +45,17 @@ const Join = () => {
       });
     }
   };
-
   /*
+  // 아이디 중복 확인
   const isCheckDuplit = e => {
     e.preventDefault();
     fetch('url'),
       {
         method: POST,
-        body: JSON.stringify({ username: inputs.id }).then(res => {
+        body: JSON.stringify({ username: inputs.id }),
+        headers: {
+          'Content-Type': 'application/json',
+        }.then(res => {
           if (res.status === 200) {
             alert('사용 가능한 아이디 입니다.');
           } else if (res.status === 409) {
@@ -54,12 +66,12 @@ const Join = () => {
         }),
       };
   };
-  */
 
   /*
+  // 회원가입 API 붙이기
   const gotoMain = () => {
     fetch('url', {
-      method: 'Post',
+      method: 'POST',
       body: JSON.stringify({
         username: inputs.id,
         email: inputs.email,
@@ -82,6 +94,10 @@ const Join = () => {
   //   navigate('/main');
   // };
 
+  // 빈 공백 제거
+  const { id, pw, repw, name, email } = inputs;
+  const isEmptyValueError = id && pw && repw && name && email !== '';
+
   return (
     <section className="join inner">
       <div className="wrap">
@@ -95,7 +111,13 @@ const Join = () => {
               // isCheckId={isCheckId}
             />
             <div className="formSubmit">
-              <button type="submit">가입하기</button>
+              <button
+                className={isEmptyValueError ? 'active' : null}
+                disabled={!isEmptyValueError}
+                type="submit"
+              >
+                가입하기
+              </button>
             </div>
           </form>
         </div>
