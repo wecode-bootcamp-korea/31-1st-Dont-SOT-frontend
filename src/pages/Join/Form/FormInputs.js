@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const FormInputs = ({ data, handleInputs, inputs, isCheckId }) => {
-  console.log(inputs);
+  const isBtnVaild = data.title === '아이디';
 
   return (
     <div>
@@ -15,7 +15,8 @@ const FormInputs = ({ data, handleInputs, inputs, isCheckId }) => {
             onChange={handleInputs}
             value={inputs[data.name]}
           />
-          <button onClick={isCheckId}>중복확인</button>
+
+          {isBtnVaild ? <button onClick={isCheckId}>중복확인</button> : null}
         </dd>
       </dl>
     </div>
