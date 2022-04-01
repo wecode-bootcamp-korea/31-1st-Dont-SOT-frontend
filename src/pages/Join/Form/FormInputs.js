@@ -10,7 +10,7 @@ const FormInputs = ({ data, handleInputs, inputs, isCheckId }) => {
         <dd>
           <input
             name={data.name}
-            type="text"
+            type={data.type}
             placeholder={data.placeholder}
             onChange={handleInputs}
             value={inputs[data.name]}

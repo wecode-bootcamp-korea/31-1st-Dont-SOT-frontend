@@ -23,9 +23,14 @@ const Join = () => {
       [name]: value,
     });
   };
+  // input 값 확인용
+  // console.log(inputs);
 
-  // 아이디 중복 확인
+  // submitBtn 구현
   const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
+
+  // 아이디 중복 확인 버튼
+  const [handleDupId, setHandleDupId] = useState(false);
 
   const isCheckId = e => {
     e.preventDefault();
@@ -38,16 +43,10 @@ const Join = () => {
       .then(result => {
         if (result.message === 'SUCCESS') {
           alert('사용가능한 아이디 입니다.');
-          setHandleSubmitBtn(false);
-        } else if (result.message === 'REGISTERED_USERNAME') {
-          alert('이미 사용중인 아이디 입니다.');
-          setHandleSubmitBtn(true);
-        } else if (result.message === 'INVALID_EMAIL_FORM') {
-          alert('이메일 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(true);
-        } else {
-          alert('사용 불가능한 아이디 입니다.');
-          setHandleSubmitBtn(true);
+          setHandleDupId(false);
+        } else if (result.message === 'INVALID_ID_FORM') {
+          alert('아이디 형식이 맞지 않습니다.');
+          setHandleDupId(true);
         }
       });
   };
@@ -65,12 +64,29 @@ const Join = () => {
     })
       .then(res => res.json())
       .then(result => {
-        if (result.message === 'REGISTERED_EMAIL') {
-          alert('이메일이 중복입니다');
-        }
-        if (result.status === 200) {
-          alert('회원가입이 완료되었습니다.');
-          navigate('/menu');
+        if (result.message === 'SUCCESS') {
+          alert('사용가능한 아이디 입니다.');
+          setHandleSubmitBtn(false);
+        } else if (result.message === 'INVALID_ID_FORM') {
+          alert('아이디 형식이 맞지 않습니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'REGISTERED_USERNAME') {
+          alert('이미 사용중인 아이디 입니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'INVALID_PASSWORD_FORM') {
+          alert('비밀번호 형식이 맞지 않습니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'INVALID_EMAIL_FORM') {
+          alert('이메일 형식이 맞지 않습니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'REGISTERED_EMAIL') {
+          alert('이미 사용중인 이메일 입니다.');
+          setHandleSubmitBtn(true);
+        } else if (result.message === 'KEY_ERROR') {
+          alert('모든 정보가 들어오지 않았습니다.');
+          setHandleSubmitBtn(true);
+        } else if (handleDupId === true) {
+          alert('아이디 중복 버튼을 클릭해주세요');
         }
       });
   };

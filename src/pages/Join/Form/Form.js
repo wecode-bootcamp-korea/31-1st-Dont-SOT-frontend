@@ -3,7 +3,6 @@ import FormInputs from './FormInputs';
 import { FORM_LIST } from './JoinFormData';
 
 const Form = ({ handleInputs, inputs, isCheckId }) => {
-  console.log(FORM_LIST);
   return (
     <div>
       {FORM_LIST.map(item => {
