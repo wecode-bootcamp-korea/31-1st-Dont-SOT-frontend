@@ -5,7 +5,7 @@ import './best.scss';
 const Best = ({ bestRef }) => {
   const [bestCount, setBestCount] = useState(1);
   const [bestList, setBestList] = useState([]);
-  const [isDisabled, setDisabled] = useState(false);
+  const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/bestData.json', {
@@ -22,9 +22,9 @@ const Best = ({ bestRef }) => {
     bestRef.current.style.transform = `translateX(-${1200 * bestCount}px)`;
     if (0 === bestCount) {
       setBestCount(1);
-      setDisabled(false);
+      setButtonActive(false);
     } else {
-      setDisabled(true);
+      setButtonActive(true);
     }
   };
 
@@ -33,9 +33,9 @@ const Best = ({ bestRef }) => {
     bestRef.current.style.transform = `translateX(-${1200 * bestCount}px)`;
     if (bestList.length % 4 <= bestCount) {
       setBestCount(bestCount - 1);
-      setDisabled(true);
+      setButtonActive(true);
     } else {
-      setDisabled(false);
+      setButtonActive(false);
     }
   };
 
@@ -53,7 +53,7 @@ const Best = ({ bestRef }) => {
         <button
           type="button"
           onClick={handleBestDecrease}
-          disabled={isDisabled ? false : true}
+          disabled={buttonActive ? false : true}
           className="btnPrev"
         >
           이전
@@ -61,7 +61,7 @@ const Best = ({ bestRef }) => {
         <button
           type="button"
           onClick={handleBestIncrease}
-          disabled={isDisabled ? true : false}
+          disabled={buttonActive ? true : false}
           className="btnNext"
         >
           다음
