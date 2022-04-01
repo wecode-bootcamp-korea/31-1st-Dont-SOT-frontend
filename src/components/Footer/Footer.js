@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FOOTER_DATA from './footerData';
 import FooterLi from './footerLi/footerLi';
+import FOOTER_DATA from './footerData';
 import '../Footer/Footer.scss';
 
 const Footer = () => {
