@@ -26,15 +26,30 @@ const Join = () => {
   // input 값 확인용
   // console.log(inputs);
 
-  // submitBtn 구현
-  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
+  // 유효성 검사
+  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false); // 회원가입 버튼
+  const [handleDupId, setHandleDupId] = useState(false); // 아이디 중복 확인 버튼
 
-  // 아이디 중복 확인 버튼
-  const [handleDupId, setHandleDupId] = useState(false);
+  // 오류메세지 상태 저장
+  const [nameMessage, setNameMessage] = useState(''); // 형식 message
+  const [emailMessage, setEmailMessage] = useState(''); // 형식 message
+
+  // const renderFeedBackMessage = () => {
+  //   if (!doesEmailCheck) {
+  //     return <div className="isNotOkey">이메일형식이 맞지 않습니다.</div>;
+  //   } else {
+  //     return <div className="isOkey">이메일형식이 맞습니다!!!</div>;
+  //   }
+  // };
+
+  // const doesIdCheck = () => {
+  //   const idCheck = '^[A-Za-z]{1}[A-Za-z0-9]{6,19}$';
+  // };
 
   const isCheckId = e => {
     e.preventDefault();
-    fetch('http://10.58.3.205:8000/users/signup/idcheck', {
+
+    fetch('http://10.58.6.239:8000/users/signup/idcheck', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: inputs.id }),
@@ -44,6 +59,9 @@ const Join = () => {
         if (result.message === 'SUCCESS') {
           alert('사용가능한 아이디 입니다.');
           setHandleDupId(false);
+        } else if (result.message === 'REGISTERED_USERNAME') {
+          alert('이미 사용중인 아이디 입니다.');
+          setHandleDupId(true);
         } else if (result.message === 'INVALID_ID_FORM') {
           alert('아이디 형식이 맞지 않습니다.');
           setHandleDupId(true);
@@ -51,9 +69,15 @@ const Join = () => {
       });
   };
 
+  // 빈 공백 제거
+  const { id, pw, repw, name, email } = useState(inputs);
+  const isEmptyValueError =
+    (inputs.id && inputs.pw && inputs.repw && inputs.name && inputs.email)
+      .length === 0;
+
   // 회원가입 API 붙이기
   const gotoMain = () => {
-    fetch('http://10.58.3.205:8000/users/signup', {
+    fetch('http://10.58.6.239:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: inputs.id,
@@ -65,8 +89,11 @@ const Join = () => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'SUCCESS') {
-          alert('사용가능한 아이디 입니다.');
+          alert('회원가입이 완료되었습니다.');
+          navigate('/menu');
           setHandleSubmitBtn(false);
+        } else if (handleDupId === true) {
+          alert('아이디 중복 버튼을 클릭해주세요');
         } else if (result.message === 'INVALID_ID_FORM') {
           alert('아이디 형식이 맞지 않습니다.');
           setHandleSubmitBtn(true);
@@ -82,11 +109,6 @@ const Join = () => {
         } else if (result.message === 'REGISTERED_EMAIL') {
           alert('이미 사용중인 이메일 입니다.');
           setHandleSubmitBtn(true);
-        } else if (result.message === 'KEY_ERROR') {
-          alert('모든 정보가 들어오지 않았습니다.');
-          setHandleSubmitBtn(true);
-        } else if (handleDupId === true) {
-          alert('아이디 중복 버튼을 클릭해주세요');
         }
       });
   };
@@ -101,12 +123,9 @@ const Join = () => {
         repw: '',
       });
     }
-    // console.log(e.target.disabled);
   };
 
-  // 빈 공백 제거
-  const { id, pw, repw, name, email } = inputs;
-  const isEmptyValueError = id && pw && repw && name && email !== '';
+  // 조건부 렌더링
 
   return (
     <section className="join inner">
@@ -120,11 +139,12 @@ const Join = () => {
               inputs={inputs}
               handleInputs={handleInputs}
             />
+
             <div className="formSubmit">
               <button
                 onClick={gotoMain}
-                className={isEmptyValueError ? 'active' : null}
-                disabled={!isEmptyValueError && setHandleSubmitBtn === true}
+                className={!isEmptyValueError ? 'active' : null}
+                disabled={isEmptyValueError}
                 type="submit"
               >
                 가입하기
