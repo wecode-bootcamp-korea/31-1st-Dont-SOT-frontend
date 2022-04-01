@@ -74,6 +74,7 @@ const Login = () => {
             <button
               type="button"
               className={isVaild ? 'active' : null}
+              disabled={!isVaild}
               onClick={gotoMain}
             >
               로그인
