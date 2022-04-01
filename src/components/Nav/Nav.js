@@ -28,8 +28,9 @@ const Nav = () => {
       window.removeEventListener('scroll', scrollFixed);
     };
   });
+
   return (
-    <div className={'nav' + (scrollActive ? ' fixed' : '')}>
+    <div className={`nav${scrollActive ? ' fixed' : ''}`}>
       <ul className="navUtil inner">
         <li>로그인</li>
         <li>회원가입</li>

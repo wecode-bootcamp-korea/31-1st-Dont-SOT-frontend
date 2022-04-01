@@ -1,14 +1,14 @@
 import React from 'react';
-import NavItem from './NavItem';
 
-const NavList = props => {
-  const { category, list } = props;
+const NavList = ({ category, list }) => {
   return (
     <li className="navList">
       <p className="listTitle bold">{category}</p>
       <ul className="listWrap">
         {list.map(item => (
-          <NavItem key={item.id} {...item} />
+          <li className="list" key={item.id}>
+            {item.data}
+          </li>
         ))}
       </ul>
     </li>

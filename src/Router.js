@@ -10,12 +10,12 @@ import Nav from './components/Nav/Nav';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/nav" element={<Nav />} />
       </Routes>
     </BrowserRouter>
   );
