@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../Main/Main.scss';
-import Slide from './Slide/Slide';
-import Pagination from './Slide/Pagination';
 import Best from './ItemList/Best';
+import Slide from './Slide/Slide';
 
 const Main = () => {
   const slideRef = useRef();
@@ -45,31 +44,20 @@ const Main = () => {
     }
   };
 
-  const countHandle = number => {
+  const handleCount = number => {
     setCount(number);
   };
 
   return (
     <main className="main">
       <div className="mainSlide">
-        <ul ref={slideRef} className="slideWrap">
-          {slideList.map(slide => (
-            <Slide key={slide.id} {...slide} />
-          ))}
-        </ul>
-        <div className="inner">
-          <div className="pagination">
-            {slideList.map(button => (
-              <Pagination
-                key={button.id}
-                {...button}
-                count={count}
-                countHandle={countHandle}
-                handleSlider={handleSlider}
-              />
-            ))}
-          </div>
-        </div>
+        <Slide
+          slideRef={slideRef}
+          count={count}
+          slideList={slideList}
+          handleCount={handleCount}
+          handleSlider={handleSlider}
+        />
       </div>
       <div className="inner itemWrap">
         <Best bestRef={bestRef} />
