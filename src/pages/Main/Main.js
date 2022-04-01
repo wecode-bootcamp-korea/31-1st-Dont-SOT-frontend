@@ -5,13 +5,10 @@ import Slide from './Slide';
 import Pagination from './Pagination';
 import Best from './ItemList/Best';
 import BEST_LIST from './bestData';
-import MD_LIST from './mdData';
-import MdChoice from './ItemList/MdChoice';
 
 const Main = () => {
   const slideRef = useRef();
   const bestRef = useRef();
-  const mdRef = useRef();
   const [count, setCount] = useState(1);
   const [bestCount, setBestCount] = useState(1);
   const [isDisabled, setDisabled] = useState(false);
