@@ -42,8 +42,8 @@ const Footer = () => {
           </p>
         </div>
         <div className="sns">
-          <a className="footerInsta" href="/" />
-          <a className="footerFace" href="/" />
+          <a className="footerInsta" href="#" />
+          <a className="footerFace" href="#" />
         </div>
       </div>
     </footer>
