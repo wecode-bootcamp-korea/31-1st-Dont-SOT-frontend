@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Products from './pages/Menu/Products';
 import ProductSpec from './pages/Menu/Components/ProductSpec/ProductSpec';
+import MenuSpec from './pages/Menu/MenuList/MenuSpec';
 
 const Router = () => {
   return (
@@ -14,8 +15,9 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductSpec />} />
+        <Route path="/products/all" element={<Products />} />
+        <Route path="/products/all/category_id=:id" element={<MenuSpec />} />
+        <Route path="/products/detail/:id" element={<ProductSpec />} />
       </Routes>
     </BrowserRouter>
   );

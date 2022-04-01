@@ -6,9 +6,14 @@ const CategoryList = props => {
   return (
     <li className="child">
       {categoryList &&
-        categoryList.map((category, idx) => {
+        categoryList.map(category => {
           return (
-            <Item key={category.id} categoryItem={category.categoryItem} />
+            <Item
+              key={category.id}
+              id={category.id}
+              categoryItem={category.categoryItem}
+              parameter={category.parameter}
+            />
           );
         })}
     </li>

@@ -1,23 +1,28 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Card from '../Components/Card/Card';
 
 const MenuBox = props => {
-  const { category, categoryList } = props;
+  const { name, category } = props;
+  // console.log(name, category);
+
   return (
     <article className="listWrap">
-      {categoryList.map(data => {
-        return (
-          <>
-            <div className="header" key={data.id}>
-              <p className="cateTitle">{category}</p>
-              <h3 className="cateTitleItem">{data.miniCategory}</h3>
+      {category &&
+        category.map(data => {
+          // console.log(category);
+          return (
+            <div key={data.id}>
+              <div className="header">
+                <p className="cateTitle">{name}</p>
+                <h3 className="cateTitleItem">{data.name}</h3>
+              </div>
+              <ul className="menulistBox">
+                <Card contents={data.products} />
+              </ul>
             </div>
-            <ul className="menulistBox">
-              <Card contents={data.contents} />
-            </ul>
-          </>
-        );
-      })}
+          );
+        })}
     </article>
   );
 };
