@@ -4,4 +4,18 @@
   @include contentCenter;
   width: 920px;
   overflow: hidden;
+
+  .priceArea {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .widtharea {
+    width: 80%;
+  }
+
+  .right {
+    margin-right: 50px;
+  }
 }
