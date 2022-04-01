@@ -8,7 +8,7 @@ const Cart = () => {
       <ul>
         <CartList />
       </ul>
-      <div className="total">
+      <div className="total inner">
         <div className="totalPrice">
           <div className="allPrice" />
           <h3>결제금액</h3>
