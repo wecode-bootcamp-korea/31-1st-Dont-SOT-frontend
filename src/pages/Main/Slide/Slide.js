@@ -1,8 +1,6 @@
 import React from 'react';
-
-const Slide = props => {
-  const { id, src } = props;
-
+import './slide.scss';
+const Slide = ({ id, src }) => {
   return (
     <li id={id}>
       <img src={src} alt="" />

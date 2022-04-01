@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Pagination = props => {
-  const { id, text, count, handleSlider } = props;
-
+const Pagination = ({ id, text, count, handleSlider }) => {
   return (
     <button
       type="button"
