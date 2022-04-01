@@ -30,21 +30,31 @@
     .CounterButton {
       position: absolute;
       right: -5px;
+      width: 81px;
+      height: 30px;
       border: $borderBlack;
       border-radius: 3px;
 
       .minusButton {
-        width: 20px;
-        background-image: url('../../../assets/images/free-icon-minus-7182122.png');
+        height: 30px;
+        width: 30px;
+        background-image: url('../../../assets/images/free-icon-minus-7182122.png')
+          no-repeat;
       }
 
       .count {
-        width: 30px;
+        width: 26px;
+        margin-right: -9px;
+        border: none;
+        background-color: transparent;
       }
 
       .plusButton {
-        width: 20px;
-        background-image: url('../../../assets/images/premium-icon-add-3502449.png');
+        width: 30px;
+        height: 30px;
+        padding-bottom: 4px;
+        background-image: url('../../../assets/images/premium-icon-add-3502449.png')
+          no-repeat;
       }
     }
   }
