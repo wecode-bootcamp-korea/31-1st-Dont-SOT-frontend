@@ -1,15 +1,14 @@
-import { isValidDateValue } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
+  const navigate = useNavigate();
   // 로그인 input 값 받기
   let [inputs, setInputs] = useState({
     id: '',
     pw: '',
   });
-  console.log(inputs);
 
   const handleInputs = e => {
     const { name, value } = e.target;
@@ -24,23 +23,22 @@ const Login = () => {
 
   // 로그인 인증 & 인가
   const gotoMain = () => {
-    fetch('http://10.58.4.129:8000/users/signin', {
+    fetch('http://10.58.7.71:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        email: inputs.id,
+        username: inputs.id,
         password: inputs.pw,
       }),
     })
-      .then(response => response.json())
+      .then(res => res.json())
       .then(result => {
-        if (result.token !== undefined) {
+        if (result.token) {
           alert('로그인 성공');
-          localStorage.getItem(`token`, result.token);
-          Navigate('/menu');
+          localStorage.setItem('token', result.token);
+          navigate('/menu');
         } else {
           alert('로그인 실패');
         }
-        console.log('결과: ', result);
       });
   };
 
@@ -70,10 +68,14 @@ const Login = () => {
                 아이디 저장
               </div>
               <span>
-                <Link to="#">아이디/비밀번호 찾기</Link>
+                <Link to="/join">아이디/비밀번호 찾기</Link>
               </span>
             </div>
-            <button className={isVaild ? 'active' : null} onClick={gotoMain}>
+            <button
+              type="button"
+              className={isVaild ? 'active' : null}
+              onClick={gotoMain}
+            >
               로그인
             </button>
           </form>
