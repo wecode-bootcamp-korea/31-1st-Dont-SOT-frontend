@@ -1,0 +1,190 @@
+[
+  {
+    "id":1
+  
+          },
+          {
+            “id”: 2,
+            “menuName”: “두입 불족발 도시락“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 3,
+            “menuName”: “토네이도 소세지 팟흐타“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          },
+          {
+            “id”: 4,
+            “menuName”: “트리플 치즈 파스타“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,500"
+          },
+          {
+            “id”: 5,
+            “menuName”: “토마토 미트 파스타“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “4,500"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    “id”: 2,
+    “category”: “프리미엄고메이“,
+    “categoryList”: [
+      {
+        “id”: 1,
+        “miniCategory”: “프리미엄“,
+        “contents”: [
+          {
+            “id”: 6,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 7,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 8,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          },
+          {
+            “id”: 9,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    “id”: 3,
+    “category”: “사각도시락“,
+    “categoryList”: [
+      {
+        “id”: 1,
+        “miniCategory”: “고기고기시리즈“,
+        “contents”: [
+          {
+            “id”: 10,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 11,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 12,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          },
+          {
+            “id”: 13,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          }
+        ]
+      },
+      {
+        “id”: 2,
+        “miniCategory”: “모둠시리즈“,
+        “contents”: [
+          {
+            “id”: 14,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 15,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 16,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          },
+          {
+            “id”: 17,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 18,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 19,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          }
+        ]
+      },
+      {
+        “id”: 3,
+        “miniCategory”: “정식시리즈“,
+        “contents”: [
+          {
+            “id”: 20,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 21,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 22,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          },
+          {
+            “id”: 23,
+            “menuName”: “돈까스도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “5,800"
+          },
+          {
+            “id”: 24,
+            “menuName”: “탕수육도련님“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,800"
+          },
+          {
+            “id”: 25,
+            “menuName”: “새치고기고기“,
+            “images”: “/images/fooditem.jpg”,
+            “price”: “6,200"
+          }
+        ]
+      }
+    ]
+  }
+]
