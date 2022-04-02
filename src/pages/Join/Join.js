@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from './Form/Form';
-import { FORM_LIST } from './Form/JoinFormData';
 import '../Join/Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
 
-  // 데이터 인풋값 받기
-  let [inputs, setInputs] = useState({
+  const [joinInputs, setJoinInputs] = useState({
     id: '',
     pw: '',
     repw: '',
@@ -16,43 +14,24 @@ const Join = () => {
     email: '',
   });
 
-  const handleInputs = e => {
+  const handleJoinInputs = e => {
     const { name, value } = e.target;
-    setInputs({
-      ...inputs,
+    setJoinInputs({
+      ...joinInputs,
       [name]: value,
     });
   };
-  // input 값 확인용
-  // console.log(inputs);
 
-  // 유효성 검사
-  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false); // 회원가입 버튼
-  const [handleDupId, setHandleDupId] = useState(false); // 아이디 중복 확인 버튼
+  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
+  const [handleDupId, setHandleDupId] = useState(false);
 
-  // 오류메세지 상태 저장
-  const [nameMessage, setNameMessage] = useState(''); // 형식 message
-  const [emailMessage, setEmailMessage] = useState(''); // 형식 message
-
-  // const renderFeedBackMessage = () => {
-  //   if (!doesEmailCheck) {
-  //     return <div className="isNotOkey">이메일형식이 맞지 않습니다.</div>;
-  //   } else {
-  //     return <div className="isOkey">이메일형식이 맞습니다!!!</div>;
-  //   }
-  // };
-
-  // const doesIdCheck = () => {
-  //   const idCheck = '^[A-Za-z]{1}[A-Za-z0-9]{6,19}$';
-  // };
-
-  const isCheckId = e => {
+  const checkId = e => {
     e.preventDefault();
 
     fetch('http://10.58.6.239:8000/users/signup/idcheck', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: inputs.id }),
+      body: JSON.stringify({ username: joinInputs.id }),
     })
       .then(response => response.json())
       .then(result => {
@@ -69,21 +48,23 @@ const Join = () => {
       });
   };
 
-  // 빈 공백 제거
-  const { id, pw, repw, name, email } = useState(inputs);
   const isEmptyValueError =
-    (inputs.id && inputs.pw && inputs.repw && inputs.name && inputs.email)
-      .length === 0;
+    (
+      joinInputs.id &&
+      joinInputs.pw &&
+      joinInputs.repw &&
+      joinInputs.name &&
+      joinInputs.email
+    ).length === 0;
 
-  // 회원가입 API 붙이기
   const gotoMain = () => {
     fetch('http://10.58.6.239:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        username: inputs.id,
-        email: inputs.email,
-        password: inputs.pw,
-        name: inputs.name,
+        username: joinInputs.id,
+        email: joinInputs.email,
+        password: joinInputs.pw,
+        name: joinInputs.name,
       }),
     })
       .then(res => res.json())
@@ -113,19 +94,16 @@ const Join = () => {
       });
   };
 
-  // 비밀번호 확인 기능 구현
   const onSubmit = e => {
     e.preventDefault();
-    if (inputs.pw !== inputs.repw) {
+    if (joinInputs.pw !== joinInputs.repw) {
       alert('비밀번호와 비밀번호 확인이 같아야합니다.');
-      setInputs({
-        ...inputs,
+      setJoinInputs({
+        ...joinInputs,
         repw: '',
       });
     }
   };
-
-  // 조건부 렌더링
 
   return (
     <section className="join inner">
@@ -135,9 +113,9 @@ const Join = () => {
           <p>필수입력사항</p>
           <form onSubmit={onSubmit}>
             <Form
-              isCheckId={isCheckId}
-              inputs={inputs}
-              handleInputs={handleInputs}
+              checkId={checkId}
+              joinInputs={joinInputs}
+              handleJoinInputs={handleJoinInputs}
             />
 
             <div className="formSubmit">
