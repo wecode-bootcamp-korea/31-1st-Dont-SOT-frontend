@@ -1,70 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import CartList from './CartItem/CartItem';
-import CartFooter from './CartFooter/CartFooter';
 import '../Cart/Cart.scss';
 
 const Cart = () => {
-  const [count, setCount] = useState(0);
-  const [list, setList] = useState([]);
-  const [validation, setValidation] = useState(false);
-  const token = [localStorage.getItem('token')];
+  const [cartList, setCartList] = useState([]);
+  const [preTotal, setPreTotal] = useState([]);
+  const [cartTotal, setCartTotal] = useState(3000);
 
+  console.log(preTotal);
+  // const [item , setItem]=useState()
+  // const [validation, setValidation] = useState(false);
+  // const token = [localStorage.getItem('token')];
+  // console.log(preTotal);
   useEffect(() => {
-    if (!token) {
-      setValidation(true);
-    }
+    // if (!token) {
+    //   setValidation(true);
+    // }
 
-    fetch(api, {
-      headers: {
-        method: 'GET',
-        Authorization: token,
-      },
+    fetch('http://localhost:3001/data/cartData.json', {
+      // headers: {
+      //   method: 'GET',
+      //   Authorization: token,
+      // },
+      method: 'GET',
     })
       .then(res => res.json())
-      .then(data => setList(data)
-  });
-
-  function click() {
-    setCount(count + 1);
-  }
-
-  const CARTDATA_LIST = [
-    {
-      id: 1,
-      data: '총 결제 금액',
-      price: '20000',
-      unit: '원',
-    },
-    {
-      id: 2,
-      data: '배송비',
-      price: '10000',
-      unit: '원',
-    },
-  ];
+      .then(data => setCartList(data));
+  }, []);
 
   return (
     <div className="cart">
+      <div className="cartHead bold">
+        <h2>장바구니</h2>
+      </div>
       <ul>
-        <CartList />
-      </ul>
-      <div className="allPrice" />
-      <h3 className="">결제금액</h3>
-      <div>
-        {CARTDATA_LIST.map(list => {
+        {cartList.map(list => {
           return (
-            <CartFooter
+            <CartList
               id={list.id}
               key={list.id}
-              data={list.data}
               price={list.price}
-              unit={list.unit}
+              option={list.option}
+              // updatePrice={updatePrice}
             />
           );
         })}
+      </ul>
+      <h3 className="priceHead">결제금액</h3>
+      <div className="priceArea">
+        <p className="widtharea">총 결제 금액</p>
+        <div className="right">
+          <span className="allpriceRight bold">총금액</span>
+          <span>원</span>
+        </div>
+      </div>
+      <div>
+        <div className="priceArea">
+          <p className="widtharea">배송비</p>
+          <div className="right">
+            <span>3000</span>
+            <span>원</span>
+          </div>
+        </div>
       </div>
       <div className="priceArea">
-        <h2 className="widtharea">전체 주문 금액</h2>
+        <h2 className="widtharea last">전체 주문 금액</h2>
         <div className="right">
           <span className="bold">배송비합총액</span>
           <span>원</span>

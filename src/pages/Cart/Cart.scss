@@ -5,6 +5,15 @@
   width: 920px;
   overflow: hidden;
 
+  .cartHead {
+    margin: 20px;
+    text-align: center;
+  }
+
+  .priceHead {
+    margin: 30px 0;
+  }
+
   .priceArea {
     display: flex;
     justify-content: space-between;
@@ -17,5 +26,9 @@
 
   .right {
     margin-right: 50px;
+  }
+
+  .last {
+    margin-bottom: 50px;
   }
 }
