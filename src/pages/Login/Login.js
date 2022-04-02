@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
-import API from '../../config';
+// import API from '../../config';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,25 +22,25 @@ const Login = () => {
 
   const isLoginVaild = loginInputs.id && loginInputs.pw !== '';
 
-  const gotoMain = () => {
-    fetch(`${API.Login}`, {
-      method: 'POST',
-      body: JSON.stringify({
-        username: loginInputs.id,
-        password: loginInputs.pw,
-      }),
-    })
-      .then(res => res.json())
-      .then(result => {
-        if (result.token) {
-          alert('로그인 성공');
-          localStorage.setItem('token', result.token);
-          navigate('/menu');
-        } else {
-          alert('로그인 실패');
-        }
-      });
-  };
+  // const gotoMain = () => {
+  //   fetch(`${API.Login}`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       username: loginInputs.id,
+  //       password: loginInputs.pw,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       if (result.token) {
+  //         alert('로그인 성공');
+  //         localStorage.setItem('token', result.token);
+  //         navigate('/menu');
+  //       } else {
+  //         alert('로그인 실패');
+  //       }
+  //     });
+  // };
 
   return (
     <section className="login">
@@ -77,7 +77,7 @@ const Login = () => {
               type="button"
               className={isLoginVaild ? 'active' : null}
               disabled={!isLoginVaild}
-              onClick={gotoMain}
+              // onClick={gotoMain}
             >
               로그인
             </button>
