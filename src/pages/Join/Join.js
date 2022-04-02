@@ -58,7 +58,8 @@ const Join = () => {
     ).length === 0;
 
   const gotoMain = () => {
-    fetch('http://10.58.6.239:8000/users/signup', {
+    console.log('된다');
+    /*fetch('http://10.58.6.239:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         username: joinInputs.id,
@@ -92,6 +93,7 @@ const Join = () => {
           setHandleSubmitBtn(true);
         }
       });
+      */
   };
 
   const onSubmit = e => {
@@ -104,6 +106,7 @@ const Join = () => {
       });
     }
   };
+  console.log(handleSubmitBtn);
 
   return (
     <section className="join inner">
@@ -122,7 +125,7 @@ const Join = () => {
               <button
                 onClick={gotoMain}
                 className={!isEmptyValueError ? 'active' : null}
-                disabled={isEmptyValueError}
+                disabled={isEmptyValueError || !handleSubmitBtn}
                 type="submit"
               >
                 가입하기
