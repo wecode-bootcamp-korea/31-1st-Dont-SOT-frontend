@@ -20,27 +20,30 @@ const Login = () => {
     });
   };
 
-  const isLoginVaild = loginInputs.id && loginInputs.pw !== '';
+  const isLoginVaild = loginInputs.idValue && loginInputs.pwValue !== '';
 
-  // const gotoMain = () => {
-  //   fetch(`${API.Login}`, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       username: loginInputs.id,
-  //       password: loginInputs.pw,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       if (result.token) {
-  //         alert('로그인 성공');
-  //         localStorage.setItem('token', result.token);
-  //         navigate('/menu');
-  //       } else {
-  //         alert('로그인 실패');
-  //       }
-  //     });
-  // };
+  /*
+  const gotoMain = () => {
+    fetch(`${API.Login}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        username: loginInputs.idValue,
+        password: loginInputs.pwValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        if (result.token) {
+          alert('로그인 성공');
+          localStorage.setItem('token', result.token);
+          navigate('/menu');
+        } else {
+          alert('로그인 실패');
+        }
+      });
+  };
+  */
 
   return (
     <section className="login">
@@ -51,18 +54,18 @@ const Login = () => {
             <input
               className="loginInput"
               type="text"
-              name="id"
+              name="idValue"
               placeholder="아이디"
               onChange={handleInputs}
-              value={loginInputs.id}
+              value={loginInputs.idValue}
             />
             <input
               className="pwInput"
               type="password"
-              name="pw"
+              name="pwValue"
               placeholder="비밀번호"
               onChange={handleInputs}
-              value={loginInputs.pw}
+              value={loginInputs.pwValue}
             />
             <div className="loginCheck">
               <div className="loginCheckBox">
