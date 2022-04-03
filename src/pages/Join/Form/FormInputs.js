@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const FormInputs = ({ data, handleJoinInputs, joinInputs, checkId }) => {
   const isBtnVaild = data.title === '아이디';

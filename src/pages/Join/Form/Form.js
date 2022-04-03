@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormInputs from './FormInputs';
 import { FORM_LIST } from './JoinFormData';
 

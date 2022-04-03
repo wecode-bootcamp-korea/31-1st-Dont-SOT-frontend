@@ -5,7 +5,6 @@ import '../Join/Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
-
   const [joinInputs, setJoinInputs] = useState({
     id: '',
     pw: '',
@@ -28,7 +27,7 @@ const Join = () => {
   const checkId = e => {
     e.preventDefault();
 
-    fetch('http://10.58.6.239:8000/users/signup/idcheck', {
+    fetch(`${API.JoinId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: joinInputs.id }),
@@ -58,8 +57,7 @@ const Join = () => {
     ).length === 0;
 
   const gotoMain = () => {
-    console.log('된다');
-    /*fetch('http://10.58.6.239:8000/users/signup', {
+    fetch(`${API.Join}`, {
       method: 'POST',
       body: JSON.stringify({
         username: joinInputs.id,
@@ -93,7 +91,6 @@ const Join = () => {
           setHandleSubmitBtn(true);
         }
       });
-      */
   };
 
   const onSubmit = e => {
@@ -106,7 +103,6 @@ const Join = () => {
       });
     }
   };
-  console.log(handleSubmitBtn);
 
   return (
     <section className="join inner">
