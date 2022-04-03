@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Nav.scss';
 import './navData';
 import NAV_LIST from './navData';
-import NavList from './NavList';
 
 const Nav = () => {
   const [navActive, setNavActive] = useState(false);
@@ -47,14 +46,27 @@ const Nav = () => {
       >
         <h1 className="logo">로고이미지</h1>
         <ul
-          className={'navListWrap' + (navActive ? ' active' : '')}
+          className={`navListWrap${navActive ? ' active' : ''}`}
           onMouseEnter={() => {
             setNavActive(true);
           }}
         >
-          {NAV_LIST.map(list => (
-            <NavList key={list.id} {...list} />
-          ))}
+          {NAV_LIST.map(item => {
+            return (
+              <li className="navList" key={item.id}>
+                <p className="listTitle bold">{item.category}</p>
+                <ul className="listWrap">
+                  {item.list.map(list => {
+                    return (
+                      <li className="list" key={list.id}>
+                        {list.data}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          })}
         </ul>
         <div className="dim" />
       </div>
