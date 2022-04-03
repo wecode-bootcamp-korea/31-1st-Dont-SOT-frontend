@@ -32,7 +32,6 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         if (result.token) {
           alert('로그인 성공');
           localStorage.setItem('token', result.token);
