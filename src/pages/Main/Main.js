@@ -5,22 +5,20 @@ import Slide from './Slide/Slide';
 
 const Main = () => {
   const slideRef = useRef();
-  const bestRef = useRef();
   const [count, setCount] = useState(1);
   const [slideList, setSlideList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/slideData.json', {
-      method: 'GET',
-    })
+    fetch('/data/slideData.json')
       .then(res => res.json())
       .then(data => {
         setSlideList(data);
       });
   });
+
   useEffect(() => {
     const interval = setTimeout(() => {
-      setCount(countValue => {
+      setCount(() => {
         if (count < slideList.length) {
           setCount(count + 1);
         } else {
@@ -60,7 +58,7 @@ const Main = () => {
         />
       </div>
       <div className="inner itemWrap">
-        <Best bestRef={bestRef} />
+        <Best />
       </div>
     </main>
   );

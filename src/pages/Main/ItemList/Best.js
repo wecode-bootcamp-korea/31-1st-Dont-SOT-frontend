@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import BestItemList from './BestItemList';
+import React, { useEffect, useState, useRef } from 'react';
 import './best.scss';
 
-const Best = ({ bestRef }) => {
+const Best = () => {
+  const bestRef = useRef();
   const [bestCount, setBestCount] = useState(1);
   const [bestList, setBestList] = useState([]);
   const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/bestData.json', {
+    fetch('/data/bestData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -44,16 +44,26 @@ const Best = ({ bestRef }) => {
       <div className="bestItem">
         <p className="itemTitle">베스트 메뉴</p>
         <ul ref={bestRef} className="itemList clear">
-          {bestList.map(best => (
-            <BestItemList key={best.id} {...best} />
-          ))}
+          {bestList.map(best => {
+            return (
+              <li key={best.id}>
+                <div className="imgWrap">
+                  <img src={best.src} alt={best.title} />
+                </div>
+                <dl className="textWrap">
+                  <dt>{best.title}</dt>
+                  <dd>{best.price}</dd>
+                </dl>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="buttonWrap">
         <button
           type="button"
           onClick={handleBestDecrease}
-          disabled={buttonActive ? false : true}
+          disabled={!buttonActive}
           className="btnPrev"
         >
           이전
@@ -61,7 +71,7 @@ const Best = ({ bestRef }) => {
         <button
           type="button"
           onClick={handleBestIncrease}
-          disabled={buttonActive ? true : false}
+          disabled={buttonActive}
           className="btnNext"
         >
           다음
