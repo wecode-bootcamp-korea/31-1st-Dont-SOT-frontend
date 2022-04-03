@@ -3,6 +3,7 @@ const API = {
   Login: `${BASE_URL}/users/signin`,
   Join: `${BASE_URL}/users/signin/signup`,
   LoginCheck: `${BASE_URL}/users/signin/idcheck`,
+  MenuList: `${BASE_URL}/products/`,
 };
 
 export default API;
