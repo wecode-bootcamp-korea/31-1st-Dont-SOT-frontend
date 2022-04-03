@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.scss';
-// import API from '../../config';
+import API from '../../config';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +22,6 @@ const Login = () => {
 
   const isLoginVaild = loginInputs.idValue && loginInputs.pwValue !== '';
 
-  /*
   const gotoMain = () => {
     fetch(`${API.Login}`, {
       method: 'POST',
@@ -43,7 +42,6 @@ const Login = () => {
         }
       });
   };
-  */
 
   return (
     <section className="login">
@@ -80,7 +78,7 @@ const Login = () => {
               type="button"
               className={isLoginVaild ? 'active' : null}
               disabled={!isLoginVaild}
-              // onClick={gotoMain}
+              onClick={gotoMain}
             >
               로그인
             </button>
