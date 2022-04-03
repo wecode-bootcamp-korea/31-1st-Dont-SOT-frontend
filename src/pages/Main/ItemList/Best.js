@@ -8,9 +8,7 @@ const Best = () => {
   const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
-    fetch('/data/bestData.json', {
-      method: 'GET',
-    })
+    fetch('/data/bestData.json')
       .then(res => res.json())
       .then(data => {
         setBestList(data);
