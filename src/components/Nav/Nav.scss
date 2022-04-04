@@ -1,4 +1,9 @@
 .nav {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   .navUtil {
     display: flex;
     justify-content: right;
@@ -178,6 +183,7 @@
     height: 108px;
     background: #000;
     z-index: 500;
+    transform: translateX(0);
 
     .navWrap {
       background: #000;
