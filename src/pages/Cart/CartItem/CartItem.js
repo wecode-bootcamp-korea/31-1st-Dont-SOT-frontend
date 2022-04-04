@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../CartItem/CartItem.scss';
 
 const CartItem = ({ id, price, option, updatePrice, quantity }) => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(quantity);
   const [prePrice, setPrePrice] = useState(price * quantity);
   // const [preTotal, setPreTotal] = useState([]);
   const handleBtn = e => {
@@ -15,7 +15,7 @@ const CartItem = ({ id, price, option, updatePrice, quantity }) => {
       setCount(count + 1);
       setPrePrice(price + price * count);
       // setPreTotal(preTotal => ({ ...preTotal, [id]: prePrice + price }));
-      updatePrice(prePrice + price);
+      // updatePrice(prePrice + price);
     } else {
       alert('9개까지 주문가능합니다');
     }
