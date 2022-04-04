@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card/Card';
 import { useLocation } from 'react-router-dom';
 
-const MenuBox = props => {
+const MenuBox = () => {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
 
@@ -26,20 +26,18 @@ const MenuBox = props => {
 
   return (
     <article className="listWrap">
-      {category &&
-        category.map(data => {
-          return (
-            <div key={data.id}>
-              <div className="header">
-                <p className="cateTitle">{data.name}</p>
-                <h3 className="cateTitleItem">{data.name}</h3>
-              </div>
-              <ul className="menulistBox">
-                <Card product={product} />
-              </ul>
+      {category.map(data => {
+        return (
+          <div key={data.id}>
+            <div className="header">
+              <h3 className="cateTitleItem">{data.name}</h3>
             </div>
-          );
-        })}
+            <ul className="menulistBox">
+              <Card product={product} />
+            </ul>
+          </div>
+        );
+      })}
     </article>
   );
 };

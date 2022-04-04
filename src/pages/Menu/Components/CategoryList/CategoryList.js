@@ -12,7 +12,6 @@ const CategoryList = props => {
               key={category.id}
               id={category.id}
               categoryItem={category.categoryItem}
-              parameter={category.parameter}
             />
           );
         })}
