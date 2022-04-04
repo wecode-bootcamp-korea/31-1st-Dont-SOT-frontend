@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './Nav.scss';
-import './navData';
+import { useNavigate } from 'react-router-dom';
 import NAV_LIST from './navData';
+import './Nav.scss';
 
 const Nav = () => {
+  const navigate = useNavigate();
   const [navActive, setNavActive] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
 
   const scrollFixed = () => {
-    if (scrollY > 100) {
+    if (scrollY > 30) {
       setScrollY(window.pageYOffset);
       setScrollActive(true);
     } else {
@@ -51,22 +52,22 @@ const Nav = () => {
             setNavActive(true);
           }}
         >
-          {NAV_LIST.map(item => {
-            return (
-              <li className="navList" key={item.id}>
-                <p className="listTitle bold">{item.category}</p>
-                <ul className="listWrap">
-                  {item.list.map(list => {
-                    return (
-                      <li className="list" key={list.id}>
-                        {list.data}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          })}
+          {NAV_LIST.map(item => (
+            <li className="navList" key={item.id}>
+              <p className="listTitle bold">{item.category}</p>
+              <ul className="listWrap">
+                {item.list.map(list => (
+                  <li
+                    className="list"
+                    key={list.id}
+                    onClick={() => navigate(list.path)}
+                  >
+                    {list.data}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
         </ul>
         <div className="dim" />
       </div>
