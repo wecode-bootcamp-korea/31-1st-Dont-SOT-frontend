@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.scss';
 import API from '../../config';
+import './Login.scss';
 
 const Login = () => {
   const navigate = useNavigate();
