@@ -10,6 +10,7 @@ import ProductSpec from './pages/Menu/Components/ProductSpec/ProductSpec';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
