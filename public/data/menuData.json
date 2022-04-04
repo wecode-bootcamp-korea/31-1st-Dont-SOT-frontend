@@ -10,32 +10,249 @@
           {
             "id": 1,
             "name": "두입 족발 도시락",
-            "images": "/images/fooditem.jpg",
-            "price": "5,800"
+            "images": "/images/fooditem.png",
+            "contents": "돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과 소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.",
+            "price": "5,800",
+            "quantity": "872,73",
+            "allegry": {
+              "id": 1,
+              "name": "우유",
+              "stage": "true",
+              "1": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "2": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "3": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "4": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "5": {
+                "name": "우유",
+                "stage": "true"
+              }
+            },
+            "country": {
+              "1": {
+                "name": "숯불직화구이",
+                "from": "스페인산"
+              },
+              "2": {
+                "name": "쌀(백미)",
+                "from": "국내산"
+              },
+              "3": {
+                "name": "배추",
+                "from": "국내산"
+              },
+              "4": {
+                "name": "고춧가루",
+                "from": "국내산"
+              }
+            }
           },
           {
             "id": 2,
             "name": "두입 불족발 도시락",
-            "images": "/images/fooditem.jpg",
-            "price": "6,800"
+            "images": "/images/fooditem.png",
+            "contents": "돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과 소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.",
+            "price": "5,800",
+            "quantity": "872,73",
+            "allegry": {
+              "id": 1,
+              "1": {
+                "name": "난류",
+                "stage": "true"
+              },
+              "2": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "3": {
+                "name": "메밀",
+                "stage": "false"
+              },
+              "4": {
+                "name": "대두",
+                "stage": "true"
+              },
+              "5": {
+                "name": "밀",
+                "stage": "true"
+              }
+            },
+            "country": {
+              "1": {
+                "name": "숯불직화구이",
+                "from": "스페인산"
+              },
+              "2": {
+                "name": "쌀(백미)",
+                "from": "국내산"
+              },
+              "3": {
+                "name": "배추",
+                "from": "국내산"
+              },
+              "4": {
+                "name": "고춧가루",
+                "from": "국내산"
+              }
+            }
           },
           {
             "id": 3,
             "name": "토네이도 소세지 팟흐타",
-            "images": "/images/fooditem.jpg",
-            "price": "6,200"
+            "images": "/images/fooditem.png",
+            "contents": "돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과 소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.",
+            "price": "5,800",
+            "quantity": "872,73",
+            "allegry": {
+              "id": 1,
+              "1": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "2": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "3": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "4": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "5": {
+                "name": "우유",
+                "stage": "true"
+              }
+            },
+            "country": {
+              "1": {
+                "name": "숯불직화구이",
+                "from": "스페인산"
+              },
+              "2": {
+                "name": "쌀(백미)",
+                "from": "국내산"
+              },
+              "3": {
+                "name": "배추",
+                "from": "국내산"
+              },
+              "4": {
+                "name": "고춧가루",
+                "from": "국내산"
+              }
+            }
           },
           {
             "id": 4,
             "name": "트리플 치즈 파스타",
-            "images": "/images/fooditem.jpg",
-            "price": "5,500"
+            "images": "/images/fooditem.png",
+            "contents": "돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과 소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.",
+            "price": "5,800",
+            "quantity": "872,73",
+            "allegry": {
+              "id": 1,
+              "1": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "2": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "3": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "4": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "5": {
+                "name": "우유",
+                "stage": "true"
+              }
+            },
+            "country": {
+              "1": {
+                "name": "숯불직화구이",
+                "from": "스페인산"
+              },
+              "2": {
+                "name": "쌀(백미)",
+                "from": "국내산"
+              },
+              "3": {
+                "name": "배추",
+                "from": "국내산"
+              },
+              "4": {
+                "name": "고춧가루",
+                "from": "국내산"
+              }
+            }
           },
           {
             "id": 5,
             "name": "토마토 미트 파스타",
-            "images": "/images/fooditem.jpg",
-            "price": "4,500"
+            "images": "/images/fooditem.png",
+            "contents": "돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과 소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.",
+            "price": "5,800",
+            "quantity": "872,73",
+            "allegry": {
+              "id": 1,
+              "1": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "2": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "3": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "4": {
+                "name": "우유",
+                "stage": "true"
+              },
+              "5": {
+                "name": "우유",
+                "stage": "true"
+              }
+            },
+            "country": {
+              "1": {
+                "name": "숯불직화구이",
+                "from": "스페인산"
+              },
+              "2": {
+                "name": "쌀(백미)",
+                "from": "국내산"
+              },
+              "3": {
+                "name": "배추",
+                "from": "국내산"
+              },
+              "4": {
+                "name": "고춧가루",
+                "from": "국내산"
+              }
+            }
           }
         ]
       }
@@ -52,25 +269,25 @@
           {
             "id": 6,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 7,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 8,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           },
           {
             "id": 9,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           }
         ]
@@ -89,25 +306,25 @@
           {
             "id": 10,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 11,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 12,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           },
           {
             "id": 13,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           }
         ]
@@ -119,37 +336,37 @@
           {
             "id": 14,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 15,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 16,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           },
           {
             "id": 17,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 18,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 19,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           }
         ]
@@ -161,37 +378,37 @@
           {
             "id": 20,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 21,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 22,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           },
           {
             "id": 23,
             "name": "돈까스도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "5,800"
           },
           {
             "id": 24,
             "name": "탕수육도련님",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,800"
           },
           {
             "id": 25,
             "name": "새치고기고기",
-            "images": "/images/fooditem.jpg",
+            "images": "/images/fooditem.png",
             "price": "6,200"
           }
         ]

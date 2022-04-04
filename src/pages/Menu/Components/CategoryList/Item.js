@@ -1,29 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Item = props => {
-  const { id, categoryItem, parameter } = props;
-  // console.log(id);
+  const { id, categoryItem } = props;
 
-  const params = useParams();
-  console.log(params);
+  const goToSpec = () => {
+    navigate(`/products?menu=${id}&category=${id}`);
+  };
 
   const navigate = useNavigate();
   return (
-    <div
-      className="childItems"
-      onClick={() => {
-        navigate(
-          // `/products/all?category_id=${parameter}`
-          // `/products/detail/${id}`,
-          `/products/all/category_id=${id}`,
-          {
-            state: props,
-          }
-        );
-      }}
-    >
+    <div className="childItems" onClick={goToSpec}>
       {categoryItem}
     </div>
   );

@@ -1,20 +1,15 @@
 import React from 'react';
-import Aside from '../Components/Aside/Aside';
-import MenuList from './MenuList';
+import Aside from './Components/Aside/Aside';
+import MenuList from './MenuList/MenuList';
 import { Link } from 'react-router-dom';
-import '../Products.scss';
-import { useParams } from 'react-router-dom';
+import './Products.scss';
 
 const MenuSpec = () => {
-  const params = useParams();
-  console.log(params);
-
   return (
     <>
       <header className="inner">
         <div>nav</div>
       </header>
-
       <div className="contMenu">
         <section className="contMenuWrap inner">
           <div className="titleBox">
