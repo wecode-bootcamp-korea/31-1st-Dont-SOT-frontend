@@ -4,7 +4,7 @@ import './slide.scss';
 const Slide = ({ count, slideList, slideRef, handleSlider }) => {
   return (
     <>
-      <ul ref={slideRef} className="slideWrap">
+      <ul ref={slideRef} className="slide">
         {slideList.map(slide => (
           <li key={slide.id}>
             <img src={slide.src} alt={slide.alt} />

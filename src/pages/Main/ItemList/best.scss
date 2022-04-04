@@ -1,4 +1,8 @@
-.main {
+.best {
+  position: relative;
+  margin-bottom: 50px;
+  overflow: hidden;
+
   .itemTitle {
     position: relative;
     font-size: 28px;
@@ -45,6 +49,33 @@
           padding-top: 6px;
         }
       }
+    }
+  }
+}
+
+.buttonWrap {
+  text-align: center;
+
+  button {
+    position: absolute;
+    top: 50%;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #000;
+
+    &.btnPrev {
+      left: -60px;
+      background: #fff url(/assets/images/btn_prev.png) no-repeat center center;
+      background-size: 30px;
+      transform: rotate(180deg);
+    }
+
+    &.btnNext {
+      right: -30px;
+      background: #fff url(/assets/images/btn_next.png) no-repeat center center;
+      background-size: 30px;
     }
   }
 }

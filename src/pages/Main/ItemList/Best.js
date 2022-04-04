@@ -39,7 +39,7 @@ const Best = () => {
 
   return (
     <>
-      <div className="bestItem">
+      <div className="best">
         <p className="itemTitle">베스트 메뉴</p>
         <ul ref={bestRef} className="itemList clear">
           {bestList.map(best => {
