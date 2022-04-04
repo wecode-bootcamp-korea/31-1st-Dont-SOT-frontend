@@ -3,35 +3,35 @@
 .join,
 .inner {
   .wrap {
-    width: 640px;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 640px;
+    margin: 0 auto;
 
     .joinForm {
       width: 100%;
-      background-color: #fff;
       padding: 30px;
+      background-color: #fff;
 
       h2 {
-        text-align: center;
-        font-size: 28px;
         padding: 50px 0px;
+        font-size: 28px;
+        text-align: center;
       }
 
       p {
-        text-align: right;
-        border-bottom: 2px solid $subColor;
         padding-bottom: 10px;
+        border-bottom: 2px solid $subColor;
+        text-align: right;
 
         &:before {
           content: '*';
           display: inline-block;
-          background-size: 20px 20px;
-          margin-right: 3px;
           width: 20px;
           height: 20px;
+          margin-right: 3px;
+          background-size: 20px 20px;
           color: #ee6a7b;
         }
       }
@@ -43,10 +43,10 @@
       }
 
       dt {
+        margin-bottom: 10px;
         width: 25%;
         font-weight: bold;
         line-height: 40px;
-        margin-bottom: 10px;
 
         &:after {
           content: '*';
@@ -66,9 +66,9 @@
         margin-bottom: 10px;
 
         input {
-          padding: 0px 17px;
-          width: calc(100% - 115px);
           height: 40px;
+          width: calc(100% - 115px);
+          padding: 0px 17px;
           border: $borderGray;
           border-radius: 3px;
 
@@ -87,12 +87,11 @@
         }
 
         button {
+          width: 110px;
           margin-left: 5px;
           color: $mainColor;
           background-color: $subColor;
-          // padding: 10px 30px;
           border-radius: 3px;
-          width: 110px;
         }
       }
 
