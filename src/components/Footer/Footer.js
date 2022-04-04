@@ -4,23 +4,6 @@ import FooterLi from './footerLi/footerLi';
 import '../Footer/Footer.scss';
 
 const Footer = () => {
-  const FOOTER_DATA = [
-    {
-      id: 1,
-      data: '협력업체등록',
-    },
-    { id: 2, data: '공지사항' },
-    {
-      id: 3,
-      data: '고객센터',
-    },
-    { id: 4, data: '개인정보처리방침' },
-    {
-      id: 5,
-      data: '이용약관',
-    },
-  ];
-
   return (
     <footer className="footer">
       <div className="footMain inner">
@@ -51,3 +34,20 @@ const Footer = () => {
 };
 
 export default Footer;
+
+const FOOTER_DATA = [
+  {
+    id: 1,
+    data: '협력업체등록',
+  },
+  { id: 2, data: '공지사항' },
+  {
+    id: 3,
+    data: '고객센터',
+  },
+  { id: 4, data: '개인정보처리방침' },
+  {
+    id: 5,
+    data: '이용약관',
+  },
+];
