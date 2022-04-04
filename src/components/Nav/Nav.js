@@ -28,7 +28,7 @@ const Nav = () => {
     return () => {
       window.removeEventListener('scroll', scrollFixed);
     };
-  }, []);
+  });
 
   const isMainPage = location.pathname === '/';
 
