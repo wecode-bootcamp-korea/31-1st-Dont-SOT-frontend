@@ -15,7 +15,7 @@ const Cart = () => {
 
   // console.log(presum);
   // const [item , setItem]=useState()
-  // const [validation, setValidation] = useState(false);
+  // const [validation,   setValidation] = useState(false);
   // const token = [localStorage.getItem('token')];
   // console.log(preTotal);
   useEffect(() => {

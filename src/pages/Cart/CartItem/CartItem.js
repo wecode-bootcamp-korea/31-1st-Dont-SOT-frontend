@@ -45,19 +45,19 @@ const CartItem = ({ id, price, option, updatePrice, quantity }) => {
           <span id={id}>{prePrice}</span>
           <span>원</span>
           <div className="CounterButton">
-            <button type="button" className="minusButton" onClick={minusQuan}>
-              -
-            </button>
             <input
               type="number"
               className="count bold"
               value={count}
               onChange={handleBtn}
             />
-            <button type="button" className="plusButton" onClick={addQuan}>
-              +
+            <button className="submitBtn" type="button">
+              변경
             </button>
           </div>
+          <button className="delete" type="button">
+            삭제
+          </button>
         </div>
       </div>
     </li>

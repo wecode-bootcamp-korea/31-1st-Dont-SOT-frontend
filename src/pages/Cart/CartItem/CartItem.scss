@@ -23,21 +23,24 @@
     position: relative;
     position: absolute;
     right: 50px;
-    width: 174px;
-    height: 225px;
     text-align: end;
+
+    .delete {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+    }
 
     .CounterButton {
       position: absolute;
       right: -5px;
-      width: 81px;
+      width: 70px;
       height: 30px;
       border: $borderBlack;
       border-radius: 3px;
 
-      .minusButton {
-        height: 30px;
-        width: 30px;
+      .submitBtn {
+        padding: 2px;
       }
 
       .count {
@@ -45,12 +48,6 @@
         margin-right: -9px;
         border: none;
         background-color: transparent;
-      }
-
-      .plusButton {
-        width: 30px;
-        height: 30px;
-        padding-bottom: 4px;
       }
     }
   }
