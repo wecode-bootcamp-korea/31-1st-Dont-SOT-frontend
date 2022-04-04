@@ -2,26 +2,31 @@
   {
     "id": 1,
     "price": 6000,
-    "option": true
+    "option": true,
+    "quantity": 3
   },
   {
     "id": 2,
     "price": 4000,
-    "option": false
+    "option": false,
+    "quantity": 1
   },
   {
     "id": 3,
     "price": 7000,
-    "option": true
+    "option": true,
+    "quantity": 1
   },
   {
     "id": 4,
     "price": 5000,
-    "option": false
+    "option": false,
+    "quantity": 1
   },
   {
     "id": 5,
     "price": 8000,
-    "option": true
+    "option": true,
+    "quantity": 1
   }
 ]

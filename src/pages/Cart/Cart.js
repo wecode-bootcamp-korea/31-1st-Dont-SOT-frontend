@@ -17,7 +17,7 @@ const Cart = () => {
     //   setValidation(true);
     // }
 
-    fetch('http://localhost:3001/data/cartData.json', {
+    fetch('http://localhost:3000/data/cartData.json', {
       // headers: {
       //   method: 'GET',
       //   Authorization: token,
@@ -41,6 +41,7 @@ const Cart = () => {
               key={list.id}
               price={list.price}
               option={list.option}
+              quantity={list.quantity}
               // updatePrice={updatePrice}
             />
           );

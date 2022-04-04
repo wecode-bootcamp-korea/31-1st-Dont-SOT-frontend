@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import '../CartItem/CartItem.scss';
 
-const CartItem = ({ id, price, option, updatePrice }) => {
+const CartItem = ({ id, price, option, updatePrice, quantity }) => {
   const [count, setCount] = useState(1);
-  const [prePrice, setPrePrice] = useState(price);
+  const [prePrice, setPrePrice] = useState(price * quantity);
   // const [preTotal, setPreTotal] = useState([]);
   const handleBtn = e => {
     const { value, id } = e.target;
