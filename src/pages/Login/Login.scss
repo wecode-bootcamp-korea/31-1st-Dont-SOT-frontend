@@ -3,6 +3,7 @@
 .login {
   .inner {
     display: flex;
+    margin-top: 60px;
   }
 
   .loginPage {
@@ -10,7 +11,7 @@
     flex-direction: column;
     padding: 100px 0 60px 0;
     margin: 0 4.5% 0 0;
-    width: 600px;
+    width: 670px;
     border-top: 5px solid #f2c000;
     background-color: #fff;
 
@@ -115,7 +116,7 @@
     }
 
     img {
-      width: 450px;
+      width: calc(1200px - 670px);
       height: 240px;
     }
 
