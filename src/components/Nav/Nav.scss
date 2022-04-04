@@ -1,5 +1,5 @@
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -176,7 +176,6 @@
   }
 
   &.fixed {
-    position: fixed;
     top: -38px;
     left: 0;
     width: 100%;
