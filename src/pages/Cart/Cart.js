@@ -7,6 +7,12 @@ const Cart = () => {
   const [preTotal, setPreTotal] = useState([]);
   const [cartTotal, setCartTotal] = useState(3000);
 
+  // const presum = cartList.reduce((a, b) => {
+  //   const { price, quantity } = b;
+  //   let sum = a + price * quantity;
+  //   return setPreTotal(sum);
+  // });
+
   console.log(preTotal);
   // const [item , setItem]=useState()
   // const [validation, setValidation] = useState(false);
