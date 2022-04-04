@@ -6,9 +6,6 @@ import './Products.scss';
 const MenuSpec = () => {
   return (
     <>
-      <header className="inner">
-        <div>nav</div>
-      </header>
       <div className="contMenu">
         <section className="contMenuWrap inner">
           <div className="titleBox">

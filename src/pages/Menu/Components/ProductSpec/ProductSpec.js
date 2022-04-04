@@ -8,10 +8,6 @@ import './ProductSpec.scss';
 const Product = () => {
   return (
     <>
-      <header className="inner">
-        <div>nav</div>
-      </header>
-
       <div className="subPage">
         <div className="contentMenu inner">
           <section className="menuView">

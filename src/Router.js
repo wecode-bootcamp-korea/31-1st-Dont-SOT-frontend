@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Join from './pages/Join/Join';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
+import Nav from './components/Nav/Nav';
 import Products from './pages/Menu/Products';
 import ProductSpec from './pages/Menu/Components/ProductSpec/ProductSpec';
 
