@@ -3,9 +3,7 @@
 .join,
 .inner {
   .wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter();
     width: 640px;
     margin: 0 auto;
 
