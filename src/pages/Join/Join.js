@@ -36,14 +36,14 @@ const Join = () => {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'SUCCESS') {
+          setHandleDupId(true);
           alert('사용가능한 아이디 입니다.');
-          setHandleDupId(false);
         } else if (result.message === 'REGISTERED_USERNAME') {
           alert('이미 사용중인 아이디 입니다.');
-          setHandleDupId(true);
+          setHandleDupId(false);
         } else if (result.message === 'INVALID_ID_FORM') {
           alert('아이디 형식이 맞지 않습니다.');
-          setHandleDupId(true);
+          setHandleDupId(false);
         }
       });
   };
@@ -55,7 +55,7 @@ const Join = () => {
       joinInputs.repw &&
       joinInputs.name &&
       joinInputs.email
-    ).length === 0;
+    ).length !== 0;
 
   const gotoMain = () => {
     fetch(`${API.Join}`, {
@@ -70,26 +70,26 @@ const Join = () => {
       .then(res => res.json())
       .then(result => {
         if (result.message === 'SUCCESS') {
+          setHandleSubmitBtn(true);
           alert('회원가입이 완료되었습니다.');
           navigate('/menu');
-          setHandleSubmitBtn(false);
-        } else if (handleDupId === true) {
+        } else if (handleDupId === false) {
           alert('아이디 중복 버튼을 클릭해주세요');
         } else if (result.message === 'INVALID_ID_FORM') {
           alert('아이디 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(true);
+          setHandleSubmitBtn(false);
         } else if (result.message === 'REGISTERED_USERNAME') {
           alert('이미 사용중인 아이디 입니다.');
-          setHandleSubmitBtn(true);
+          setHandleSubmitBtn(false);
         } else if (result.message === 'INVALID_PASSWORD_FORM') {
           alert('비밀번호 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(true);
+          setHandleSubmitBtn(false);
         } else if (result.message === 'INVALID_EMAIL_FORM') {
           alert('이메일 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(true);
+          setHandleSubmitBtn(false);
         } else if (result.message === 'REGISTERED_EMAIL') {
           alert('이미 사용중인 이메일 입니다.');
-          setHandleSubmitBtn(true);
+          setHandleSubmitBtn(false);
         }
       });
   };
@@ -104,6 +104,8 @@ const Join = () => {
       });
     }
   };
+
+  console.log(isEmptyValueError, handleSubmitBtn, handleDupId);
 
   return (
     <section className="join inner">
@@ -121,8 +123,8 @@ const Join = () => {
             <div className="formSubmit">
               <button
                 onClick={gotoMain}
-                className={!isEmptyValueError ? 'active' : null}
-                disabled={isEmptyValueError || !handleSubmitBtn}
+                className={isEmptyValueError ? 'active' : null}
+                disabled={!isEmptyValueError && !handleSubmitBtn}
                 type="submit"
               >
                 가입하기
