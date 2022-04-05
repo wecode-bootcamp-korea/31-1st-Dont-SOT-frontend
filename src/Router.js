@@ -7,7 +7,7 @@ import Main from './pages/Main/Main';
 import Menu from './pages/Menu/Menu';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
-// import Cart from './pages/Cart/Cart';
+import Cart from './pages/Cart/Cart';
 
 const Router = () => {
   return (
@@ -18,7 +18,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path="/menu" element={<Menu />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>
