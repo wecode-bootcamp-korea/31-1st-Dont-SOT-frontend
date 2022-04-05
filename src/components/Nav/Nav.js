@@ -38,8 +38,8 @@ const Nav = () => {
     <>
       <div className={`nav${scrollActive ? ' fixed' : ''}`}>
         <ul className="navUtil inner">
-          <li>로그인</li>
-          <li>회원가입</li>
+          <li onClick={() => navigate('/login')}>로그인</li>
+          <li onClick={() => navigate('/join')}>회원가입</li>
           <li>
             <span className="instagram">인스타</span>
             <span className="facebook">페이스북</span>
