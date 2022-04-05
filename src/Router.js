@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Menu from './pages/Menu/Menu';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 
 const Router = () => {
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

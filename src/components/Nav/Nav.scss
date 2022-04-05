@@ -1,4 +1,9 @@
 .nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   .navUtil {
     display: flex;
     justify-content: right;
@@ -171,12 +176,13 @@
   }
 
   &.fixed {
-    position: fixed;
     top: -38px;
     left: 0;
     width: 100%;
     height: 108px;
     background: #000;
+    z-index: 500;
+    transform: translateX(0);
 
     .navWrap {
       background: #000;
@@ -206,4 +212,9 @@
       }
     }
   }
+}
+
+.virtualNav {
+  height: 148px;
+  margin-bottom: 30px;
 }
