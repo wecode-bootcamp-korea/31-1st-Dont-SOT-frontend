@@ -51,7 +51,9 @@ const Nav = () => {
             setNavActive(false);
           }}
         >
-          <h1 className="logo">로고이미지</h1>
+          <h1 className="logo" onClick={() => navigate('/')}>
+            로고이미지
+          </h1>
           <ul
             className={`navListWrap${navActive ? ' active' : ''}`}
             onMouseEnter={() => {
