@@ -7,6 +7,8 @@ import Main from './pages/Main/Main';
 import Nav from './components/Nav/Nav';
 import Products from './pages/Menu/Products';
 import ProductSpec from './pages/Menu/Components/ProductSpec/ProductSpec';
+import Footer from './components/Footer/Footer';
+import Cart from './pages/Cart/Cart';
 
 const Router = () => {
   return (
@@ -18,7 +20,9 @@ const Router = () => {
         <Route path="/join" element={<Join />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductSpec />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
