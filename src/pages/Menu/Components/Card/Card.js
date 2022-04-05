@@ -1,10 +1,12 @@
 import React from 'react';
-import './Card.scss';
 import { useNavigate } from 'react-router-dom';
+import './Card.scss';
 
 const Card = props => {
   const { product } = props;
+
   const navigate = useNavigate();
+
   return (
     <>
       {product.map(data => {
@@ -13,7 +15,7 @@ const Card = props => {
             <div
               className="itemSpacer"
               onClick={() => {
-                navigate(`/products/detail/${data.id}`, {
+                navigate(`/products/${data.id}`, {
                   state: props,
                 });
               }}

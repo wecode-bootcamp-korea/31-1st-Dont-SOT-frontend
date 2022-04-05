@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const MenuDetail = props => {
-  const { name, description, price } = props;
+const MenuDetail = ({ detail }) => {
+  const { name, description, price, image } = detail;
+  const [isCheckbox, setIsCheckbox] = useState(false);
+  const [addPrice, setAddPrice] = useState('0');
+  const [totalPrice, setTotalPrice] = useState(price);
 
-  const addCart = () => {};
+  const activeCheckbox = () => {
+    setIsCheckbox(!isCheckbox);
+    additionalAmount();
+  };
+
+  const additionalAmount = () => {
+    if (!isCheckbox === true) {
+      setAddPrice(300);
+      setTotalPrice(price + 300);
+    } else {
+      setAddPrice(0);
+      setTotalPrice(price);
+    }
+  };
 
   return (
     <div className="menuDetail">
       <div className="imgWrap">
-        <img className="mainImg" alt="메뉴사진" src="/images/hansot.jpeg" />
+        <img className="mainImg" alt="메뉴사진" src={image} />
       </div>
 
       <div className="txtWrap">
@@ -17,7 +33,7 @@ const MenuDetail = props => {
           <span className="dp2">{name}</span>
         </h3>
 
-        <p className="account">{description}</p>
+        <p className="account"> {description}</p>
 
         <div className="option">
           <ul className="contArea">
@@ -28,9 +44,13 @@ const MenuDetail = props => {
                   id="checkbox"
                   name="option"
                   value="300"
-                  className="inp"
+                  onClick={activeCheckbox}
+                  className="multiplicationInp"
                 />
-                <label htmlFor="checkbox" className="label">
+                <label
+                  htmlFor="checkbox"
+                  className={!isCheckbox ? 'label' : 'deactiveLabel'}
+                >
                   한솥밥 곱빼기
                 </label>
               </span>
@@ -48,20 +68,18 @@ const MenuDetail = props => {
             <dd>
               <span className="price">{price}</span>
               <span className="totalOption">
-                <em className="totalOptionValue">0</em>
+                <em className="totalOptionValue">{addPrice}</em>
               </span>
             </dd>
           </dl>
           <div className="priceWrap">
             <span className="totalPrice">
-              <em className="totalPriceValue">1312</em>원
+              <em className="totalPriceValue">{totalPrice}</em>원
             </span>
           </div>
         </div>
         <div className="cartBox">
-          <button className="btnCart" onClick={addCart}>
-            장바구니에 추가
-          </button>
+          <button className="btnCart">장바구니에 추가</button>
         </div>
       </div>
     </div>

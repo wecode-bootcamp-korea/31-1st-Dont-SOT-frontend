@@ -19,7 +19,7 @@ const Product = () => {
 
   const fetchData = useCallback(() => {
     async function fetchAndSetDetail() {
-      const response = await fetch(`${API.MenuList}${params.id}`);
+      const response = await fetch(`${API.ProductSpec}${params.id}`);
       const data = await response.json();
       setDetail(data.results);
     }
@@ -29,6 +29,8 @@ const Product = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  if (!detail) return null;
 
   return (
     <div className="subPage">
@@ -44,7 +46,7 @@ const Product = () => {
             </div>
 
             <div className="viewCont">
-              <MenuDetail {...detail} />
+              <MenuDetail detail={detail} />
               <Quantity />
               <Allergy />
               <Country />
