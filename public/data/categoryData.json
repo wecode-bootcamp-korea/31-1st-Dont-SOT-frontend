@@ -1,10 +1,5 @@
 [
   {
-    "id": 1,
-    "categoryName": "전체보기",
-    "categoryList": ""
-  },
-  {
     "id": 2,
     "categoryName": "신메뉴/행사",
     "categoryList": [

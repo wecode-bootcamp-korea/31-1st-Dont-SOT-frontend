@@ -1,6 +1,10 @@
 import React from 'react';
 
-const MenuDetail = () => {
+const MenuDetail = props => {
+  const { name, description, price } = props;
+
+  const addCart = () => {};
+
   return (
     <div className="menuDetail">
       <div className="imgWrap">
@@ -9,14 +13,11 @@ const MenuDetail = () => {
 
       <div className="txtWrap">
         <h3 className="title">
-          <span className="dp1">고기고기</span>
-          <span className="dp2">돈까스도련님고기고기</span>
+          <span className="dp1">메뉴</span>
+          <span className="dp2">{name}</span>
         </h3>
 
-        <p className="account">
-          돈까스와 떡햄버그, 치킨으로 구성된 도련님 도시락에 제육볶음과
-          소불고기를 더해 푸짐하고 가성비 좋은 도시락입니다.
-        </p>
+        <p className="account">{description}</p>
 
         <div className="option">
           <ul className="contArea">
@@ -29,7 +30,7 @@ const MenuDetail = () => {
                   value="300"
                   className="inp"
                 />
-                <label for="checkbox" className="label">
+                <label htmlFor="checkbox" className="label">
                   한솥밥 곱빼기
                 </label>
               </span>
@@ -45,7 +46,7 @@ const MenuDetail = () => {
           <dl className="priceBox">
             <dt className="blind">상품+옵션</dt>
             <dd>
-              <span className="price">5,800</span>
+              <span className="price">{price}</span>
               <span className="totalOption">
                 <em className="totalOptionValue">0</em>
               </span>
@@ -53,9 +54,14 @@ const MenuDetail = () => {
           </dl>
           <div className="priceWrap">
             <span className="totalPrice">
-              <em className="totalPriceValue">5,800</em>원
+              <em className="totalPriceValue">1312</em>원
             </span>
           </div>
+        </div>
+        <div className="cartBox">
+          <button className="btnCart" onClick={addCart}>
+            장바구니에 추가
+          </button>
         </div>
       </div>
     </div>

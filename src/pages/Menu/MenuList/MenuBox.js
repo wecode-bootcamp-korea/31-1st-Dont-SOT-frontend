@@ -11,7 +11,7 @@ const MenuBox = () => {
   const fetchData = () => {
     async function fetchAndSetCategory() {
       const response = await fetch(
-        `http://10.58.3.192:8000/products${location.search}`
+        `http://10.58.3.177:8000/products${location.search}`
       );
       const data = await response.json();
       setCategory(data.results[0].category);
@@ -22,7 +22,7 @@ const MenuBox = () => {
 
   useEffect(() => {
     fetchData();
-  }, [category]);
+  }, []);
 
   return (
     <article className="listWrap">

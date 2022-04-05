@@ -8,6 +8,7 @@ const Item = props => {
 
   const goToSpec = () => {
     navigate(`/products?menu=${id}&category=${id}`);
+    window.location.reload();
   };
 
   return (
