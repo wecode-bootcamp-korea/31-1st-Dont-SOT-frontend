@@ -8,7 +8,7 @@ const Card = props => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <ul className="menulistBox">
       {product.map(data => {
         return (
           <li className="item" key={data.id}>
@@ -43,7 +43,7 @@ const Card = props => {
           </li>
         );
       })}
-    </>
+    </ul>
   );
 };
 

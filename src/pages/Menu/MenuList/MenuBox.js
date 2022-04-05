@@ -27,9 +27,7 @@ const MenuBox = () => {
             <div className="header">
               <h3 className="cateTitleItem">{data.name}</h3>
             </div>
-            <ul className="menulistBox">
-              <Card product={product} />
-            </ul>
+            <Card product={product} />
           </div>
         );
       })}
