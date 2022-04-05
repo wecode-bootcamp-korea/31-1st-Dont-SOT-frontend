@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card/Card';
 import { useLocation } from 'react-router-dom';
+import API from '../../../config';
 
 const MenuBox = () => {
   const [category, setCategory] = useState([]);
@@ -8,21 +9,15 @@ const MenuBox = () => {
 
   const location = useLocation();
 
-  const fetchData = () => {
+  useEffect(() => {
     async function fetchAndSetCategory() {
-      const response = await fetch(
-        `http://10.58.3.177:8000/products${location.search}`
-      );
+      const response = await fetch(`${API.MenuList}${location.search}`);
       const data = await response.json();
       setCategory(data.results[0].category);
       setProduct(data.results[0].products);
     }
     fetchAndSetCategory();
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  }, [location.search]);
 
   return (
     <article className="listWrap">

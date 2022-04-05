@@ -7,7 +7,7 @@ const Allergy = () => {
       <div className="allergyWrap tabling">
         <div className="list01 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>
@@ -28,7 +28,7 @@ const Allergy = () => {
 
         <div className="list02 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>
@@ -49,7 +49,7 @@ const Allergy = () => {
 
         <div className="list03 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>
@@ -70,7 +70,7 @@ const Allergy = () => {
 
         <div className="list04 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>
@@ -91,7 +91,7 @@ const Allergy = () => {
 
         <div className="list05 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>
@@ -112,7 +112,7 @@ const Allergy = () => {
 
         <div className="list06 cell">
           <dl className="dl">
-            <dt>난류(계란)</dt>
+            <dt>난류</dt>
             <dd className="true">
               <span className="blind">포함</span>
             </dd>

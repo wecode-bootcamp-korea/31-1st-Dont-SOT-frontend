@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Quantity from './Components/Quantity';
 import MenuDetail from './Components/MenuDetail';
 import Allergy from './Components/Allergy';
 import Country from './Components/Country';
+
+import API from '../../../../config';
 import './ProductSpec.scss';
-import { useParams, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const [detail, setDetail] = useState();
@@ -15,16 +17,14 @@ const Product = () => {
     navigate(-1);
   };
 
-  const fetchData = () => {
+  const fetchData = useCallback(() => {
     async function fetchAndSetDetail() {
-      const response = await fetch(
-        `http://10.58.3.177:8000/products/${params.id}`
-      );
+      const response = await fetch(`${API.MenuList}${params.id}`);
       const data = await response.json();
       setDetail(data.results);
     }
     fetchAndSetDetail();
-  };
+  }, [params.id]);
 
   useEffect(() => {
     fetchData();

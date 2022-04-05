@@ -23,12 +23,12 @@ const Aside = () => {
       <div className="lnb">
         <div className="lnbInner">
           <ul className="categoryWarp">
-            {category.map(category => {
+            {category.map(({ id, categoryName, categoryList }) => {
               return (
-                <li className="category" key={category.id}>
-                  <div className="categoryTitle">{category.categoryName}</div>
+                <li className="category" key={id}>
+                  <div className="categoryTitle">{categoryName}</div>
                   <ul className="childWrap">
-                    <CategoryList categoryList={category.categoryList} />
+                    <CategoryList categoryList={categoryList} />
                   </ul>
                 </li>
               );
