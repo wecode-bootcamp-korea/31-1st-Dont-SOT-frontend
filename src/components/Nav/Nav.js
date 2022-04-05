@@ -10,8 +10,10 @@ const Nav = () => {
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
 
+  const activeFixedHeight = 50;
+
   const scrollFixed = () => {
-    if (scrollY > 30) {
+    if (scrollY > activeFixedHeight) {
       setScrollY(window.pageYOffset);
       setScrollActive(true);
     } else {
