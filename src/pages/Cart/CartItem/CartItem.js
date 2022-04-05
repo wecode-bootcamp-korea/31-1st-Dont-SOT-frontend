@@ -9,7 +9,7 @@ const CartItem = ({ id, price, option, updatePrice, quantity }) => {
     const { value, id } = e.target;
     setCount(count => ({ ...count, [id]: value }));
   };
-
+  console.log(count);
   function addQuan() {
     if (count < 9) {
       setCount(count + 1);
@@ -46,7 +46,7 @@ const CartItem = ({ id, price, option, updatePrice, quantity }) => {
           <span>원</span>
           <div className="CounterButton">
             <input
-              type="number"
+              type="text"
               className="count bold"
               value={count}
               onChange={handleBtn}
