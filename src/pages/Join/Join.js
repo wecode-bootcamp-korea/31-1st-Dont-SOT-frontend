@@ -25,6 +25,8 @@ const Join = () => {
       joinInputs.email
     ).length !== 0;
 
+  const isJoinInputsValid = joinInputs.pw === joinInputs.repw;
+
   const handleJoinInputs = e => {
     const { name, value } = e.target;
     setJoinInputs({
@@ -32,6 +34,7 @@ const Join = () => {
       [name]: value,
     });
   };
+
   const checkId = e => {
     e.preventDefault();
 
@@ -57,11 +60,22 @@ const Join = () => {
             alert('이미 사용중인 아이디 입니다.');
             setHandleDupId(false);
             break;
+          default:
         }
       });
   };
-  const gotoMain = () => {
+
+  const onSubmit = e => {
+    e.preventDefault();
     if (!handleDupId) return alert('중복확인버튼을 눌러주세요');
+    else if (joinInputs.pw !== joinInputs.repw) {
+      alert('비밀번호와 비밀번호 확인이 같아야합니다.');
+      return setJoinInputs({
+        ...joinInputs,
+        repw: '',
+      });
+    }
+
     fetch(`${API.Join}`, {
       method: 'POST',
       body: JSON.stringify({
@@ -104,22 +118,10 @@ const Join = () => {
             alert('이미 사용중인 이메일 입니다.');
             setHandleSubmitBtn(false);
             break;
+          default:
         }
       });
   };
-
-  const onSubmit = e => {
-    e.preventDefault();
-    if (joinInputs.pw !== joinInputs.repw) {
-      alert('비밀번호와 비밀번호 확인이 같아야합니다.');
-      setJoinInputs({
-        ...joinInputs,
-        repw: '',
-      });
-    }
-  };
-
-  // console.log(isEmptyValueError, handleSubmitBtn, handleDupId);
 
   return (
     <section className="join inner">
@@ -136,7 +138,6 @@ const Join = () => {
 
             <div className="formSubmit">
               <button
-                onClick={gotoMain}
                 className={isEmptyValueError && 'active'}
                 disabled={!isEmptyValueError && !handleSubmitBtn}
                 type="submit"
