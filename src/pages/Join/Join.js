@@ -57,12 +57,10 @@ const Join = () => {
         alert(alertMessageBox[result.message]);
         switch (result.message) {
           case `INVALID_ID_FORM`:
-            setHandleDupId(false);
-            break;
-
           case `REGISTERED_USERNAME`:
             setHandleDupId(false);
             break;
+
           default:
             setHandleDupId(true);
             break;
@@ -95,21 +93,9 @@ const Join = () => {
         alert(alertMessageBox[result.message]);
         switch (result.message) {
           case `INVALID_ID_FORM`:
-            setHandleSubmitBtn(false);
-            break;
-
           case `REGISTERED_USERNAME`:
-            setHandleSubmitBtn(false);
-            break;
-
           case `INVALID_PASSWORD_FORM`:
-            setHandleSubmitBtn(false);
-            break;
-
           case `INVALID_EMAIL_FORM`:
-            setHandleSubmitBtn(false);
-            break;
-
           case `REGISTERED_EMAIL`:
             setHandleSubmitBtn(false);
             break;
