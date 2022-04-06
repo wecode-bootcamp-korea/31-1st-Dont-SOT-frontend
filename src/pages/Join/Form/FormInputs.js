@@ -5,7 +5,7 @@ const FormInputs = ({ data, handleJoinInputs, joinInputs, checkId }) => {
 
   return (
     <div>
-      <dl className="fst">
+      <dl className="formInputs">
         <dt>{data.title}</dt>
         <dd>
           <input
