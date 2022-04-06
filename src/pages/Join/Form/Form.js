@@ -29,7 +29,7 @@ export default Form;
 const validator = {
   id: input => input.length >= 6,
   pw: input => input.length >= 8,
-  repw: input => input.length >= 6,
-  name: input => null,
+  repw: input => input.length >= 8,
+  name: input => input.length >= 1,
   email: input => input?.includes('@'),
 };

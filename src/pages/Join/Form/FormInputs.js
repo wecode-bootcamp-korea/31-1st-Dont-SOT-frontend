@@ -8,10 +8,7 @@ const FormInputs = props => {
   const isValid = handleValid(value);
 
   const isIdVaild = title === '아이디';
-  const isEmailVaild = title === 'email';
-  const isCheckType = isIdVaild || isEmailVaild;
   const isCheckLength = joinInputs[name].length;
-  const isCheckValid = isCheckType && isCheckLength;
 
   return (
     <dl className="formInputs">
@@ -27,7 +24,7 @@ const FormInputs = props => {
 
         {isIdVaild ? <button onClick={checkId}>중복확인</button> : null}
 
-        {isCheckValid ? (
+        {isCheckLength ? (
           isValid ? (
             <span className="isValidColor">옳은 형식입니다.</span>
           ) : (
