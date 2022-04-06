@@ -4,7 +4,6 @@ import './Card.scss';
 
 const Card = props => {
   const { product } = props;
-
   const navigate = useNavigate();
 
   return (

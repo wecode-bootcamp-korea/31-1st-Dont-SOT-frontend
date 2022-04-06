@@ -6,7 +6,6 @@ import API from '../../../config';
 const MenuBox = () => {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState([]);
-
   const location = useLocation();
 
   useEffect(() => {

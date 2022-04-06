@@ -5,6 +5,7 @@ const API = {
   JoinId: `${BASE_URL}/users/signin/idcheck`,
   MenuList: `${BASE_URL}/products`,
   ProductSpec: `${BASE_URL}/products/`,
+  Cart: `${BASE_URL}/carts`,
 };
 
 export default API;
