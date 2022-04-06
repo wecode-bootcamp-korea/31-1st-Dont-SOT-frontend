@@ -6,6 +6,8 @@ import '../Join/Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
+  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
+  const [handleDupId, setHandleDupId] = useState(false);
   const [joinInputs, setJoinInputs] = useState({
     id: '',
     pw: '',
@@ -14,6 +16,15 @@ const Join = () => {
     email: '',
   });
 
+  const isEmptyValueError =
+    (
+      joinInputs.id &&
+      joinInputs.pw &&
+      joinInputs.repw &&
+      joinInputs.name &&
+      joinInputs.email
+    ).length !== 0;
+
   const handleJoinInputs = e => {
     const { name, value } = e.target;
     setJoinInputs({
@@ -21,10 +32,6 @@ const Join = () => {
       [name]: value,
     });
   };
-
-  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
-  const [handleDupId, setHandleDupId] = useState(false);
-
   const checkId = e => {
     e.preventDefault();
 
@@ -47,15 +54,6 @@ const Join = () => {
         }
       });
   };
-
-  const isEmptyValueError =
-    (
-      joinInputs.id &&
-      joinInputs.pw &&
-      joinInputs.repw &&
-      joinInputs.name &&
-      joinInputs.email
-    ).length !== 0;
 
   const gotoMain = () => {
     fetch(`${API.Join}`, {
@@ -123,7 +121,7 @@ const Join = () => {
             <div className="formSubmit">
               <button
                 onClick={gotoMain}
-                className={isEmptyValueError ? 'active' : null}
+                className={isEmptyValueError && 'active'}
                 disabled={!isEmptyValueError && !handleSubmitBtn}
                 type="submit"
               >
