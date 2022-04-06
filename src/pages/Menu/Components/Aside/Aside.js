@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CategoryList from './CategoryList/CategoryList';
+import CATEGORY_DATA from './categoryData';
 
 import './Aside.scss';
 const Aside = () => {
-  const [category, setCategory] = useState([]);
-
-  const fetchData = () => {
-    async function fetchAndSetCategory() {
-      const response = await fetch('/data/categoryData.json');
-      const data = await response.json();
-      setCategory(data);
-    }
-    fetchAndSetCategory();
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <aside className="leftWrap">
       <div className="lnb">
         <div className="lnbInner">
           <ul className="categoryWarp">
-            {category.map(({ id, categoryName, categoryList }) => {
+            {CATEGORY_DATA.map(({ id, categoryName, categoryList }) => {
               return (
                 <li className="category" key={id}>
                   <div className="categoryTitle">{categoryName}</div>
