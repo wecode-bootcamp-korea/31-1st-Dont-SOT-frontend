@@ -12,12 +12,6 @@ const Login = () => {
     setIsCheckBox(!isCheckBox);
   };
 
-  const [isShown, setIsShown] = useState(false);
-
-  const activeShown = () => {
-    setIsShown(!isShown);
-  };
-
   const [loginInputs, setLoginInputs] = useState({
     idValue: '',
     pwValue: '',
@@ -87,14 +81,7 @@ const Login = () => {
                 <label>아이디 저장</label>
               </div>
               <span className="loginFind">
-                <Link
-                  className={isShown ? `activeSearch` : `nonActiveSearch`}
-                  onMouseEnter={activeShown}
-                  onMouseLeave={activeShown}
-                  to="/join"
-                >
-                  아이디/비밀번호 찾기
-                </Link>
+                <span className="activeSearch">아이디/비밀번호 찾기</span>
               </span>
             </div>
             <button
