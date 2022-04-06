@@ -3,11 +3,13 @@ import React from 'react';
 const CartList = ({
   id,
   price,
-  option,
+  sizeup,
   quantity,
   updateState,
   addCart,
   deleteCart,
+  product_name,
+  image,
 }) => {
   const handleQuantity = e => {
     const { value } = e.target;
@@ -21,12 +23,12 @@ const CartList = ({
   return (
     <li className="cartList">
       <div className="cartImg">
-        <img src="" alt="" />
+        <img src={image} alt="상품사진" />
       </div>
       <div className="cartInfo">
         <dl>
-          <dt className="productName bold">아이템 이름</dt>
-          <dd className={`addOption ${option ? '' : 'hide'}`}>
+          <dt className="productName bold">{product_name}</dt>
+          <dd className={`addOption ${sizeup ? '' : 'hide'}`}>
             옵션 : 곱빼기 추가
           </dd>
           <dd className="addPrice">상품가격</dd>
@@ -39,7 +41,7 @@ const CartList = ({
         </button>
         <div className="cartQuantity">
           <input
-            type="text"
+            type="number"
             className="countQuantity"
             placeholder="수량"
             value={quantity}

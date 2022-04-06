@@ -27,7 +27,7 @@ const Cart = () => {
       body: JSON.stringify({
         product_id: event.product_id,
         quantity: event.quantity,
-        option: event.option,
+        sizeup: event.sizeup,
       }),
     })
       .then(response => response.json())
@@ -51,6 +51,7 @@ const Cart = () => {
       },
       body: JSON.stringify({
         product_id: event.product_id,
+        sizeup: event.sizeup,
       }),
     });
   };
@@ -88,13 +89,16 @@ const Cart = () => {
       <p className="cartTitle">장바구니</p>
       <ul className="cartWrap">
         {cartList.map(list => {
-          const { product_id, price, option, quantity } = list;
+          const { product_id, price, sizeup, quantity, image, product_name } =
+            list;
           return (
             <CartList
+              product_name={product_name}
+              image={image}
               id={product_id}
               key={product_id}
               price={price}
-              option={option}
+              sizeup={sizeup}
               quantity={quantity}
               updateState={updateState}
               addCart={addCart}
