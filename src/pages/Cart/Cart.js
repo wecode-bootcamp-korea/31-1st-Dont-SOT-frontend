@@ -5,9 +5,6 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-
-  // const token = localStorage.getItem('token');
-
   const totalPrice = () => {
     let totalPrice = 0;
     for (let i = 0; i < cartList.length; i++) {
@@ -42,28 +39,20 @@ const Cart = () => {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
       },
-    })
-      .then(response => response.json())
-      .then(res => {
-        if (res.status === '204') {
-          alert('삭제되었습니다.');
-          fetch(`${API.Cart}`, {
-            headers: {
-              Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
-            },
-          })
-            .then(res => res.json())
-            .then(data => setCartList(data.results));
-        }
-      });
+    }).then(res => {
+      if (res.status === 204) {
+        alert('삭제되었습니다.');
+        fetch(`${API.Cart}`, {
+          headers: {
+            Authorization:
+              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+          },
+        })
+          .then(res => res.json())
+          .then(data => setCartList(data.results));
+      }
+    });
   };
-
-  // useEffect(() => {
-  //   fetch('data/cartData.json')
-  //     .then(res => res.json())
-  //     .then(data => setCartList(data.results));
-  // }, []);
 
   const allTotalPrice = totalPrice => totalPrice() + 3000;
 

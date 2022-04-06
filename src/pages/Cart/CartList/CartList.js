@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 const CartList = ({
   id,
   price,
@@ -13,13 +11,13 @@ const CartList = ({
 }) => {
   const handleQuantity = e => {
     const { value } = e.target;
+
     if (value > 9) {
       alert('9개까지 주문가능합니다');
       return;
     }
     updateState(id, Number(value));
   };
-
   const addhandle = e => {
     addCart(id, quantity, sizeup);
   };
