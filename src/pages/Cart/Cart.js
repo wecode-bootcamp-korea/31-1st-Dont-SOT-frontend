@@ -40,8 +40,8 @@ const Cart = () => {
   };
 
   const deleteCart = event => {
-    // setCartProduct(cartProduct =>
-    //   cartProduct.filter(list => list.cart_id !== id)
+    // setCartList(cartProduct =>
+    //   cartList.filter(list => list.product_id !== id)
     // );
     fetch(`http://10.58.1.7:8000/carts`, {
       method: 'DELETE',
