@@ -5,7 +5,20 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
-  const totalPrice = () => {
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    fetch(`${API.Cart}`, {
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then(res => res.json())
+      .then(data => setCartList(data.results));
+  }, []);
+
+  const gototalPrice = () => {
     let totalPrice = 0;
     for (let i = 0; i < cartList.length; i++) {
       totalPrice += cartList[i].price * cartList[i].quantity;
@@ -17,8 +30,7 @@ const Cart = () => {
     fetch(`${API.Cart}/${id}`, {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+        Authorization: token,
       },
       body: JSON.stringify({
         quantity: quantity,
@@ -36,16 +48,14 @@ const Cart = () => {
     fetch(`${API.Cart}/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+        Authorization: token,
       },
     }).then(res => {
       if (res.status === 204) {
         alert('삭제되었습니다.');
         fetch(`${API.Cart}`, {
           headers: {
-            Authorization:
-              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+            Authorization: token,
           },
         })
           .then(res => res.json())
@@ -55,17 +65,6 @@ const Cart = () => {
   };
 
   const allTotalPrice = totalPrice => totalPrice() + 3000;
-
-  useEffect(() => {
-    fetch(`${API.Cart}`, {
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
-      },
-    })
-      .then(res => res.json())
-      .then(data => setCartList(data.results));
-  }, []);
 
   const updateState = (cart_id, quantity) => {
     const cartIndex = cartList.findIndex(cart => cart.cart_id === cart_id);
@@ -102,7 +101,7 @@ const Cart = () => {
         <dl className="totalWrap">
           <dt className="totalTitle">상품 결제 금액</dt>
           <dd className="totalPrice">
-            {totalPrice().toLocaleString()}
+            {gototalPrice().toLocaleString()}
             <span>원</span>
           </dd>
           <dt className="totalTitle">배송비</dt>
@@ -111,7 +110,7 @@ const Cart = () => {
           </dd>
           <dt className="totalTitle">전체 결제 금액</dt>
           <dd className="totalPrice">
-            {allTotalPrice(totalPrice).toLocaleString()}
+            {allTotalPrice(gototalPrice).toLocaleString()}
             <span>원</span>
           </dd>
         </dl>
