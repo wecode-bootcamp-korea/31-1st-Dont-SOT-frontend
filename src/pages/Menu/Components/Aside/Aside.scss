@@ -1,11 +1,11 @@
 .menuBox .leftWrap {
-  width: 270px;
   display: inline-block;
+  width: 270px;
 
   .lnb {
     width: 270px;
-    background-color: #fff;
     padding: 15px 20px;
+    background-color: #fff;
     border-top: 6px solid #5c5953;
 
     .lnbInner {
@@ -17,19 +17,19 @@
           overflow: hidden;
 
           .categoryTitle {
+            position: relative;
             padding: 20px;
             color: #5c5953;
             font-weight: bold;
-            position: relative;
 
             &::after {
               content: '';
-              background: url("../../../../assets/images/element.png") left top no-repeat;
               position: absolute;
-              right: 0;
               top: 25px;
+              right: 0;
               width: 10px;
               height: 10px;
+              background: url("../../../../assets/images/element.png") left top no-repeat;
               background-size: 20px 10px;
             }
           }
@@ -37,12 +37,12 @@
           .viewAll {
             &::after {
               content: '';
-              background: url("../../../../assets/images/allow.png") left top no-repeat;
               position: absolute;
               right: 0;
               top: 25px;
               width: 10px;
               height: 10px;
+              background: url("../../../../assets/images/allow.png") left top no-repeat;
               background-size: 20px 10px;
             }
           }
@@ -53,16 +53,6 @@
 
           .childWrap {
             padding-bottom: 20px;
-
-            .child {
-              color: #909090;
-              padding-left: 22px;
-              position: relative;
-
-              .childItems {
-                padding: 10px 0px;
-              }
-            }
           }
         }
       }

@@ -1,36 +1,34 @@
 .listWrap .menulistBox .item {
   position: relative;
-  overflow: hidden;
   height: 335px;
+  overflow: hidden;
   cursor: pointer;
 
   .itemSpacer {
     .itemImgBox {
-      height: 230px;
-      overflow: hidden;
       position: relative;
       display: block;
+      height: 230px;
+      overflow: hidden;
     }
 
     .itemIcon {
       position: absolute;
       left: 0;
       top: 0;
-      padding-top: 18px;
-      color: #fff;
       width: 50px;
       height: 50px;
+      padding-top: 18px;
+      color: #fff;
       background-color: #f6ca00;
       text-align: center;
       font-size: 13px;
-      font-family: Roboto;
-      box-sizing: border-box;
       z-index: 3;
     }
 
     .itemTextBox {
-      text-align: center;
       padding: 30px 0;
+      text-align: center;
       font-weight: normal;
       background-color: #e4e2e2;
 
@@ -40,8 +38,8 @@
       }
 
       .itemPrice {
-        color: #909090;
         padding-top: 6px;
+        color: #909090;
       }
     }
   }

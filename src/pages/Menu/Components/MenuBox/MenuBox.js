@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../Components/Card/Card';
 import { useLocation } from 'react-router-dom';
-import API from '../../../config';
+import Card from '../Card/Card';
+import API from '../../../../config';
+import './MenuBox.scss';
 
 const MenuBox = () => {
   const [category, setCategory] = useState([]);
@@ -20,11 +21,12 @@ const MenuBox = () => {
 
   return (
     <article className="listWrap">
-      {category.map(data => {
+      {category.map(categoryData => {
+        const { id, name } = categoryData;
         return (
-          <div key={data.id}>
+          <div key={id}>
             <div className="header">
-              <h3 className="cateTitleItem">{data.name}</h3>
+              <h3 className="cateTitleItem">{name}</h3>
             </div>
             <Card product={product} />
           </div>

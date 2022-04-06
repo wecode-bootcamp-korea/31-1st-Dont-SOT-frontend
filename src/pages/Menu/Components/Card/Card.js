@@ -2,26 +2,24 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Card.scss';
 
-const Card = props => {
-  const { product } = props;
+const Card = ({ product }) => {
   const navigate = useNavigate();
 
   return (
     <ul className="menulistBox">
-      {product.map(data => {
+      {product.map(productData => {
+        const { id, name, price } = productData;
         return (
-          <li className="item" key={data.id}>
+          <li className="item" key={id}>
             <div
               className="itemSpacer"
               onClick={() => {
-                navigate(`/products/${data.id}`, {
-                  state: props,
-                });
+                navigate(`/products/${id}`);
               }}
             >
               <div className="itemImgBox">
                 <img
-                  src={`https://robohash.org/${data.id}?set=set2&size=180x180`}
+                  src={`https://robohash.org/${id}?set=set2&size=180x180`}
                   alt="메뉴"
                   className="itemImg"
                 />
@@ -32,10 +30,10 @@ const Card = props => {
                 </div>
               </div>
               <div className="itemTextBox">
-                <h4 className="itemTitle">{data.name}</h4>
+                <h4 className="itemTitle">{name}</h4>
                 <div className="itemPrice">
                   <span className="blind">가격:</span>
-                  <strong>{data.price}</strong>원
+                  <strong>{price}</strong>원
                 </div>
               </div>
             </div>

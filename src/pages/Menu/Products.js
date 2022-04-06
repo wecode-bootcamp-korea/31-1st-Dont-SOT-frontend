@@ -1,6 +1,6 @@
 import React from 'react';
 import Aside from './Components/Aside/Aside';
-import MenuBox from './MenuList/MenuBox';
+import MenuBox from './Components/MenuBox/MenuBox';
 import './Products.scss';
 
 const MenuSpec = () => {

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import API from '../../../../../config';
+import './MenuDetail.scss';
 
-const MenuDetail = ({ detail }) => {
-  const { name, description, price, image } = detail;
+const MenuDetail = ({ name, description, price, image }) => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [addPrice, setAddPrice] = useState('0');
-  const [totalPrice, setTotalPrice] = useState(price);
+  const [addPrice, setAddPrice] = useState(0);
+
+  const optionPrice = 300;
+  const totalPrice = price + (isCheckbox && optionPrice);
 
   const activeCheckbox = () => {
     setIsCheckbox(!isCheckbox);
@@ -15,10 +17,8 @@ const MenuDetail = ({ detail }) => {
   const additionalAmount = () => {
     if (!isCheckbox === true) {
       setAddPrice(300);
-      setTotalPrice(price + 300);
     } else {
       setAddPrice(0);
-      setTotalPrice(price);
     }
   };
 
@@ -78,7 +78,7 @@ const MenuDetail = ({ detail }) => {
                 </label>
               </span>
               <span className="price">
-                <em>300</em>원
+                <em>{optionPrice}</em>원
               </span>
             </li>
           </ul>

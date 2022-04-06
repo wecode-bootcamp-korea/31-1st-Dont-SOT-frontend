@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import './CategoryList.scss';
 
 const CategoryList = props => {
   const { categoryList } = props;

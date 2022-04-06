@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Item.scss';
 
-const Item = props => {
+const Item = ({ categoryItem }) => {
   const navigate = useNavigate();
-  const { categoryItem } = props;
-
   const goToSpec = () => {
     navigate(`/products?category=${categoryItem}`);
   };
