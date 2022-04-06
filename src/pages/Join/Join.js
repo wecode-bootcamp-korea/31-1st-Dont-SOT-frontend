@@ -73,7 +73,7 @@ const Join = () => {
   const onSubmit = e => {
     e.preventDefault();
     if (!handleDupId) return alert('중복확인 버튼을 눌러주세요');
-    else if (joinInputs.pw !== joinInputs.repw) {
+    else if (!isJoinInputsValid) {
       alert('비밀번호와 비밀번호 확인이 같아야합니다.');
       return setJoinInputs({
         ...joinInputs,
