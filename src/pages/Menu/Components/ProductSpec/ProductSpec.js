@@ -38,10 +38,10 @@ const Product = () => {
             <section className="menuView">
               <div className="menuViewWrap">
                 <div className="onTitle">
-                  <h2 className="title" onClick={goBack}>
-                    <Link to="#none" className="headerTitle">
+                  <h2 className="title">
+                    <div className="headerTitle" onClick={goBack}>
                       전체메뉴
-                    </Link>
+                    </div>
                   </h2>
                 </div>
                 <div className="viewCont">
