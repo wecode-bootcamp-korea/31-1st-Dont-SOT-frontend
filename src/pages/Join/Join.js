@@ -42,38 +42,26 @@ const Join = () => {
     })
       .then(response => response.json())
       .then(result => {
-        //되는지 확인 필요
         switch (result.message) {
           case `SUCCESS`:
             alert('사용가능한 아이디 입니다.');
             setHandleDupId(true);
             break;
+
           case `INVALID_ID_FORM`:
             alert('아이디 형식이 맞지 않습니다.');
             setHandleDupId(false);
             break;
+
           case `REGISTERED_USERNAME`:
-            return (
-              alert('이미 사용중인 아이디 입니다.') && setHandleDupId(false)
-            );
+            alert('이미 사용중인 아이디 입니다.');
+            setHandleDupId(false);
+            break;
         }
       });
   };
-
-  /*
-        if (result.message === 'SUCCESS') {
-          setHandleDupId(true);
-          alert('사용가능한 아이디 입니다.');
-        } else if (result.message === 'REGISTERED_USERNAME') {
-          alert('이미 사용중인 아이디 입니다.');
-          setHandleDupId(false);
-        } else if (result.message === 'INVALID_ID_FORM') {
-          alert('아이디 형식이 맞지 않습니다.');
-          setHandleDupId(false);
-        }
-  */
-
   const gotoMain = () => {
+    if (!handleDupId) return alert('중복확인버튼을 눌러주세요');
     fetch(`${API.Join}`, {
       method: 'POST',
       body: JSON.stringify({
@@ -85,27 +73,37 @@ const Join = () => {
     })
       .then(res => res.json())
       .then(result => {
-        if (result.message === 'SUCCESS') {
-          setHandleSubmitBtn(true);
-          alert('회원가입이 완료되었습니다.');
-          navigate('/menu');
-        } else if (handleDupId === false) {
-          alert('아이디 중복 버튼을 클릭해주세요');
-        } else if (result.message === 'INVALID_ID_FORM') {
-          alert('아이디 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(false);
-        } else if (result.message === 'REGISTERED_USERNAME') {
-          alert('이미 사용중인 아이디 입니다.');
-          setHandleSubmitBtn(false);
-        } else if (result.message === 'INVALID_PASSWORD_FORM') {
-          alert('비밀번호 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(false);
-        } else if (result.message === 'INVALID_EMAIL_FORM') {
-          alert('이메일 형식이 맞지 않습니다.');
-          setHandleSubmitBtn(false);
-        } else if (result.message === 'REGISTERED_EMAIL') {
-          alert('이미 사용중인 이메일 입니다.');
-          setHandleSubmitBtn(false);
+        switch (result.message) {
+          case `SUCCESS`:
+            alert('회원가입이 완료되었습니다.');
+            setHandleSubmitBtn(true);
+            navigate('/menu');
+            break;
+
+          case `INVALID_ID_FORM`:
+            alert('아이디 형식이 맞지 않습니다.');
+            setHandleSubmitBtn(false);
+            break;
+
+          case `REGISTERED_USERNAME`:
+            alert('이미 사용중인 아이디 입니다.');
+            setHandleSubmitBtn(false);
+            break;
+
+          case `INVALID_PASSWORD_FORM`:
+            alert('비밀번호 형식이 맞지 않습니다.');
+            setHandleSubmitBtn(false);
+            break;
+
+          case `INVALID_EMAIL_FORM`:
+            alert('이메일 형식이 맞지 않습니다.');
+            setHandleSubmitBtn(false);
+            break;
+
+          case `REGISTERED_EMAIL`:
+            alert('이미 사용중인 이메일 입니다.');
+            setHandleSubmitBtn(false);
+            break;
         }
       });
   };
@@ -121,7 +119,7 @@ const Join = () => {
     }
   };
 
-  console.log(isEmptyValueError, handleSubmitBtn, handleDupId);
+  // console.log(isEmptyValueError, handleSubmitBtn, handleDupId);
 
   return (
     <section className="join inner">
