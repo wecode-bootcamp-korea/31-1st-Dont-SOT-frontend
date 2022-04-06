@@ -2,21 +2,22 @@ import React from 'react';
 
 const FormInputs = ({ data, handleJoinInputs, joinInputs, checkId }) => {
   const isBtnVaild = data.title === '아이디';
+  const { title, name, type, placeholder } = data;
 
   return (
     <div>
       <dl className="formInputs">
-        <dt>{data.title}</dt>
+        <dt>{title}</dt>
         <dd>
           <input
-            name={data.name}
-            type={data.type}
-            placeholder={data.placeholder}
+            name={name}
+            type={type}
+            placeholder={placeholder}
             onChange={handleJoinInputs}
-            value={joinInputs[data.name]}
+            value={joinInputs[name]}
           />
 
-          {isBtnVaild ? <button onClick={checkId}>중복확인</button> : null}
+          {isBtnVaild && <button onClick={checkId}>중복확인</button>}
         </dd>
       </dl>
     </div>
