@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  margin-top: 80px;
+  width: 100%;
+  height: 210px;
+  background-color: $mainColor;
+
+  .footMain {
+    height: 100%;
+
+    .footerMenu {
+      .footerUl {
+        @include flexCenter;
+        padding: 20px 0;
+
+        .footerLi ::before {
+          content: '|';
+          display: inline-block;
+          margin-right: 10px;
+          margin-left: 10px;
+
+          .footerAtag {
+            margin-right: 10px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .footerInfo {
+      border-top: 1px solid #dfb206;
+      @include flexCenter;
+
+      .footerPtag {
+        padding: 25px;
+        font-size: 14px;
+      }
+    }
+
+    .sns {
+      width: 100%;
+      @include flexCenter;
+
+      .footerInsta::before {
+        content: '';
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: url('../../assets/images/footerInsta.png') no-repeat center
+          center;
+        background-size: 25px;
+        margin-right: 10px;
+      }
+
+      .footerFace::before {
+        content: '';
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: url('../../assets/images/footerFace.png') no-repeat center
+          center;
+        background-size: 25px;
+      }
+    }
+  }
+}
