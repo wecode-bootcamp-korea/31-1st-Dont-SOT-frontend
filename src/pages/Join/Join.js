@@ -27,6 +27,15 @@ const Join = () => {
 
   const isJoinInputsValid = joinInputs.pw === joinInputs.repw;
 
+  const alertMessageBox = {
+    SUCCESS: '회원가입이 완료되었습니다.',
+    INVALID_ID_FORM: '아이디 형식이 맞지 않습니다.',
+    REGISTERED_USERNAME: '이미 사용중인 아이디 입니다.',
+    INVALID_PASSWORD_FORM: '비밀번호 형식이 맞지 않습니다.',
+    INVALID_EMAIL_FORM: '이메일 형식이 맞지 않습니다.',
+    REGISTERED_EMAIL: '이미 사용중인 이메일 입니다.',
+  };
+
   const handleJoinInputs = e => {
     const { name, value } = e.target;
     setJoinInputs({
@@ -45,29 +54,25 @@ const Join = () => {
     })
       .then(response => response.json())
       .then(result => {
+        alert(alertMessageBox[result.message]);
         switch (result.message) {
-          case `SUCCESS`:
-            alert('사용가능한 아이디 입니다.');
-            setHandleDupId(true);
-            break;
-
           case `INVALID_ID_FORM`:
-            alert('아이디 형식이 맞지 않습니다.');
             setHandleDupId(false);
             break;
 
           case `REGISTERED_USERNAME`:
-            alert('이미 사용중인 아이디 입니다.');
             setHandleDupId(false);
             break;
           default:
+            setHandleDupId(true);
+            break;
         }
       });
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    if (!handleDupId) return alert('중복확인버튼을 눌러주세요');
+    if (!handleDupId) return alert('중복확인 버튼을 눌러주세요');
     else if (joinInputs.pw !== joinInputs.repw) {
       alert('비밀번호와 비밀번호 확인이 같아야합니다.');
       return setJoinInputs({
@@ -87,38 +92,31 @@ const Join = () => {
     })
       .then(res => res.json())
       .then(result => {
+        alert(alertMessageBox[result.message]);
         switch (result.message) {
-          case `SUCCESS`:
-            alert('회원가입이 완료되었습니다.');
-            setHandleSubmitBtn(true);
-            navigate('/menu');
-            break;
-
           case `INVALID_ID_FORM`:
-            alert('아이디 형식이 맞지 않습니다.');
             setHandleSubmitBtn(false);
             break;
 
           case `REGISTERED_USERNAME`:
-            alert('이미 사용중인 아이디 입니다.');
             setHandleSubmitBtn(false);
             break;
 
           case `INVALID_PASSWORD_FORM`:
-            alert('비밀번호 형식이 맞지 않습니다.');
             setHandleSubmitBtn(false);
             break;
 
           case `INVALID_EMAIL_FORM`:
-            alert('이메일 형식이 맞지 않습니다.');
             setHandleSubmitBtn(false);
             break;
 
           case `REGISTERED_EMAIL`:
-            alert('이미 사용중인 이메일 입니다.');
             setHandleSubmitBtn(false);
             break;
+
           default:
+            setHandleSubmitBtn(true);
+            navigate('/menu');
         }
       });
   };
