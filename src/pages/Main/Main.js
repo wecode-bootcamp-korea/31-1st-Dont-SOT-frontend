@@ -14,7 +14,7 @@ const Main = () => {
       .then(data => {
         setSlideList(data);
       });
-  });
+  }, []);
 
   useEffect(() => {
     const interval = setTimeout(() => {
