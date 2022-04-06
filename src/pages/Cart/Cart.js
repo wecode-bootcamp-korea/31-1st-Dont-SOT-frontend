@@ -16,8 +16,7 @@ const Cart = () => {
     return totalPrice;
   };
 
-  const addCart = event => {
-    event.preventDefault();
+  const addCart = (id, quantity, sizeup) => {
     fetch(`http://10.58.1.7:8000/carts`, {
       method: 'PATCH',
       headers: {
@@ -25,24 +24,21 @@ const Cart = () => {
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
       },
       body: JSON.stringify({
-        product_id: event.product_id,
-        quantity: event.quantity,
-        sizeup: event.sizeup,
+        cart_id: id,
+        quantity: quantity,
+        sizeup: sizeup,
       }),
     })
       .then(response => response.json())
       .then(res => {
-        if (res.status === 200) {
-          alert('hi');
+        if (res.message === 'SUCCESS') {
+          alert('수량이변경되었습니다');
         }
         console.log(res);
       });
   };
 
-  const deleteCart = event => {
-    // setCartList(cartProduct =>
-    //   cartList.filter(list => list.product_id !== id)
-    // );
+  const deleteCart = (id, sizeup) => {
     fetch(`http://10.58.1.7:8000/carts`, {
       method: 'DELETE',
       headers: {
@@ -50,10 +46,25 @@ const Cart = () => {
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
       },
       body: JSON.stringify({
-        product_id: event.product_id,
-        sizeup: event.sizeup,
+        cart_id: id,
+        sizeup: sizeup,
       }),
-    });
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'SUCCESS') {
+          alert('삭제되었습니다.');
+          fetch(`http://10.58.1.7:8000/carts`, {
+            headers: {
+              Authorization:
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+            },
+          })
+            .then(res => res.json())
+            .then(data => setCartList(data.results));
+        }
+        console.log(res);
+      });
   };
 
   // useEffect(() => {
@@ -61,7 +72,6 @@ const Cart = () => {
   //     .then(res => res.json())
   //     .then(data => setCartList(data.results));
   // }, []);
-
   const allTotalPrice = totalPrice => totalPrice() + 3000;
 
   useEffect(() => {
@@ -75,10 +85,8 @@ const Cart = () => {
       .then(data => setCartList(data.results));
   }, []);
 
-  const updateState = (product_id, quantity) => {
-    const cartIndex = cartList.findIndex(
-      cart => cart.product_id === product_id
-    );
+  const updateState = (cart_id, quantity) => {
+    const cartIndex = cartList.findIndex(cart => cart.cart_id === cart_id);
     const selectedCart = cartList[cartIndex];
     selectedCart.quantity = quantity;
     setCartList([...cartList]);
@@ -89,14 +97,14 @@ const Cart = () => {
       <p className="cartTitle">장바구니</p>
       <ul className="cartWrap">
         {cartList.map(list => {
-          const { product_id, price, sizeup, quantity, image, product_name } =
+          const { cart_id, price, sizeup, quantity, image, product_name } =
             list;
           return (
             <CartList
               product_name={product_name}
               image={image}
-              id={product_id}
-              key={product_id}
+              id={cart_id}
+              key={cart_id}
               price={price}
               sizeup={sizeup}
               quantity={quantity}

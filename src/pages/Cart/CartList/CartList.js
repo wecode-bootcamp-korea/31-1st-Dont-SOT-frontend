@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CartList = ({
   id,
@@ -13,11 +13,21 @@ const CartList = ({
 }) => {
   const handleQuantity = e => {
     const { value } = e.target;
-    if (value > 9) {
+    if (value !== String) {
+      alert('숫자만 입력 가능합니다!');
+    } else if (value > 9) {
       alert('9개까지 주문가능합니다');
       return;
     }
     updateState(id, Number(value));
+  };
+
+  const addhandle = e => {
+    addCart(id, quantity, sizeup);
+  };
+
+  const deletehandle = e => {
+    deleteCart(id, sizeup);
   };
 
   return (
@@ -36,18 +46,22 @@ const CartList = ({
         <p className="confirmPrice">{(price * quantity).toLocaleString()}원</p>
       </div>
       <div className="cartUtil">
-        <button type="button" className="cartDeleteButton" onClick={deleteCart}>
+        <button
+          type="button"
+          className="cartDeleteButton"
+          onClick={deletehandle}
+        >
           삭제
         </button>
         <div className="cartQuantity">
           <input
-            type="number"
+            type="text"
             className="countQuantity"
             placeholder="수량"
             value={quantity}
             onChange={handleQuantity}
           />
-          <button type="button" className="changeQuantity" onClick={addCart}>
+          <button type="button" className="changeQuantity" onClick={addhandle}>
             변경
           </button>
         </div>
