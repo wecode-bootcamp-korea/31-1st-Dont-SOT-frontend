@@ -12,6 +12,12 @@ const Login = () => {
     setIsCheckBox(!isCheckBox);
   };
 
+  const [isShown, setIsShown] = useState(false);
+
+  const activeShown = () => {
+    setIsShown(!isShown);
+  };
+
   const [loginInputs, setLoginInputs] = useState({
     idValue: '',
     pwValue: '',
@@ -81,7 +87,14 @@ const Login = () => {
                 <label>아이디 저장</label>
               </div>
               <span className="loginFind">
-                <Link to="/join">아이디/비밀번호 찾기</Link>
+                <Link
+                  className={isShown ? `activeSearch` : `nonActiveSearch`}
+                  onMouseEnter={activeShown}
+                  onMouseLeave={activeShown}
+                  to="/join"
+                >
+                  아이디/비밀번호 찾기
+                </Link>
               </span>
             </div>
             <button
@@ -107,7 +120,9 @@ const Login = () => {
               회원이 되시면 솥지마요의 다양한 정보와 이벤트를 만나보실 수
               있습니다.
             </p>
-            <button className="joinBtn">회원가입</button>
+            <Link to="/join">
+              <button className="joinBtn">회원가입</button>
+            </Link>
           </div>
         </div>
       </div>
