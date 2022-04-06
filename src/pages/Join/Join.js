@@ -42,6 +42,25 @@ const Join = () => {
     })
       .then(response => response.json())
       .then(result => {
+        //되는지 확인 필요
+        switch (result.message) {
+          case `SUCCESS`:
+            alert('사용가능한 아이디 입니다.');
+            setHandleDupId(true);
+            break;
+          case `INVALID_ID_FORM`:
+            alert('아이디 형식이 맞지 않습니다.');
+            setHandleDupId(false);
+            break;
+          case `REGISTERED_USERNAME`:
+            return (
+              alert('이미 사용중인 아이디 입니다.') && setHandleDupId(false)
+            );
+        }
+      });
+  };
+
+  /*
         if (result.message === 'SUCCESS') {
           setHandleDupId(true);
           alert('사용가능한 아이디 입니다.');
@@ -52,8 +71,7 @@ const Join = () => {
           alert('아이디 형식이 맞지 않습니다.');
           setHandleDupId(false);
         }
-      });
-  };
+  */
 
   const gotoMain = () => {
     fetch(`${API.Join}`, {
