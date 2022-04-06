@@ -1,9 +1,21 @@
 import React from 'react';
 
-const CartList = ({ id, price, option, quantity, test }) => {
+const CartList = ({
+  id,
+  price,
+  option,
+  quantity,
+  updateState,
+  addCart,
+  deleteCart,
+}) => {
   const handleQuantity = e => {
     const { value } = e.target;
-    test(id, Number(value));
+    if (value > 9) {
+      alert('9개까지 주문가능합니다');
+      return;
+    }
+    updateState(id, Number(value));
   };
 
   return (
@@ -22,7 +34,7 @@ const CartList = ({ id, price, option, quantity, test }) => {
         <p className="confirmPrice">{(price * quantity).toLocaleString()}원</p>
       </div>
       <div className="cartUtil">
-        <button type="button" className="cartDeleteButton">
+        <button type="button" className="cartDeleteButton" onClick={deleteCart}>
           삭제
         </button>
         <div className="cartQuantity">
@@ -33,7 +45,7 @@ const CartList = ({ id, price, option, quantity, test }) => {
             value={quantity}
             onChange={handleQuantity}
           />
-          <button type="button" className="changeQuantity">
+          <button type="button" className="changeQuantity" onClick={addCart}>
             변경
           </button>
         </div>

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import API from '../../config';
 import CartList from './CartList/CartList';
-import './cart.scss';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
+
+  // const token = localStorage.getItem('token');
+
   const totalPrice = () => {
     let totalPrice = 0;
     for (let i = 0; i < cartList.length; i++) {
@@ -12,19 +16,70 @@ const Cart = () => {
     return totalPrice;
   };
 
-  useEffect(() => {
-    fetch('/data/cartData.json')
-      .then(res => res.json())
-      .then(data => {
-        setCartList(data);
+  const addCart = event => {
+    event.preventDefault();
+    fetch(`http://10.58.1.7:8000/carts`, {
+      method: 'PATCH',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+      },
+      body: JSON.stringify({
+        product_id: event.product_id,
+        quantity: event.quantity,
+        option: event.option,
+      }),
+    })
+      .then(response => response.json())
+      .then(res => {
+        if (res.status === 200) {
+          alert('hi');
+        }
+        console.log(res);
       });
+  };
+
+  const deleteCart = event => {
+    // setCartProduct(cartProduct =>
+    //   cartProduct.filter(list => list.cart_id !== id)
+    // );
+    fetch(`http://10.58.1.7:8000/carts`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+      },
+      body: JSON.stringify({
+        product_id: event.product_id,
+      }),
+    });
+  };
+
+  // useEffect(() => {
+  //   fetch('data/cartData.json')
+  //     .then(res => res.json())
+  //     .then(data => setCartList(data.results));
+  // }, []);
+
+  const allTotalPrice = totalPrice => totalPrice() + 3000;
+
+  useEffect(() => {
+    fetch(`http://10.58.1.7:8000/carts`, {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setCartList(data.results));
   }, []);
 
-  const test = (id, quantity) => {
-    const cartIndex = cartList.findIndex(cart => cart.id === id);
+  const updateState = (product_id, quantity) => {
+    const cartIndex = cartList.findIndex(
+      cart => cart.product_id === product_id
+    );
     const selectedCart = cartList[cartIndex];
     selectedCart.quantity = quantity;
-    cartList[cartIndex] = selectedCart;
     setCartList([...cartList]);
   };
 
@@ -33,15 +88,17 @@ const Cart = () => {
       <p className="cartTitle">장바구니</p>
       <ul className="cartWrap">
         {cartList.map(list => {
-          const { id, price, option, quantity } = list;
+          const { product_id, price, option, quantity } = list;
           return (
             <CartList
-              id={id}
-              key={id}
+              id={product_id}
+              key={product_id}
               price={price}
               option={option}
               quantity={quantity}
-              test={test}
+              updateState={updateState}
+              addCart={addCart}
+              deleteCart={deleteCart}
             />
           );
         })}
@@ -60,7 +117,7 @@ const Cart = () => {
           </dd>
           <dt className="totalTitle">전체 결제 금액</dt>
           <dd className="totalPrice">
-            {totalPrice().toLocaleString()}
+            {allTotalPrice(totalPrice).toLocaleString()}
             <span>원</span>
           </dd>
         </dl>
