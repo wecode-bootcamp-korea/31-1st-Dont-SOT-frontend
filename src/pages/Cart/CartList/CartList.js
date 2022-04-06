@@ -13,9 +13,7 @@ const CartList = ({
 }) => {
   const handleQuantity = e => {
     const { value } = e.target;
-    if (value !== String) {
-      alert('숫자만 입력 가능합니다!');
-    } else if (value > 9) {
+    if (value > 9) {
       alert('9개까지 주문가능합니다');
       return;
     }

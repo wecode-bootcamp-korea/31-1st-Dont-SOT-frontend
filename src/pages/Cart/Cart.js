@@ -16,17 +16,15 @@ const Cart = () => {
     return totalPrice;
   };
 
-  const addCart = (id, quantity, sizeup) => {
-    fetch(`http://10.58.1.7:8000/carts`, {
+  const addCart = (id, quantity) => {
+    fetch(`${API.Cart}/${id}`, {
       method: 'PATCH',
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
       },
       body: JSON.stringify({
-        cart_id: id,
         quantity: quantity,
-        sizeup: sizeup,
       }),
     })
       .then(response => response.json())
@@ -34,27 +32,22 @@ const Cart = () => {
         if (res.message === 'SUCCESS') {
           alert('수량이변경되었습니다');
         }
-        console.log(res);
       });
   };
 
-  const deleteCart = (id, sizeup) => {
-    fetch(`http://10.58.1.7:8000/carts`, {
+  const deleteCart = id => {
+    fetch(`${API.Cart}/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
       },
-      body: JSON.stringify({
-        cart_id: id,
-        sizeup: sizeup,
-      }),
     })
-      .then(res => res.json())
+      .then(response => response.json())
       .then(res => {
-        if (res.message === 'SUCCESS') {
+        if (res.status === '204') {
           alert('삭제되었습니다.');
-          fetch(`http://10.58.1.7:8000/carts`, {
+          fetch(`${API.Cart}`, {
             headers: {
               Authorization:
                 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
@@ -63,7 +56,6 @@ const Cart = () => {
             .then(res => res.json())
             .then(data => setCartList(data.results));
         }
-        console.log(res);
       });
   };
 
@@ -72,10 +64,11 @@ const Cart = () => {
   //     .then(res => res.json())
   //     .then(data => setCartList(data.results));
   // }, []);
+
   const allTotalPrice = totalPrice => totalPrice() + 3000;
 
   useEffect(() => {
-    fetch(`http://10.58.1.7:8000/carts`, {
+    fetch(`${API.Cart}`, {
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.MJy60KnmBIqFUe8QbpXi4qNYOfiG2JSVatifKy9xzT4',
