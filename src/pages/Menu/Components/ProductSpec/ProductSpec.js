@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Quantity from './Components/Quantity';
 import MenuDetail from './Components/MenuDetail';
 import Allergy from './Components/Allergy';
