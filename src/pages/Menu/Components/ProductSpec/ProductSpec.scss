@@ -1,0 +1,43 @@
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.contentMenu {
+
+  .menuView {
+    margin-top: 30px;
+
+    .menuViewWrap {
+      .onTitle {
+        background-color: #fff;
+
+        .title {
+          height: 140px;
+          padding: 53px 0 0 30px;
+          font-size: 36px;
+          font-weight: bold;
+
+          .headerTitle {
+            font-weight: 400;
+            cursor: pointer;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 23px;
+              height: 20px;
+              margin: 0 17px 7px -2px;
+              background: url('../../../../assets/images/icon_back.png') left top no-repeat;
+              background-size: 23px 20px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}
