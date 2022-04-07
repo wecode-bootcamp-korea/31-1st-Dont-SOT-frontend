@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import API from '../../../config';
 import './best.scss';
 
 const Best = () => {
@@ -8,12 +9,12 @@ const Best = () => {
   const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
-    fetch('/data/bestData.json')
+    fetch(`${API.Best}`)
       .then(res => res.json())
       .then(data => {
-        setBestList(data);
+        setBestList(data.results);
       });
-  });
+  }, []);
 
   const handleBestDecrease = () => {
     setBestCount(bestCount - 1);
@@ -29,7 +30,7 @@ const Best = () => {
   const handleBestIncrease = () => {
     setBestCount(bestCount + 1);
     bestRef.current.style.transform = `translateX(-${1200 * bestCount}px)`;
-    if (bestList.length % 4 <= bestCount) {
+    if (bestList.length % 4 < bestCount) {
       setBestCount(bestCount - 1);
       setButtonActive(true);
     } else {
@@ -46,10 +47,10 @@ const Best = () => {
             return (
               <li key={best.id}>
                 <div className="imgWrap">
-                  <img src={best.src} alt={best.title} />
+                  <img src={best.image} alt={best.name} />
                 </div>
                 <dl className="textWrap">
-                  <dt>{best.title}</dt>
+                  <dt>{best.name}</dt>
                   <dd>{best.price}</dd>
                 </dl>
               </li>

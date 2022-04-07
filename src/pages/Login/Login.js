@@ -6,6 +6,12 @@ import './Login.scss';
 const Login = () => {
   const navigate = useNavigate();
 
+  const [isCheckBox, setIsCheckBox] = useState(false);
+
+  const activCheck = () => {
+    setIsCheckBox(!isCheckBox);
+  };
+
   const [loginInputs, setLoginInputs] = useState({
     idValue: '',
     pwValue: '',
@@ -66,11 +72,16 @@ const Login = () => {
             />
             <div className="loginCheck">
               <div className="loginCheckBox">
-                <input type="checkbox" />
-                아이디 저장
+                <input
+                  type="checkbox"
+                  onClick={activCheck}
+                  className={!isCheckBox ? 'active' : 'nonActive'}
+                />
+
+                <label>아이디 저장</label>
               </div>
               <span className="loginFind">
-                <Link to="/join">아이디/비밀번호 찾기</Link>
+                <span className="activeSearch">아이디/비밀번호 찾기</span>
               </span>
             </div>
             <button
@@ -96,7 +107,9 @@ const Login = () => {
               회원이 되시면 솥지마요의 다양한 정보와 이벤트를 만나보실 수
               있습니다.
             </p>
-            <button className="joinBtn">회원가입</button>
+            <Link to="/join">
+              <button className="joinBtn">회원가입</button>
+            </Link>
           </div>
         </div>
       </div>

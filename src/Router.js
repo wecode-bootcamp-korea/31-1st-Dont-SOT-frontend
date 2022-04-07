@@ -20,7 +20,7 @@ const Router = () => {
         <Route path="/join" element={<Join />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductSpec />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/carts" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>
