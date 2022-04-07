@@ -1,20 +1,19 @@
 .card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
   margin-top: 25px;
   overflow: hidden;
 
   .item {
     position: relative;
-    height: 335px;
-    overflow: hidden;
+    height: 354px;
+    background-color: #C2BDB7;
     cursor: pointer;
 
     .itemSpacer {
       .itemImgBox {
         position: relative;
-        display: block;
         height: 230px;
         overflow: hidden;
       }
@@ -23,8 +22,8 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         padding-top: 18px;
         color: #fff;
         background-color: #f6ca00;

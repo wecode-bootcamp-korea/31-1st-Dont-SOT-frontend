@@ -42,5 +42,9 @@
   .contMenuWrap .menuSection {
     display: flex;
     margin-top: 70px;
+
+    .menuListWrap {
+      width: calc(100% - 270px);
+    }
   }
 }

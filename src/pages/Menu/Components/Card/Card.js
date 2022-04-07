@@ -18,7 +18,7 @@ const Card = ({ product }) => {
             >
               <div className="itemImgBox">
                 <img
-                  src={`https://robohash.org/${id}?set=set2&size=180x180`}
+                  src={`https://raw.githubusercontent.com/charile1/hans-project-src/main/src/${id}.png`}
                   alt="메뉴"
                   className="itemImg"
                 />
