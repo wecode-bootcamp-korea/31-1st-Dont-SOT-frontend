@@ -29,12 +29,12 @@ const MenuDetail = ({ name, description, price, image }) => {
     fetch(`${API.Cart}`, config)
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'SUCCESS') {
+        if (result.message === 'CART_CREATED') {
           alert('장바구니가 추가 되었습니다.');
           return;
         }
         const addCartMessage = {
-          ALREADY_EXIST: '수랑 추가 되었습니다.',
+          UPDATED: '수랑 추가 되었습니다.',
           KEY_ERROR: '장바구니 추가를 실패하였습니다.',
         };
         alert(addCartMessage[result.message]);
