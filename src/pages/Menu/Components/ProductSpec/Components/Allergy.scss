@@ -3,8 +3,6 @@
 
   .cell {
     position: relative;
-    display: table-cell;
-    width: 16%;
 
     dl {
       position: relative;
@@ -13,6 +11,12 @@
       border-top: 6px solid #373737;
       border-bottom: 1px solid #373737;
       text-align: center;
+
+      &:first-child {
+        dt {
+          border-left: 0;
+        }
+      }
     }
 
     dt {
@@ -21,22 +25,31 @@
       border-left: 1px solid #fff;
     }
 
-    .true {
+    .status {
       width: 16px;
       height: 36px;
       margin: 18px auto 0 auto;
-      background: url('../../../../../assets/images/icon_aller.png') left top no-repeat;
-      background-size: 48px 16px;
-      background-position: 0 0;
-    }
 
-    .making {
-      width: 16px;
-      height: 36px;
-      margin: 18px auto 0 auto;
-      background: url('../../../../../assets/images/icon_aller.png') left top no-repeat;
-      background-position: -16px 0;
-      background-size: 48px 16px;
+      &.yes {
+        background: url('../../../../../assets/images/icon_aller.png') left top
+          no-repeat;
+        background-size: 48px 16px;
+        background-position: 0 0;
+      }
+
+      &.half {
+        background: url('../../../../../assets/images/icon_aller.png') left top
+          no-repeat;
+        background-position: -16px 0;
+        background-size: 48px 16px;
+      }
+
+      &.no {
+        background: url('../../../../../assets/images/icon_aller.png') left top
+          no-repeat;
+        background-position: -16px 0;
+        background-size: 48px 16px;
+      }
     }
   }
 }
@@ -56,7 +69,7 @@
       width: 16px;
       height: 16px;
       margin: 0 0 0 -30px;
-      background: url("../../../../../assets/images/icon_aller.png");
+      background: url('../../../../../assets/images/icon_aller.png');
       background-size: 48px 16px;
     }
   }
