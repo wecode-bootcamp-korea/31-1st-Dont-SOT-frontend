@@ -8,7 +8,8 @@ const FormInputs = props => {
   const isValid = handleValid(value);
 
   const isIdVaild = title === '아이디';
-  const isCheckLength = joinInputs[name].length;
+  const isCheckLength = joinInputs[name].length !== 0;
+  console.log(joinInputs[name].length);
 
   return (
     <dl className="formInputs">
@@ -22,20 +23,19 @@ const FormInputs = props => {
           value={joinInputs[name]}
         />
 
-        {isIdVaild ? <button onClick={checkId}>중복확인</button> : null}
-
-        {isCheckLength ? (
-          isValid ? (
-            <span className="isValidColor">옳은 형식입니다.</span>
-          ) : (
-            <span className="isNonValidColor">옳지 않은 형식입니다.</span>
-          )
-        ) : (
-          !isIdVaild
-        )}
+        {isIdVaild && <button onClick={checkId}>중복확인</button>}
+        {isCheckLength && (isValid ? <ValidSpan /> : <NonValidSpan />)}
       </dd>
     </dl>
   );
 };
 
 export default FormInputs;
+
+const ValidSpan = () => {
+  return <span className="isValidColor">옳은 형식입니다.</span>;
+};
+
+const NonValidSpan = () => {
+  return <span className="isNonValidColor">옳은 않은 형식입니다.</span>;
+};
