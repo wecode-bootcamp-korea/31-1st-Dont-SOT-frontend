@@ -1,11 +1,11 @@
 import React from 'react';
 import CategoryList from './CategoryList/CategoryList';
 import CATEGORY_DATA from './categoryData';
-
 import './Aside.scss';
+
 const Aside = () => {
   return (
-    <aside className="leftWrap">
+    <aside className="aside">
       <div className="lnb">
         <div className="lnbInner">
           <ul className="categoryWarp">

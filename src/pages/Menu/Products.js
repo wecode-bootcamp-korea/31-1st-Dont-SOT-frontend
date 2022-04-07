@@ -15,7 +15,7 @@ const MenuSpec = () => {
             </ul>
           </div>
         </div>
-        <div className="menuBox">
+        <div className="menuSection">
           <Aside />
           <section className="menuListWrap">
             <MenuBox />

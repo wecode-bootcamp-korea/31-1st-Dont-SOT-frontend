@@ -6,9 +6,8 @@ const Card = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <ul className="menulistBox">
-      {product.map(productData => {
-        const { id, name, price } = productData;
+    <ul className="card">
+      {product.map(({ id, name, price }) => {
         return (
           <li className="item" key={id}>
             <div

@@ -20,9 +20,8 @@ const MenuBox = () => {
   }, [location.search]);
 
   return (
-    <article className="listWrap">
-      {category.map(categoryData => {
-        const { id, name } = categoryData;
+    <article className="menuBox">
+      {category.map(({ id, name }) => {
         return (
           <div key={id}>
             <div className="header">

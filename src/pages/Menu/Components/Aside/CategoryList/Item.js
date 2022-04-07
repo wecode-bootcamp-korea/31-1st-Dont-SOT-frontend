@@ -9,7 +9,7 @@ const Item = ({ categoryItem }) => {
   };
 
   return (
-    <div className="childItems" onClick={goToSpec}>
+    <div className="item" onClick={goToSpec}>
       {categoryItem}
     </div>
   );

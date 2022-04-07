@@ -4,22 +4,14 @@ import './MenuDetail.scss';
 
 const MenuDetail = ({ name, description, price, image }) => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [addPrice, setAddPrice] = useState(0);
 
   const optionPrice = 300;
   const totalPrice = price + (isCheckbox && optionPrice);
+  const addPrice = 0;
+  const changeAddPrice = addPrice + (isCheckbox && optionPrice);
 
   const activeCheckbox = () => {
     setIsCheckbox(!isCheckbox);
-    additionalAmount();
-  };
-
-  const additionalAmount = () => {
-    if (!isCheckbox === true) {
-      setAddPrice(300);
-    } else {
-      setAddPrice(0);
-    }
   };
 
   const addCart = () => {
@@ -38,12 +30,14 @@ const MenuDetail = ({ name, description, price, image }) => {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'SUCCESS') {
-          alert('장바구니 추가되었습니다.');
-        } else if (result.message === 'ALREADY_EXIST') {
-          alert('수량 추가 되었습니다.');
-        } else if (result.message === 'KEY_ERROR') {
-          alert('장바구니 추가를 실패하였습니다.');
+          alert('장바구니가 추가 되었습니다.');
+          return;
         }
+        const addCartMessage = {
+          ALREADY_EXIST: '수랑 추가 되었습니다.',
+          KEY_ERROR: '장바구니 추가를 실패하였습니다.',
+        };
+        alert(addCartMessage[result.message]);
       });
   };
 
@@ -90,7 +84,7 @@ const MenuDetail = ({ name, description, price, image }) => {
             <dd>
               <span className="price">{price}</span>
               <span className="totalOption">
-                <em className="totalOptionValue">{addPrice}</em>
+                <em className="totalOptionValue">{changeAddPrice}</em>
               </span>
             </dd>
           </dl>

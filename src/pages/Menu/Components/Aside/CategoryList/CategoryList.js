@@ -2,19 +2,12 @@ import React from 'react';
 import Item from './Item';
 import './CategoryList.scss';
 
-const CategoryList = props => {
-  const { categoryList } = props;
+const CategoryList = ({ categoryList }) => {
   return (
-    <li className="child">
+    <li className="categoryList">
       {categoryList &&
-        categoryList.map(category => {
-          return (
-            <Item
-              key={category.id}
-              id={category.id}
-              categoryItem={category.categoryItem}
-            />
-          );
+        categoryList.map(({ id, categoryItem }) => {
+          return <Item key={id} categoryItem={categoryItem} />;
         })}
     </li>
   );
