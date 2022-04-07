@@ -6,7 +6,6 @@ import '../Join/Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
-  const [handleSubmitBtn, setHandleSubmitBtn] = useState(false);
   const [handleDupId, setHandleDupId] = useState(false);
   const [joinInputs, setJoinInputs] = useState({
     id: '',
@@ -98,12 +97,10 @@ const Join = () => {
           case `INVALID_PASSWORD_FORM`:
           case `INVALID_EMAIL_FORM`:
           case `REGISTERED_EMAIL`:
-            setHandleSubmitBtn(false);
             break;
 
           default:
-            setHandleSubmitBtn(true);
-            navigate('/menu');
+            navigate('/');
         }
       });
   };
@@ -123,8 +120,8 @@ const Join = () => {
 
             <div className="formSubmit">
               <button
-                className={isEmptyValueError && 'active'}
-                disabled={!isEmptyValueError && !handleSubmitBtn}
+                className={isEmptyValueError ? 'active' : ''}
+                disabled={!isEmptyValueError}
                 type="submit"
               >
                 가입하기
