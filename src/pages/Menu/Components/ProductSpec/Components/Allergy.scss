@@ -1,0 +1,78 @@
+.allergyWrap {
+  margin-top: 30px;
+
+  .cell {
+    position: relative;
+    display: table-cell;
+    width: 16%;
+
+    dl {
+      position: relative;
+      display: table-cell;
+      width: 98px;
+      border-top: 6px solid #373737;
+      border-bottom: 1px solid #373737;
+      text-align: center;
+    }
+
+    dt {
+      padding: 15px 0;
+      background-color: #cfc6bc;
+      border-left: 1px solid #fff;
+    }
+
+    .true {
+      width: 16px;
+      height: 36px;
+      margin: 18px auto 0 auto;
+      background: url('../../../../../assets/images/icon_aller.png') left top no-repeat;
+      background-size: 48px 16px;
+      background-position: 0 0;
+    }
+
+    .making {
+      width: 16px;
+      height: 36px;
+      margin: 18px auto 0 auto;
+      background: url('../../../../../assets/images/icon_aller.png') left top no-repeat;
+      background-position: -16px 0;
+      background-size: 48px 16px;
+    }
+  }
+}
+
+.classify {
+  margin-top: 30px;
+
+  .list {
+    position: relative;
+    margin: 10px 0 0 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      margin: 0 0 0 -30px;
+      background: url("../../../../../assets/images/icon_aller.png");
+      background-size: 48px 16px;
+    }
+  }
+
+  .list01::before {
+    content: '';
+    background-position: 0 0;
+  }
+
+  .list02::before {
+    content: '';
+    background-position: -16px 0;
+  }
+
+  .list03::before {
+    content: '';
+    background-position: -32px 0;
+  }
+}

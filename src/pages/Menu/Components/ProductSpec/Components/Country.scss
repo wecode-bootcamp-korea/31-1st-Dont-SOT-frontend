@@ -1,0 +1,29 @@
+.country {
+  margin-bottom: 7rem;
+
+  .countryWrap {
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-top: 30px;
+
+    dl {
+      display: table-cell;
+      width: 25%;
+      border-top: 6px solid #373737;
+      border-bottom: 1px solid #373737;
+      text-align: center;
+
+      dt {
+        padding: 15px 5px;
+        border-left: 1px solid #fff;
+        background-color: #cfc6bc;
+        line-height: 130%;
+      }
+
+      dd {
+        padding: 15px 5px;
+      }
+    }
+  }
+}

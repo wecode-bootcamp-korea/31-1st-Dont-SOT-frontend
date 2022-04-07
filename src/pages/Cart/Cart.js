@@ -6,12 +6,10 @@ import './Cart.scss';
 const Cart = () => {
   const [cartList, setCartList] = useState([]);
 
-  const token = localStorage.getItem('token');
-
   useEffect(() => {
     fetch(`${API.Cart}`, {
       headers: {
-        Authorization: token,
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
@@ -30,7 +28,7 @@ const Cart = () => {
     fetch(`${API.Cart}/${id}`, {
       method: 'PATCH',
       headers: {
-        Authorization: token,
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         quantity: quantity,
@@ -48,14 +46,14 @@ const Cart = () => {
     fetch(`${API.Cart}/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: token,
+        Authorization: localStorage.getItem('token'),
       },
     }).then(res => {
       if (res.status === 204) {
         alert('삭제되었습니다.');
         fetch(`${API.Cart}`, {
           headers: {
-            Authorization: token,
+            Authorization: localStorage.getItem('token'),
           },
         })
           .then(res => res.json())

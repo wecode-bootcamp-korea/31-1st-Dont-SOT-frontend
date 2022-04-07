@@ -5,7 +5,8 @@ const API = {
   Login: `${BASE_URL}/users/signin`,
   Join: `${BASE_URL}/users/signin/signup`,
   JoinId: `${BASE_URL}/users/signin/idcheck`,
-  MenuList: `${BASE_URL}/products/`,
+  MenuList: `${BASE_URL}/products`,
+  ProductSpec: `${BASE_URL}/products/`,
   Cart: `${BASE_URL}/carts`,
   Best: `${CCH_URL}/products/sorting?sorting=sale`,
 };

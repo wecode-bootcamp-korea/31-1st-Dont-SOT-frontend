@@ -1,0 +1,181 @@
+.menuDetail {
+  display: flex;
+
+  .imgWrap {
+    width: 600px;
+
+    .mainImg {
+      width: 100%;
+    }
+  }
+
+  .txtWrap {
+    width: calc(100% - 600px);
+    padding: 70px 30px 30px 70px;
+    border-top: 1px solid #eeecec;
+    background-color: #fff;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      .dp1 {
+        color: #cfc6bc;
+        font-size: 15px;
+      }
+
+      .dp2 {
+        font-size: 24px;
+        padding-top: 10px;
+      }
+    }
+
+    .account {
+      position: relative;
+      line-height: 160%;
+      word-break: keep-all;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background-color: #373737;
+        margin: 40px 0 14px;
+      }
+    }
+
+    .option {
+      margin-top: 53px;
+
+      .contArea {
+
+        .formCheckbox {
+
+          .multiplicationInp {
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            opacity: 0;
+          }
+        }
+
+        .label {
+          font-size: 15px;
+          color: #373737;
+          cursor: pointer;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            margin: -1px 10px 0 0;
+            background: url("../../../../../assets/images/icon_chb.png") no-repeat;
+            background-size: 25px 50px;
+            background-position: 0 0;
+            vertical-align: middle;
+          }
+        }
+
+        .deactiveLabel {
+          font-size: 15px;
+          color: #373737;
+          cursor: pointer;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url("../../../../../assets/images/icon_chb.png") no-repeat;
+            margin: -1px 10px 0 0;
+            background-size: 25px 50px;
+            background-position: 0 -25px;
+            vertical-align: middle;
+          }
+        }
+
+        .price {
+          position: relative;
+          color: #909090;
+          margin-left: 10px;
+
+          &::before {
+            content: '+';
+          }
+        }
+      }
+    }
+
+    .hr {
+      margin-top: 7rem;
+      border: 0.5px solid #dbdbdb;
+    }
+
+    .total {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      line-height: 1;
+
+      .priceBox {
+        padding-top: 15px;
+      }
+
+      .price {
+        color: #5c5953;
+        vertical-align: bottom;
+        font-weight: 100;
+        font-size: 15px;
+      }
+
+      .totalOption {
+        position: relative;
+        margin: 0;
+        padding-bottom: 15px;
+        color: #c3c1c1;
+        font-size: 18px;
+
+        &::before {
+          content: '(+' !important;
+          display: inline-block;
+        }
+
+        &::after {
+          content: ')' !important;
+          display: inline-block;
+        }
+      }
+
+      .priceWrap {
+        margin-left: 20px;
+        color: #f2c900;
+        font-weight: bold;
+
+        .totalPrice {
+          font-size: 15px;
+
+          .totalPriceValue {
+            font-size: 36px;
+          }
+        }
+      }
+    }
+
+    .cartBox {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 40px;
+      line-height: 1;
+
+      .btnCart {
+        padding: 11px;
+        border: 1px solid;
+        border-radius: 8px;
+        background-color: #f2c900;
+        color: white;
+      }
+    }
+  }
+}

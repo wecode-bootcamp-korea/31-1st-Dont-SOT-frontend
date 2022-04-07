@@ -1,0 +1,46 @@
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.contMenu {
+  margin-top: 30px;
+
+  .contMenuWrap .titleBox {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+
+    .title {
+      height: 140px;
+      padding: 53px 0 0 30px;
+      font-size: 36px;
+      font-weight: 500;
+    }
+
+    .tabWrap {
+      position: absolute;
+      width: auto;
+      right: 50px;
+      top: 68px;
+
+      .tabMenu {
+        display: flex;
+        gap: 25px;
+        font-size: 25px;
+
+        .viewAll {
+          color: #f2c000;
+        }
+      }
+    }
+  }
+
+  .contMenuWrap .menuSection {
+    display: flex;
+    margin-top: 70px;
+  }
+}
