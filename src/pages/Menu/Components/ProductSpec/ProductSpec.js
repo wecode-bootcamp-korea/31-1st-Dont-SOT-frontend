@@ -46,9 +46,9 @@ const Product = () => {
                 </div>
                 <div className="viewCont">
                   <MenuDetail {...detail} />
-                  <Quantity />
-                  <Allergy />
-                  <Country />
+                  <Quantity calory={detail.calory} />
+                  <Allergy allergen={detail.allergen} />
+                  <Country ingredient={detail.ingredient} />
                 </div>
               </div>
             </section>

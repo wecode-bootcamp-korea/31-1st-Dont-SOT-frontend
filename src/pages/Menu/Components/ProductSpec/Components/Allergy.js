@@ -1,135 +1,20 @@
 import React from 'react';
 import './Allergy.scss';
 
-const Allergy = () => {
+const Allergy = ({ allergen }) => {
   return (
     <div className="menuInfo allergy">
       <h4 className="h4Tit">알레르기</h4>
       <div className="allergyWrap tabling">
         <div className="list01 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-        </div>
-
-        <div className="list02 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>{' '}
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-        </div>
-
-        <div className="list03 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-        </div>
-
-        <div className="list04 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-        </div>
-
-        <div className="list05 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-        </div>
-
-        <div className="list06 cell">
-          <dl className="dl">
-            <dt>난류</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>우유</dt>
-            <dd className="true">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
-          <dl>
-            <dt>메밀</dt>
-            <dd className="making">
-              <span className="blind">포함</span>
-            </dd>
-          </dl>
+          {allergen.map(allergy => (
+            <dl className="dl" key={allergy.id}>
+              <dt>{allergy.allergen_name}</dt>
+              <dd className={`status ${allergy.status}`}>
+                <span className="blind">포함</span>
+              </dd>
+            </dl>
+          ))}
         </div>
       </div>
       <div className="classify">
