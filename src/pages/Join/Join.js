@@ -33,7 +33,7 @@ const Join = () => {
     INVALID_PASSWORD_FORM: '비밀번호 형식이 맞지 않습니다.',
     INVALID_EMAIL_FORM: '이메일 형식이 맞지 않습니다.',
     REGISTERED_EMAIL: '이미 사용중인 이메일 입니다.',
-    // CHECK_SUCCESS: '중복확인 버튼 클릭 check',
+    CHECK_SUCCESS: '사용가능한 아이디 입니다.',
     SUCCESS: '회원가입이 완료되었습니다.',
   };
 
