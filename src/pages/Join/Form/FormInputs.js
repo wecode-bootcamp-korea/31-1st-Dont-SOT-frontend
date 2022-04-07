@@ -9,7 +9,6 @@ const FormInputs = props => {
 
   const isIdVaild = title === '아이디';
   const isCheckLength = joinInputs[name].length !== 0;
-  console.log(joinInputs[name].length);
 
   return (
     <dl className="formInputs">
