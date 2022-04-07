@@ -28,12 +28,13 @@ const Join = () => {
   const isJoinInputsValid = joinInputs.pw === joinInputs.repw;
 
   const alertMessageBox = {
-    SUCCESS: '회원가입이 완료되었습니다.',
     INVALID_ID_FORM: '아이디 형식이 맞지 않습니다.',
     REGISTERED_USERNAME: '이미 사용중인 아이디 입니다.',
     INVALID_PASSWORD_FORM: '비밀번호 형식이 맞지 않습니다.',
     INVALID_EMAIL_FORM: '이메일 형식이 맞지 않습니다.',
     REGISTERED_EMAIL: '이미 사용중인 이메일 입니다.',
+    // CHECK_SUCCESS: '중복확인 버튼 클릭 check',
+    SUCCESS: '회원가입이 완료되었습니다.',
   };
 
   const handleJoinInputs = e => {
