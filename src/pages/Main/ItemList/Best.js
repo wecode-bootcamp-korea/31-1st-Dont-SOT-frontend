@@ -7,8 +7,6 @@ const Best = () => {
   const [bestCount, setBestCount] = useState(1);
   const [bestList, setBestList] = useState([]);
   const [buttonActive, setButtonActive] = useState(false);
-  const [test, setTest] = useState([]);
-  const [tests, setTests] = useState([]);
 
   useEffect(() => {
     fetch(`${API.Best}`)
