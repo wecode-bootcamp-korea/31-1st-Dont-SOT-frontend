@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import API from '../../../config';
 import './best.scss';
 
 const Best = () => {
@@ -6,9 +7,11 @@ const Best = () => {
   const [bestCount, setBestCount] = useState(1);
   const [bestList, setBestList] = useState([]);
   const [buttonActive, setButtonActive] = useState(false);
+  const [test, setTest] = useState([]);
+  const [tests, setTests] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.7.32:8000/products/sort?sorting=best')
+    fetch(`${API.Best}`)
       .then(res => res.json())
       .then(data => {
         setBestList(data.results);
@@ -57,6 +60,24 @@ const Best = () => {
           })}
         </ul>
       </div>
+      <ul>
+        {test.map(allegy => (
+          <li key={allegy.id}>
+            <p>{allegy.id}</p>
+            <p>{allegy.allergen_name}</p>
+            <p>{allegy.status}</p>
+          </li>
+        ))}
+      </ul>
+      <ul>
+        {tests.map(country => (
+          <li key={country.id}>
+            <p>{country.id}</p>
+            <p>{country.name}</p>
+            <p>{country.made_in}</p>
+          </li>
+        ))}
+      </ul>
       <div className="buttonWrap">
         <button
           type="button"
