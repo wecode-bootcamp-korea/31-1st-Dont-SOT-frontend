@@ -58,24 +58,6 @@ const Best = () => {
           })}
         </ul>
       </div>
-      <ul>
-        {test.map(allegy => (
-          <li key={allegy.id}>
-            <p>{allegy.id}</p>
-            <p>{allegy.allergen_name}</p>
-            <p>{allegy.status}</p>
-          </li>
-        ))}
-      </ul>
-      <ul>
-        {tests.map(country => (
-          <li key={country.id}>
-            <p>{country.id}</p>
-            <p>{country.name}</p>
-            <p>{country.made_in}</p>
-          </li>
-        ))}
-      </ul>
       <div className="buttonWrap">
         <button
           type="button"
