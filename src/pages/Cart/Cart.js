@@ -75,24 +75,28 @@ const Cart = () => {
     <div className="cart inner">
       <p className="cartTitle">장바구니</p>
       <ul className="cartWrap">
-        {cartList.map(list => {
-          const { cart_id, price, sizeup, quantity, image, product_name } =
-            list;
-          return (
-            <CartList
-              product_name={product_name}
-              image={image}
-              id={cart_id}
-              key={cart_id}
-              price={price}
-              sizeup={sizeup}
-              quantity={quantity}
-              updateState={updateState}
-              addCart={addCart}
-              deleteCart={deleteCart}
-            />
-          );
-        })}
+        {cartList.length === 0 ? (
+          <li className="emptyCart">장바구니가 비었습니다</li>
+        ) : (
+          cartList.map(list => {
+            const { cart_id, price, sizeup, quantity, image, product_name } =
+              list;
+            return (
+              <CartList
+                product_name={product_name}
+                image={image}
+                id={cart_id}
+                key={cart_id}
+                price={price}
+                sizeup={sizeup}
+                quantity={quantity}
+                updateState={updateState}
+                addCart={addCart}
+                deleteCart={deleteCart}
+              />
+            );
+          })
+        )}
       </ul>
       <div className="cartTotal">
         <p className="title">결제금액</p>

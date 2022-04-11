@@ -25,6 +25,7 @@ const CartList = ({
   const deletehandle = e => {
     deleteCart(id, sizeup);
   };
+  console.log(sizeup);
 
   return (
     <li className="cartList">
@@ -37,7 +38,7 @@ const CartList = ({
           <dd className={`addOption ${sizeup ? '' : 'hide'}`}>
             옵션 : 곱빼기 추가
           </dd>
-          <dd className="addPrice">상품가격</dd>
+          {/* <dd className="addPrice">상품가격</dd> */}
         </dl>
         <p className="confirmPrice">{(price * quantity).toLocaleString()}원</p>
       </div>

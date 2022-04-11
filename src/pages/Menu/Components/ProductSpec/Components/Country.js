@@ -1,19 +1,17 @@
 import React from 'react';
 import './Country.scss';
 
-const Country = () => {
+const Country = ({ ingredient }) => {
   return (
     <div className="menuInfo country">
       <h4 className="h4Tit">원산지</h4>
       <div className="countryWrap">
-        <dl className="dl">
-          <dt>쌀</dt>
-          <dd>국산</dd>
-        </dl>
-        <dl className="dl">
-          <dt>쌀</dt>
-          <dd>국산</dd>
-        </dl>
+        {ingredient.map(list => (
+          <dl className="dl" key={list.id}>
+            <dt>{list.name}</dt>
+            <dd>{list.made_in}</dd>
+          </dl>
+        ))}
       </div>
     </div>
   );

@@ -1,39 +1,39 @@
 const CATEGORY_DATA = [
   {
     id: 1,
-    categoryName: '신메뉴/행사',
+    categoryName: 'PM 추천',
     categoryList: [
       {
         id: 1,
-        categoryItem: '행사',
+        categoryItem: '두두 추천메뉴',
       },
     ],
   },
   {
     id: 2,
-    categoryName: '프리미엄·고메이',
+    categoryName: 'BE 추천',
     categoryList: [
       {
         id: 2,
-        categoryItem: '프리미엄',
+        categoryItem: '창환꽝수 추천메뉴',
       },
     ],
   },
   {
     id: 3,
-    categoryName: '사각도시락',
+    categoryName: 'FE 추천',
     categoryList: [
       {
         id: 3,
-        categoryItem: '고기고기시리즈',
+        categoryItem: '경서의 추천메뉴',
       },
       {
         id: 4,
-        categoryItem: '모둠시리즈',
+        categoryItem: '그니그니의 추천메뉴',
       },
       {
         id: 5,
-        categoryItem: '정식시리즈',
+        categoryItem: '정수의 추천메뉴',
       },
     ],
   },

@@ -41,7 +41,7 @@ const Login = () => {
         if (result.token) {
           alert('로그인 성공');
           localStorage.setItem('token', result.token);
-          navigate('/menu');
+          navigate('/');
         } else {
           alert('로그인 실패');
         }
@@ -96,10 +96,7 @@ const Login = () => {
         </div>
         <div className="joinPage">
           <span>
-            <img
-              alt="backgroundImg"
-              src="https://avatars.githubusercontent.com/u/56650238?v=4"
-            />
+            <img alt="backgroundImg" src="/images/bg.jpg" />
           </span>
           <div className="joinSelect">
             <h3 className="medium joinTitle">솥지마요 회원이 아니신가요?</h3>
