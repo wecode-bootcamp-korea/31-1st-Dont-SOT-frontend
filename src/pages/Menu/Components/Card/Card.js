@@ -7,7 +7,7 @@ const Card = ({ product }) => {
 
   return (
     <ul className="card">
-      {product.map(({ id, name, price }) => {
+      {product.map(({ id, name, price, image }) => {
         return (
           <li className="item" key={id}>
             <div
@@ -17,11 +17,7 @@ const Card = ({ product }) => {
               }}
             >
               <div className="itemImgBox">
-                <img
-                  src={`https://robohash.org/${id}?set=set2&size=180x180`}
-                  alt="메뉴"
-                  className="itemImg"
-                />
+                <img src={image} alt="메뉴" className="itemImg" />
               </div>
               <div className="itemIcon">
                 <div className="itemIconNew">

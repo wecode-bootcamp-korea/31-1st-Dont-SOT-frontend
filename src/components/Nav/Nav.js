@@ -33,12 +33,24 @@ const Nav = () => {
   });
 
   const isMainPage = location.pathname === '/';
+  const token = localStorage.getItem('token');
 
   return (
     <>
       <div className={`nav${scrollActive ? ' fixed' : ''}`}>
         <ul className="navUtil inner">
-          <li onClick={() => navigate('/login')}>로그인</li>
+          <li
+            className={token ? 'hide' : ``}
+            onClick={() => navigate('/login')}
+          >
+            로그인
+          </li>
+          <li
+            className={token ? '' : 'hide'}
+            onClick={() => navigate('/carts')}
+          >
+            장바구니
+          </li>
           <li onClick={() => navigate('/join')}>회원가입</li>
           <li>
             <span className="instagram">인스타</span>

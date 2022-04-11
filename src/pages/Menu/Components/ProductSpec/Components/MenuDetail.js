@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import API from '../../../../../config';
 import './MenuDetail.scss';
 
-const MenuDetail = ({ name, description, price, image }) => {
+const MenuDetail = ({ id, name, description, price, image }) => {
   const [isCheckbox, setIsCheckbox] = useState(false);
-
   const optionPrice = 300;
   const totalPrice = price + (isCheckbox && optionPrice);
   const addPrice = 0;
@@ -19,7 +18,7 @@ const MenuDetail = ({ name, description, price, image }) => {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        Authorization: localStorage.getItem('Authorization'),
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         product_name: name,
@@ -36,6 +35,7 @@ const MenuDetail = ({ name, description, price, image }) => {
         const addCartMessage = {
           UPDATED: '수랑 추가 되었습니다.',
           KEY_ERROR: '장바구니 추가를 실패하였습니다.',
+          INVALID_TOKEN: '로그인 후 이용해주세요.',
         };
         alert(addCartMessage[result.message]);
       });

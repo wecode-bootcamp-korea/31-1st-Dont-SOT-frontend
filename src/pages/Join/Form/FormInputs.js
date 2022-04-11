@@ -36,5 +36,5 @@ const ValidSpan = () => {
 };
 
 const NonValidSpan = () => {
-  return <span className="isNonValidColor">옳은 않은 형식입니다.</span>;
+  return <span className="isNonValidColor"> 옳지 않은 형식입니다.</span>;
 };

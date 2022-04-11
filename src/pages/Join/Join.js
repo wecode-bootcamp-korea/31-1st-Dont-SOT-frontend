@@ -100,7 +100,7 @@ const Join = () => {
             break;
 
           default:
-            navigate('/');
+            navigate('/login');
         }
       });
   };

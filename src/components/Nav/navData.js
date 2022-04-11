@@ -23,7 +23,7 @@ const NAV_LIST = [
     id: 3,
     category: 'MENU',
     list: [
-      { id: 1, data: '전체메뉴', path: '/products?category=행사' },
+      { id: 1, data: '전체메뉴', path: '/products?category=두두 추천메뉴' },
       { id: 2, data: '식재료 이야기', path: '/' },
       { id: 3, data: '솥지마요커피', path: '/' },
       { id: 4, data: '단체 주문', path: '/' },
